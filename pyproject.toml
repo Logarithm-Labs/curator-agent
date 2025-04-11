@@ -1,0 +1,12 @@
+[project]
+name = "agentic-curator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fractal-defi>=1.0.0",
+    "numpy>=1.24.4",
+    "openai-agents>=0.0.9",
+    "pandas>=2.0.3",
+]
