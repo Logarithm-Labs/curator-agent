@@ -17,7 +17,7 @@ from fractal.core.base import (
 from fractal.core.base.observations import ObservationsStorage, SQLiteObservationsStorage
 from entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState, LogarithmVaultInternalState
 from entities.meta_vault import MetaVault, MetaVaultInternalState
-from prompts import PROMPT
+from prompts import REFINED_PROMPT
 from openai_agent import create_agent, ActionList
 
 # Define vault names
@@ -35,9 +35,9 @@ class CuratorStrategyParams(BaseStrategyParams):
         PROMPT (str): Prompt template for the AI agent (default: PROMPT)
     """
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 30
+    WINDOW_SIZE: int = 300
     MODEL: str = 'gpt-4o-mini'
-    PROMPT: str = PROMPT
+    PROMPT: str = REFINED_PROMPT
 
 class CuratorStrategy(BaseStrategy):
     """
@@ -66,15 +66,6 @@ class CuratorStrategy(BaseStrategy):
         Returns:
             Agent: Configured AI agent instance
         """
-        # define tools for agent to utilize
-        @function_tool
-        def get_available_vaults() -> List[str]:
-            """Get the list of available Logarithm vaults to allocate assets to.
-
-            Returns:
-                List[str]: List of available vaults' names
-            """
-            return LOG_VAULT_NAMES
         
         @function_tool
         def get_logarithm_vault_infos() -> List[Dict]:
@@ -83,12 +74,12 @@ class CuratorStrategy(BaseStrategy):
             Returns:
                 List[Dict]: List of dictionaries containing vault information, where each dictionary contains:
                     - vault_name: Name of the vault
-                    - share_price: Current share price of the vault
-                    - entry_cost: Entry cost rate for the vault
-                    - exit_cost: Exit cost rate for the vault
-                    - idle_assets: Idle assets in the vault
-                    - pending_withdrawals: Pending withdrawals from the vault
-                    - meta_vault_shares: Number of shares held by the meta vault
+                    - share_price: Current share price of the vault as float
+                    - entry_cost_rate: Entry cost rate for the vault as float
+                    - exit_cost_rate: Exit cost rate for the vault as float
+                    - free_assets: Free assets in the vault as float
+                    - pending_withdrawals: Pending withdrawals from the vault as float
+                    - meta_vault_shares: Number of shares held by the meta vault as float
             """
             vault_infos = []
             
@@ -100,34 +91,37 @@ class CuratorStrategy(BaseStrategy):
                 
                 vault_info = {
                     "vault_name": vault_name,
-                    "share_price": global_state.share_price,
-                    "entry_cost": vault.entry_cost(),
-                    "exit_cost": vault.exit_cost(),
-                    "idle_assets": 0,  # TODO: Implement idle assets tracking
-                    "pending_withdrawals": 0,  # TODO: Implement pending withdrawals tracking
-                    "meta_vault_shares": internal_state.shares
+                    "share_price": float(global_state.share_price),
+                    "entry_cost_rate": float(vault.entry_cost()),
+                    "exit_cost_rate": float(vault.exit_cost()),
+                    "free_assets": float(0),
+                    "pending_withdrawals": float(0),
+                    "meta_vault_shares": float(internal_state.shares)
                 }
                 vault_infos.append(vault_info)
             
             return vault_infos
 
         @function_tool
-        def get_share_price_history() -> Dict[str, List[Dict[str, float]]]:
+        def get_share_price_history() -> Dict[str, List[Dict[str, str | float]]]:
             """Get the share price history of all logarithm vaults.  
 
             Returns:
-                Dict[str, List[Dict[str, float]]]: Dictionary where:
+                Dict[str, List[Dict[str, str | float]]]: Dictionary where:
                     - Key: Vault name
                     - Value: List of dictionaries containing:
-                        - timestamp: Timestamp of the observation
-                        - share_price: Share price of the vault
+                        - timestamp: Timestamp of the observation as ISO format string
+                        - share_price: Share price of the vault as float
             """
             observations = self.observations_storage.read()
             history = {}
             
             for vault_name in LOG_VAULT_NAMES:
                 history[vault_name] = [
-                    {'timestamp': observation.timestamp, 'share_price': observation.states[vault_name].share_price} 
+                    {
+                        'timestamp': observation.timestamp.isoformat(),
+                        'share_price': float(observation.states[vault_name].share_price)
+                    } 
                     for observation in observations
                 ]
             
@@ -139,20 +133,19 @@ class CuratorStrategy(BaseStrategy):
 
             Returns:
                 Dict: Dictionary containing:
-                    - idle_assets: Amount of idle assets in the meta vault
-                    - total_assets: Total assets in the meta vault (idle + allocated)
+                    - idle_assets: Amount of idle assets in the meta vault as float
+                    - total_assets: Total assets in the meta vault (idle + allocated) as float
             """
             meta_vault: MetaVault = self.get_entity("meta_vault")
             internal_state: MetaVaultInternalState = meta_vault.internal_state
             
             return {
-                "idle_assets": internal_state.assets,
-                "total_assets": meta_vault.balance
+                "idle_assets": float(internal_state.assets),
+                "total_assets": float(meta_vault.balance)
             }
         
         return create_agent(
             tools=[
-                get_available_vaults,
                 get_logarithm_vault_infos,
                 get_share_price_history,
                 get_meta_vault_infos
@@ -183,13 +176,12 @@ class CuratorStrategy(BaseStrategy):
         if self._window_size == 0:
             res = Runner.run_sync(
                 self._agent,
-                "Make a prediction of actions to take",
-                max_turns=50
+                "Make a prediction of actions to take, and return empty action list if no action is needed",
             )
             prediction: ActionList = res.final_output
             self._debug(prediction)
             # sleep to avoid rate limit
-            time.sleep(1)
+            time.sleep(5)
             self._window_size = self._params.WINDOW_SIZE
             actions = prediction.actions
             if len(actions) > 0:
