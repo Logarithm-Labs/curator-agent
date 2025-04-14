@@ -35,8 +35,8 @@ class CuratorStrategyParams(BaseStrategyParams):
         PROMPT (str): Prompt template for the AI agent (default: PROMPT)
     """
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 300
-    MODEL: str = 'gpt-4o-mini'
+    WINDOW_SIZE: int = 24
+    MODEL: str = 'gpt-4o'
     PROMPT: str = REFINED_PROMPT
 
 class CuratorStrategy(BaseStrategy):
@@ -103,13 +103,13 @@ class CuratorStrategy(BaseStrategy):
             return vault_infos
 
         @function_tool
-        def get_share_price_history() -> Dict[str, List[Dict[str, str | float]]]:
-            """Get the share price history of all logarithm vaults.  
+        def get_share_price_history() -> Dict[str, List[Tuple[str, float]]]:
+            """Get the share price history of all logarithm vaults for the previous 24 hours.  
 
             Returns:
-                Dict[str, List[Dict[str, str | float]]]: Dictionary where:
+                Dict[str, List[Tuple[str, float]]]: Dictionary where:
                     - Key: Vault name
-                    - Value: List of dictionaries containing:
+                    - Value: List of tuples containing:
                         - timestamp: Timestamp of the observation as ISO format string
                         - share_price: Share price of the vault as float
             """
@@ -117,12 +117,11 @@ class CuratorStrategy(BaseStrategy):
             history = {}
             
             for vault_name in LOG_VAULT_NAMES:
+                # Get only the last 24 hours of observations
+                recent_observations = observations[-24:] if len(observations) > 24 else observations
                 history[vault_name] = [
-                    {
-                        'timestamp': observation.timestamp.isoformat(),
-                        'share_price': float(observation.states[vault_name].share_price)
-                    } 
-                    for observation in observations
+                    (observation.timestamp.isoformat(), float(observation.states[vault_name].share_price))
+                    for observation in recent_observations
                 ]
             
             return history
@@ -207,10 +206,10 @@ class CuratorStrategy(BaseStrategy):
 
 def build_observations() -> List[Observation]:
     """
-    Build observations list from strategy backtest data.
+    Build observations list from strategy backtest data, grouped by hour.
     
     Returns:
-        List[Observation]: List of observations containing vault states
+        List[Observation]: List of observations containing vault states for each hour
     """
     observations: List[Observation] = []
     vault_data: Dict[str, pd.DataFrame] = {}
@@ -218,7 +217,13 @@ def build_observations() -> List[Observation]:
     # Load strategy backtest data for each vault
     for vault_name in LOG_VAULT_NAMES:
         with open(f"back_test/data/hyperliquid/{vault_name}/strategy_backtest_data.csv", "r") as f:
-            vault_data[vault_name] = pd.read_csv(f)
+            df = pd.read_csv(f)
+            # Convert timestamp to datetime and set as index
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
+            df.set_index('timestamp', inplace=True)
+            # Group by hour and take the last value of each hour
+            df = df.resample('h').last()
+            vault_data[vault_name] = df
     
     # Get the minimum length of data across all vaults
     min_length = min(len(df) for df in vault_data.values())
@@ -226,12 +231,13 @@ def build_observations() -> List[Observation]:
     # Build observations list
     for i in range(min_length):
         states = {}
+        timestamp = None
         for vault_name in LOG_VAULT_NAMES:
             df = vault_data[vault_name]
             initial_balance = df.iloc[0]['net_balance']
             current_balance = df.iloc[i]['net_balance']
             share_price = current_balance / initial_balance
-            timestamp = datetime.fromisoformat(df.iloc[i]['timestamp']).astimezone(UTC)
+            timestamp = df.index[i].to_pydatetime().astimezone(UTC)
             states[vault_name] = LogarithmVaultGlobalState(share_price=share_price)
         
         observations.append(Observation(timestamp=timestamp, states=states))
