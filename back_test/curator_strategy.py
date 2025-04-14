@@ -18,7 +18,7 @@ from fractal.core.base.observations import ObservationsStorage, SQLiteObservatio
 from entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState, LogarithmVaultInternalState
 from entities.meta_vault import MetaVault, MetaVaultInternalState
 from prompts import PROMPT
-from openai_agent import create_agent, AgentAction
+from openai_agent import create_agent, ActionList
 
 # Define vault names
 LOG_VAULT_NAMES = ['btc', 'eth', 'doge', 'pepe']
@@ -31,12 +31,12 @@ class CuratorStrategyParams(BaseStrategyParams):
     Attributes:
         INIT_BALANCE (float): Initial balance to start with (default: 100,000)
         WINDOW_SIZE (int): Size of the observation window (default: 30)
-        MODEL (str): Name of the AI model to use (default: 'o3-mini')
+        MODEL (str): Name of the AI model to use (default: 'gpt-4o-mini')
         PROMPT (str): Prompt template for the AI agent (default: PROMPT)
     """
     INIT_BALANCE: float = 100_000
     WINDOW_SIZE: int = 30
-    MODEL: str = 'o3-mini'
+    MODEL: str = 'gpt-4o-mini'
     PROMPT: str = PROMPT
 
 class CuratorStrategy(BaseStrategy):
@@ -77,158 +77,85 @@ class CuratorStrategy(BaseStrategy):
             return LOG_VAULT_NAMES
         
         @function_tool
-        def get_share_price(vault_name: str) -> float:
-            """Get the share price of a given logarithm vault.
-
-            Args:
-                vault_name (str): Name of the vault
+        def get_logarithm_vault_infos() -> List[Dict]:
+            """Get comprehensive information about all logarithm vaults.
 
             Returns:
-                float: Share price of the vault
+                List[Dict]: List of dictionaries containing vault information, where each dictionary contains:
+                    - vault_name: Name of the vault
+                    - share_price: Current share price of the vault
+                    - entry_cost: Entry cost rate for the vault
+                    - exit_cost: Exit cost rate for the vault
+                    - idle_assets: Idle assets in the vault
+                    - pending_withdrawals: Pending withdrawals from the vault
+                    - meta_vault_shares: Number of shares held by the meta vault
             """
-
-            if vault_name == "meta_vault":
-                raise ValueError("Meta vault does not have a share price")
+            vault_infos = []
             
-            # get vault entity
-            vault: LogarithmVault = self.get_entity(vault_name)
-            global_state: LogarithmVaultGlobalState = vault.global_state
-            return global_state.share_price
-        
-        @function_tool
-        def get_share_price_history(vault_name: str) -> List[Tuple[float, float]]:
-            """Get the share price history of a given logarithm vault.  
+            for vault_name in LOG_VAULT_NAMES:
+                # get vault entity
+                vault: LogarithmVault = self.get_entity(vault_name)
+                global_state: LogarithmVaultGlobalState = vault.global_state
+                internal_state: LogarithmVaultInternalState = vault.internal_state
+                
+                vault_info = {
+                    "vault_name": vault_name,
+                    "share_price": global_state.share_price,
+                    "entry_cost": vault.entry_cost(),
+                    "exit_cost": vault.exit_cost(),
+                    "idle_assets": 0,  # TODO: Implement idle assets tracking
+                    "pending_withdrawals": 0,  # TODO: Implement pending withdrawals tracking
+                    "meta_vault_shares": internal_state.shares
+                }
+                vault_infos.append(vault_info)
+            
+            return vault_infos
 
-            Args:
-                vault_name (str): Name of the vault
+        @function_tool
+        def get_share_price_history() -> Dict[str, List[Dict[str, float]]]:
+            """Get the share price history of all logarithm vaults.  
 
             Returns:
-                List[Tuple[float, float]]: Share price history of the vault, timestamp and share price
+                Dict[str, List[Dict[str, float]]]: Dictionary where:
+                    - Key: Vault name
+                    - Value: List of dictionaries containing:
+                        - timestamp: Timestamp of the observation
+                        - share_price: Share price of the vault
             """
-            # get vault entity
             observations = self.observations_storage.read()
-            return [(observation.timestamp, observation.states[vault_name].share_price) for observation in observations]
+            history = {}
+            
+            for vault_name in LOG_VAULT_NAMES:
+                history[vault_name] = [
+                    {'timestamp': observation.timestamp, 'share_price': observation.states[vault_name].share_price} 
+                    for observation in observations
+                ]
+            
+            return history
         
         @function_tool
-        def preview_deposit(vault_name: str, assets: float) -> float:
-            """Preview the amount of shares that will be received from depositing a given amount of assets.
-
-            Args:
-                vault_name (str): Name of the logarithm vault
-                assets (float): Amount of assets to deposit
-            
-            Returns:
-                float: Amount of shares that will be received
-            """
-
-            if vault_name == "meta_vault":
-                raise ValueError("Meta vault does not have a share price")
-            
-            # get vault entity
-            vault: LogarithmVault = self.get_entity(vault_name)
-            return vault.preview_deposit(assets)
-        
-        @function_tool
-        def preview_redeem(vault_name: str, shares: float) -> float:
-            """Preview the amount of assets that will be received from redeeming a given amount of shares.
-
-            Args:
-                vault_name (str): Name of the logarithm vault
-                shares (float): Amount of shares to redeem
-            
-            Returns:
-                float: Amount of assets that will be received
-            """
-
-            if vault_name == "meta_vault":
-                raise ValueError("Meta vault does not have a share price")
-
-            # get vault entity
-            vault: LogarithmVault = self.get_entity(vault_name)
-            return vault.preview_redeem(shares)
-        
-        @function_tool
-        def preview_withdraw(vault_name: str, assets: float) -> float:
-            """Preview the amount of shares that will be burned from withdrawing a given amount of assets.
-
-            Args:
-                vault_name (str): Name of the logarithm vault
-                assets (float): Amount of assets to withdraw
-            
-            Returns:
-                float: Amount of shares that will be burned
-            """
-
-            if vault_name == "meta_vault":
-                raise ValueError("Meta vault does not have a share price")
-            
-            # get vault entity
-            vault: LogarithmVault = self.get_entity(vault_name)
-            return vault.preview_withdraw(assets)
-        
-        @function_tool
-        def get_balance_of(vault_name: str) -> float:
-            """Get the balance of shares for the meta vault in a given logarithm vault.
-
-            Args:
-                vault_name (str): Name of the logarithm vault
+        def get_meta_vault_infos() -> Dict:
+            """Get comprehensive information about the meta vault.
 
             Returns:
-                float: Balance of shares
-            """
-
-            if vault_name == "meta_vault":
-                raise ValueError("Meta vault does not have a balance")
-            
-            # get vault entity
-            vault: LogarithmVault = self.get_entity(vault_name)
-            internal_state: LogarithmVaultInternalState = vault.internal_state
-            return internal_state.shares
-        
-        @function_tool
-        def get_allocated_vaults() -> List[str]:
-            """Get the list of allocated logarithm vaults for the meta vault.
-
-            Returns:
-                List[str]: List of allocated vaults' names
+                Dict: Dictionary containing:
+                    - idle_assets: Amount of idle assets in the meta vault
+                    - total_assets: Total assets in the meta vault (idle + allocated)
             """
             meta_vault: MetaVault = self.get_entity("meta_vault")
             internal_state: MetaVaultInternalState = meta_vault.internal_state
-            return [vault.entity_name for vault in internal_state.allocated_vaults]
-        
-        @function_tool
-        def get_idle_assets() -> float:
-            """Get the idle assets for the meta vault.
-
-            Returns:
-                float: Idle assets
-            """
-            meta_vault: MetaVault = self.get_entity("meta_vault")
-            internal_state: MetaVaultInternalState = meta_vault.internal_state
-            return internal_state.assets
-        
-        @function_tool
-        def get_total_assets() -> float:
-            """Get the total assets for the meta vault.
-
-            Returns:
-                float: Total assets
-            """
-            meta_vault: MetaVault = self.get_entity("meta_vault")
-            return meta_vault.balance
+            
+            return {
+                "idle_assets": internal_state.assets,
+                "total_assets": meta_vault.balance
+            }
         
         return create_agent(
             tools=[
                 get_available_vaults,
-                get_share_price,
+                get_logarithm_vault_infos,
                 get_share_price_history,
-                preview_deposit,
-                preview_redeem,
-                preview_withdraw,
-                get_balance_of,
-                get_allocated_vaults,
-                get_idle_assets,
-                get_total_assets
+                get_meta_vault_infos
             ],
             prompt=self._params.PROMPT,
             model=self._params.MODEL
@@ -243,6 +170,8 @@ class CuratorStrategy(BaseStrategy):
         self.register_entity(NamedEntity(entity_name="meta_vault", entity=MetaVault()))
         for vault_name in LOG_VAULT_NAMES:
             self.register_entity(NamedEntity(entity_name=vault_name, entity=LogarithmVault()))
+        meta_vault = self.get_entity('meta_vault')
+        meta_vault.action_deposit(self._params.INIT_BALANCE)
 
     def predict(self, *args, **kwargs) -> List[ActionToTake]:
         """
@@ -254,26 +183,28 @@ class CuratorStrategy(BaseStrategy):
         if self._window_size == 0:
             res = Runner.run_sync(
                 self._agent,
-                "Make a prediction of actions to take"
+                "Make a prediction of actions to take",
+                max_turns=50
             )
-            prediction: List[AgentAction] = res.final_output
+            prediction: ActionList = res.final_output
             self._debug(prediction)
-            # sleep to avoid rpc rate limit
+            # sleep to avoid rate limit
             time.sleep(1)
             self._window_size = self._params.WINDOW_SIZE
-            if len(prediction) > 0:
+            actions = prediction.actions
+            if len(actions) > 0:
                 return [
                     ActionToTake(
                         entity_name="meta_vault",
                         action=Action(
-                            action=action.action.lower(),
+                            action=action.name.lower(),
                             args={
-                                'targets': [NamedEntity(name=vault_name, entity=self.get_entity(vault_name)) for vault_name in action.vault_names],
+                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name)) for vault_name in action.vault_names],
                                 'amounts': action.amounts
                             }
                         )
                     ) 
-                    for action in prediction
+                    for action in actions
                 ]
             else:
                 return []

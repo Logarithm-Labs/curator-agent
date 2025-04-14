@@ -100,6 +100,12 @@ class LogarithmVault(BaseEntity):
         assets_after_exit_cost = assets_before_exit_cost / (1 + self._exit_cost)
 
         return assets_after_exit_cost
+    
+    def entry_cost(self) -> float:
+        return self._entry_cost
+
+    def exit_cost(self) -> float:
+        return self._exit_cost
 
     def preview_withdraw(self, assets: float) -> float:
         # Preview the number of shares that would be burned for a given amount of assets
