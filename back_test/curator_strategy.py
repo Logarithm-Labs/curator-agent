@@ -17,7 +17,7 @@ from fractal.core.base import (
 from fractal.core.base.observations import ObservationsStorage, SQLiteObservationsStorage
 from entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState, LogarithmVaultInternalState
 from entities.meta_vault import MetaVault, MetaVaultInternalState
-from prompts import REFINED_PROMPT
+from prompts import FORECASTING_PROMPT
 from openai_agent import create_agent, ActionList
 
 # Define vault names
@@ -30,14 +30,14 @@ class CuratorStrategyParams(BaseStrategyParams):
     
     Attributes:
         INIT_BALANCE (float): Initial balance to start with (default: 100,000)
-        WINDOW_SIZE (int): Size of the observation window (default: 30)
-        MODEL (str): Name of the AI model to use (default: 'gpt-4o-mini')
-        PROMPT (str): Prompt template for the AI agent (default: PROMPT)
+        WINDOW_SIZE (int): Size of the observation window (default: 7)
+        MODEL (str): Name of the AI model to use (default: 'gpt-4-turbo')
+        PROMPT (str): Prompt template for the AI agent (default: FORECASTING_PROMPT)
     """
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 24
-    MODEL: str = 'gpt-4o'
-    PROMPT: str = REFINED_PROMPT
+    WINDOW_SIZE: int = 7
+    MODEL: str = 'gpt-4-turbo'
+    PROMPT: str = FORECASTING_PROMPT
 
 class CuratorStrategy(BaseStrategy):
     """
@@ -104,7 +104,7 @@ class CuratorStrategy(BaseStrategy):
 
         @function_tool
         def get_share_price_history() -> Dict[str, List[Tuple[str, float]]]:
-            """Get the share price history of all logarithm vaults for the previous 24 hours.  
+            """Get the share price history of all logarithm vaults for the previous 10 days.  
 
             Returns:
                 Dict[str, List[Tuple[str, float]]]: Dictionary where:
@@ -117,8 +117,9 @@ class CuratorStrategy(BaseStrategy):
             history = {}
             
             for vault_name in LOG_VAULT_NAMES:
-                # Get only the last 24 hours of observations
-                recent_observations = observations[-24:] if len(observations) > 24 else observations
+                # Get only the last 2 * WINDOW_SIZE of observations
+                analysis_window_size = self._params.WINDOW_SIZE * 2
+                recent_observations = observations[-analysis_window_size:] if len(observations) > analysis_window_size else observations
                 history[vault_name] = [
                     (observation.timestamp.isoformat(), float(observation.states[vault_name].share_price))
                     for observation in recent_observations
@@ -206,10 +207,10 @@ class CuratorStrategy(BaseStrategy):
 
 def build_observations() -> List[Observation]:
     """
-    Build observations list from strategy backtest data, grouped by hour.
+    Build observations list from strategy backtest data, grouped by day.
     
     Returns:
-        List[Observation]: List of observations containing vault states for each hour
+        List[Observation]: List of observations containing vault states for each day
     """
     observations: List[Observation] = []
     vault_data: Dict[str, pd.DataFrame] = {}
@@ -221,8 +222,8 @@ def build_observations() -> List[Observation]:
             # Convert timestamp to datetime and set as index
             df['timestamp'] = pd.to_datetime(df['timestamp'])
             df.set_index('timestamp', inplace=True)
-            # Group by hour and take the last value of each hour
-            df = df.resample('h').last()
+            # Group by day and take the last value of each day
+            df = df.resample('d').last()
             vault_data[vault_name] = df
     
     # Get the minimum length of data across all vaults
@@ -241,13 +242,23 @@ def build_observations() -> List[Observation]:
             states[vault_name] = LogarithmVaultGlobalState(share_price=share_price)
         
         observations.append(Observation(timestamp=timestamp, states=states))
+    # gradually increase pepe vault's share price by 0.2% each day from April 2024 to December 2024
+    for i in range(len(observations)):
+        if i > 0:
+            if observations[i].timestamp.month >= 4 and observations[i].timestamp.year == 2024:
+                observations[i].states['pepe'].share_price = observations[i-1].states['pepe'].share_price + 0.01
+                
     
     return observations
 
 if __name__ == "__main__":
     # load strategy_backtest_data.csv for each of the logarithm vaults
     observations = build_observations()
-     # Run the strategy with an Agent
+    # save observations to csv
+    with open('observations.csv', 'w') as f:
+        for observation in observations:
+            f.write(f"{observation.timestamp},{observation.states['btc'].share_price},{observation.states['eth'].share_price},{observation.states['doge'].share_price},{observation.states['pepe'].share_price}\n")
+    # Run the strategy with an Agent
     params: CuratorStrategyParams = CuratorStrategyParams()
     strategy = CuratorStrategy(debug=True, params=params,
                                     observations_storage=SQLiteObservationsStorage())

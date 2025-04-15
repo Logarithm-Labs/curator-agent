@@ -16,6 +16,5 @@ def create_agent(prompt: str, tools: List, model: str) -> Agent:
         name="Curator Assistant",
         instructions=prompt,
         tools=tools,
-        output_type=ActionList,
-        model=model
+        output_type=ActionList
     )
