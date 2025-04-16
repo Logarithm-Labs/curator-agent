@@ -15,10 +15,10 @@ from fractal.core.base import (
     BaseStrategy, Action, BaseStrategyParams,
     ActionToTake, NamedEntity, Observation)
 from fractal.core.base.observations import ObservationsStorage, SQLiteObservationsStorage
-from entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState, LogarithmVaultInternalState
-from entities.meta_vault import MetaVault, MetaVaultInternalState
-from prompts import FORECASTING_PROMPT
-from openai_agent import create_agent, ActionList
+from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState, LogarithmVaultInternalState
+from back_test.entities.meta_vault import MetaVault, MetaVaultInternalState
+from back_test.prompts import ACTIVE_PROMPT
+from back_test.openai_agent import create_agent, ActionList
 
 # Define vault names
 LOG_VAULT_NAMES = ['btc', 'eth', 'doge', 'pepe']
@@ -32,12 +32,12 @@ class CuratorStrategyParams(BaseStrategyParams):
         INIT_BALANCE (float): Initial balance to start with (default: 100,000)
         WINDOW_SIZE (int): Size of the observation window (default: 7)
         MODEL (str): Name of the AI model to use (default: 'gpt-4-turbo')
-        PROMPT (str): Prompt template for the AI agent (default: FORECASTING_PROMPT)
+        PROMPT (str): Prompt template for the AI agent (default: ACTIVE_PROMPT)
     """
     INIT_BALANCE: float = 100_000
     WINDOW_SIZE: int = 7
     MODEL: str = 'gpt-4-turbo'
-    PROMPT: str = FORECASTING_PROMPT
+    PROMPT: str = ACTIVE_PROMPT
 
 class CuratorStrategy(BaseStrategy):
     """

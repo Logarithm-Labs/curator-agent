@@ -107,7 +107,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                             })
 
                         # Extract reasoning
-                        reasoning_match = re.search(r"reasoning=\"(.*?)\"", line)
+                        reasoning_match = re.search(r"reasoning='(.*?)'", line)
                         reasoning = reasoning_match.group(1) if reasoning_match else None
 
                         if action_list and reasoning:  # Only add if we found both actions and reasoning
@@ -211,7 +211,7 @@ def main():
     perf_df = load_vaults_performance("result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("runs/CuratorStrategy/3c1ae58e-80af-4c9f-9959-d26a072d9835/logs/logs.log")
+    actions_df = parse_log_file("runs/CuratorStrategy/1874f789-e073-4dfa-b730-3db1aec6bbed/logs/logs.log")
 
     # build performance chart
     fig_perf = create_performance_chart(perf_df, actions_df, TRADINGVIEW_TEMPLATE)

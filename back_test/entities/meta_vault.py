@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from fractal.core.base import NamedEntity
 from fractal.core.base.entity import BaseEntity, EntityException, InternalState, GlobalState
-from entities.logarithm_vault import LogarithmVault, LogarithmVaultInternalState
+from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultInternalState
 from typing import List
 
 
