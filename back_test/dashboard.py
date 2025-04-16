@@ -36,12 +36,19 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     # Calculate days since start for each row
     df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
     
+    # Calculate APR for each point in time
+    df['meta_vault_apr'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
+    df['eth_vault_apr'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
+    df['btc_vault_apr'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
+    df['doge_vault_apr'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
+    df['pepe_vault_apr'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
+
     # Calculate APY for each point in time
-    df['meta_vault_apy'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
-    df['eth_vault_apy'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
-    df['btc_vault_apy'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
-    df['doge_vault_apy'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
-    df['pepe_vault_apy'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
+    df['meta_vault_apy'] = (1 + df['meta_vault_apr'] / 365) ** 365 - 1
+    df['eth_vault_apy'] = (1 + df['eth_vault_apr'] / 365) ** 365 - 1
+    df['btc_vault_apy'] = (1 + df['btc_vault_apr'] / 365) ** 365 - 1
+    df['doge_vault_apy'] = (1 + df['doge_vault_apr'] / 365) ** 365 - 1
+    df['pepe_vault_apy'] = (1 + df['pepe_vault_apr'] / 365) ** 365 - 1
     
     return df
 
