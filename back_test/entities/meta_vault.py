@@ -93,7 +93,36 @@ class MetaVault(BaseEntity):
             internal_state: LogarithmVaultInternalState = target_vault.internal_state
             if internal_state.shares == 0:
                 self._internal_state.allocated_vaults = [v for v in self._internal_state.allocated_vaults if v.entity_name != target.entity_name]
-      
+
+    def action_withdraw_allocations(self, targets: List[NamedEntity], amounts: List[float]) -> None:
+        if not targets or not amounts:
+            raise MetaVaultEntityException("Targets and amounts Lists cannot be empty")
+        if (len(targets) != len(amounts)):
+            raise MetaVaultEntityException("Targets and amounts must have the same length")
+        for target in targets:
+            if not isinstance(target.entity, LogarithmVault):
+                raise MetaVaultEntityException("Target must be a logarithm vault")
+            if not any(allocated.entity_name == target.entity_name for allocated in self._internal_state.allocated_vaults):
+                raise MetaVaultEntityException("Target vault is not allocated")
+        
+        # validate assets against targets
+        for target, amount in zip(targets, amounts):
+            if amount <= 0:
+                raise MetaVaultEntityException("Asset amount must be greater than 0")
+            target_vault: LogarithmVault = target.entity
+            if amount > target_vault.balance:
+                raise MetaVaultEntityException("Asset amount is greater than the available balance of the target")
+
+        for target, amount in zip(targets, amounts):
+            target_vault: LogarithmVault = target.entity
+            target_vault.action_withdraw(amount)
+            # increase assets by the amount withdrawn
+            self._internal_state.assets += amount
+            # remove target from allocated_vaults if the shares of target is 0
+            internal_state: LogarithmVaultInternalState = target_vault.internal_state
+            if internal_state.shares == 0:
+                self._internal_state.allocated_vaults = [v for v in self._internal_state.allocated_vaults if v.entity_name != target.entity_name]
+        
     def update_state(self, state: MetaVaultGlobalState):
         self._global_state = state
 
