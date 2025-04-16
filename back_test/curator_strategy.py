@@ -246,7 +246,7 @@ def build_observations() -> List[Observation]:
     for i in range(len(observations)):
         if i > 0:
             if observations[i].timestamp.month >= 4 and observations[i].timestamp.year == 2024:
-                observations[i].states['pepe'].share_price = observations[i-1].states['pepe'].share_price + 0.01
+                observations[i].states['pepe'].share_price = observations[i-1].states['pepe'].share_price * 1.001
                 
     
     return observations
