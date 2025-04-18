@@ -6,6 +6,7 @@ using an AI agent to make allocation decisions.
 """
 
 import time
+import random
 import pandas as pd
 from dataclasses import dataclass
 from datetime import datetime, UTC
@@ -19,10 +20,13 @@ from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultGlo
 from back_test.entities.meta_vault import MetaVault, MetaVaultInternalState
 from back_test.prompts import ACTIVE_PROMPT
 from back_test.openai_agent import create_agent, ActionList
+from curator.agents.allocation_agent import allocation_agent, AllocationAction
+from curator.agents.withdraw_agent import withdraw_agent, WithdrawAction
+from curator.agents.analysis_agent import analysis_agent, summary_extractor
 
 # Define vault names
 LOG_VAULT_NAMES = ['btc', 'eth', 'doge', 'pepe']
-
+META_VAULT_NAME = 'meta_vault'
 @dataclass
 class CuratorStrategyParams(BaseStrategyParams):
     """
@@ -56,32 +60,34 @@ class CuratorStrategy(BaseStrategy):
         """
         self._params: CuratorStrategyParams = None  # set for type hinting
         super().__init__(params=params, debug=debug, observations_storage=observations_storage)
-        self._agent = self.__create_agent()
+        agents = self.__create_agent()
+        self._allocation_agent = agents['allocation_agent']
+        self._withdraw_agent = agents['withdraw_agent']
         self._window_size = params.WINDOW_SIZE
 
-    def __create_agent(self) -> Agent:
+    def __create_agent(self) -> Dict[str, Agent]:
         """
         Create and configure the AI agent with necessary tools for vault management.
 
         Returns:
-            Agent: Configured AI agent instance
+            Dict[str, Agent]: Dictionary of agents, where the key is the agent's name and the value is the agent instance
         """
         
         @function_tool
-        def get_logarithm_vault_infos() -> List[Dict]:
+        def get_logarithm_vault_infos() -> Dict[str, Dict]:
             """Get comprehensive information about all logarithm vaults.
 
             Returns:
-                List[Dict]: List of dictionaries containing vault information, where each dictionary contains:
-                    - vault_name: Name of the vault
+                Dict[str, Dict]: Dictionary of vault information, where the key is the vault name and the value is a dictionary containing:
                     - share_price: Current share price of the vault as float
                     - entry_cost_rate: Entry cost rate for the vault as float
                     - exit_cost_rate: Exit cost rate for the vault as float
-                    - free_assets: Free assets in the vault as float
+                    - idle_assets: Free assets in the vault as float
                     - pending_withdrawals: Pending withdrawals from the vault as float
-                    - meta_vault_shares: Number of shares held by the meta vault as float
+                    - allocated_shares: Number of shares allocated to the vault as float
+                    - allocated_assets: Number of assets allocated to the vault as float
             """
-            vault_infos = []
+            vault_infos = {}
             
             for vault_name in LOG_VAULT_NAMES:
                 # get vault entity
@@ -90,15 +96,16 @@ class CuratorStrategy(BaseStrategy):
                 internal_state: LogarithmVaultInternalState = vault.internal_state
                 
                 vault_info = {
-                    "vault_name": vault_name,
                     "share_price": float(global_state.share_price),
-                    "entry_cost_rate": float(vault.entry_cost()),
-                    "exit_cost_rate": float(vault.exit_cost()),
-                    "free_assets": float(0),
-                    "pending_withdrawals": float(0),
-                    "meta_vault_shares": float(internal_state.shares)
+                    "entry_cost_rate": float(vault.entry_cost_rate),
+                    "exit_cost_rate": float(vault.exit_cost_rate),
+                    "idle_assets": float(vault.idle_assets),
+                    "pending_withdrawals": float(vault.pending_withdrawals),
+                    "allocated_shares": float(internal_state.shares),
+                    "allocated_assets": float(vault.balance)
                 }
-                vault_infos.append(vault_info)
+
+                vault_infos[vault_name] = vault_info
             
             return vault_infos
 
@@ -127,43 +134,41 @@ class CuratorStrategy(BaseStrategy):
             
             return history
         
-        @function_tool
-        def get_meta_vault_infos() -> Dict:
-            """Get comprehensive information about the meta vault.
+        # @function_tool
+        # def allocate_action_validation(vault_names: list[str], amounts: list[float]) -> str:
+        #     """Validate the allocation action.
 
-            Returns:
-                Dict: Dictionary containing:
-                    - idle_assets: Amount of idle assets in the meta vault as float
-                    - total_assets: Total assets in the meta vault (idle + allocated) as float
-            """
-            meta_vault: MetaVault = self.get_entity("meta_vault")
-            internal_state: MetaVaultInternalState = meta_vault.internal_state
-            
-            return {
-                "idle_assets": float(internal_state.assets),
-                "total_assets": float(meta_vault.balance)
-            }
+        #     Args:
+        #         vault_names (list[str]): List of logarithm vault names
+        #         amounts (list[float]): List of amounts
+        #     """
+        #     return "Validation successful"
         
-        return create_agent(
-            tools=[
-                get_logarithm_vault_infos,
-                get_share_price_history,
-                get_meta_vault_infos
-            ],
-            prompt=self._params.PROMPT,
-            model=self._params.MODEL
+        analysis_agent_with_tools = analysis_agent.clone(tools=[get_share_price_history])
+        analysis_tool = analysis_agent_with_tools.as_tool(
+            tool_name="share_price_trend_analysis",
+            tool_description="Use to get share price trends of logarithm vaults",
+            custom_output_extractor=summary_extractor
         )
-            
+
+        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
+        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
+
+        return {
+            "allocation_agent": allocation_agent_with_tools,
+            "withdraw_agent": withdraw_agent_with_tools
+        }
+
     def set_up(self):
         """
         Set up the initial state of the strategy by:
         1. Registering the meta vault and logarithm vaults
         2. Depositing initial balance into the meta vault
         """
-        self.register_entity(NamedEntity(entity_name="meta_vault", entity=MetaVault()))
+        self.register_entity(NamedEntity(entity_name=META_VAULT_NAME, entity=MetaVault()))
         for vault_name in LOG_VAULT_NAMES:
             self.register_entity(NamedEntity(entity_name=vault_name, entity=LogarithmVault()))
-        meta_vault = self.get_entity('meta_vault')
+        meta_vault = self.get_entity(META_VAULT_NAME)
         meta_vault.action_deposit(self._params.INIT_BALANCE)
 
     def predict(self, *args, **kwargs) -> List[ActionToTake]:
@@ -174,32 +179,75 @@ class CuratorStrategy(BaseStrategy):
             List[ActionToTake]: List of actions to take for asset allocation
         """
         if self._window_size == 0:
-            res = Runner.run_sync(
-                self._agent,
-                "Make a prediction of actions to take, and return empty action list if no action is needed",
-            )
-            prediction: ActionList = res.final_output
-            self._debug(prediction)
+            # mock idle and pending withdrawals randomly for each logarithm vault
+            for vault_name in LOG_VAULT_NAMES:
+                vault: LogarithmVault = self.get_entity(vault_name)
+                opportunity_to_withdraw = random.randint(0, 1)
+                if opportunity_to_withdraw == 1:
+                    idle_assets = 0
+                    pending_withdrawals = random.randint(0, 1000)
+                else:
+                    idle_assets = random.randint(0, 1000)
+                    pending_withdrawals = 0
+                self._debug(f"vault_name: {vault_name}, idle_assets: {idle_assets}, pending_withdrawals: {pending_withdrawals}")
+                vault.mock_idle_n_pending_withdrawals(idle_assets=idle_assets, pending_withdrawals=pending_withdrawals)
+
+            meta_vault: MetaVault = self.get_entity(META_VAULT_NAME)
+
+            # randomly deposit or withdraw assets from the meta vault
+            if random.randint(0, 1) == 1:
+                assets = random.randint(0, 1000)
+                meta_vault.action_deposit(assets)
+            else:
+                assets = random.randint(0, 1000)
+                meta_vault.action_withdraw(assets)
+
+            # predict actions
+            actions = []
+            if meta_vault.idle_assets > 0:
+                res = Runner.run_sync(
+                    self._allocation_agent,
+                    f"Allocate {meta_vault.idle_assets} assets to the logarithm vaults"
+                )
+                prediction: AllocationAction = res.final_output
+                self._debug(f"Action: allocate_assets, Prediction: {prediction}")
+                
+                actions.append(
+                    ActionToTake(
+                        entity_name=META_VAULT_NAME,
+                        action=Action(
+                            action="allocate_assets",
+                            args={
+                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
+                                'amounts': prediction.amounts
+                            }
+                        )
+                    )
+                )
+            elif meta_vault.pending_withdrawals > 0:
+                res = Runner.run_sync(
+                    self._withdraw_agent,
+                    f"Withdraw {meta_vault.pending_withdrawals} assets from the logarithm vaults"
+                )
+                prediction: WithdrawAction = res.final_output
+                self._debug(f"Action: withdraw_allocations, Prediction: {prediction}")
+                actions.append(
+                    ActionToTake(
+                        entity_name=META_VAULT_NAME,
+                        action=Action(
+                            action="withdraw_allocations",
+                            args={
+                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
+                                'amounts': prediction.amounts
+                            }
+                        )
+                    )
+                )
+
             # sleep to avoid rate limit
             time.sleep(5)
             self._window_size = self._params.WINDOW_SIZE
-            actions = prediction.actions
-            if len(actions) > 0:
-                return [
-                    ActionToTake(
-                        entity_name="meta_vault",
-                        action=Action(
-                            action=action.name.lower(),
-                            args={
-                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name)) for vault_name in action.vault_names],
-                                'amounts': action.amounts
-                            }
-                        )
-                    ) 
-                    for action in actions
-                ]
-            else:
-                return []
+            return actions
         else:
             self._window_size -= 1
             return []
@@ -235,7 +283,7 @@ def build_observations() -> List[Observation]:
         timestamp = None
         for vault_name in LOG_VAULT_NAMES:
             df = vault_data[vault_name]
-            initial_balance = df.iloc[0]['net_balance']
+            initial_balance = 1_000_000
             current_balance = df.iloc[i]['net_balance']
             share_price = current_balance / initial_balance
             timestamp = df.index[i].to_pydatetime().astimezone(UTC)

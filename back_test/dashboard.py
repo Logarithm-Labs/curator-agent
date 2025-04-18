@@ -27,11 +27,7 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     df.sort_values(by='date', inplace=True)
     
     # Calculate share prices relative to start
-    df['meta_vault_share_price'] = df['meta_vault_balance'] / df['meta_vault_balance'].iloc[0]
-    df['eth_share_price'] = df['eth_share_price'] / df['eth_share_price'].iloc[0]
-    df['btc_share_price'] = df['btc_share_price'] / df['btc_share_price'].iloc[0]
-    df['doge_share_price'] = df['doge_share_price'] / df['doge_share_price'].iloc[0]
-    df['pepe_share_price'] = df['pepe_share_price'] / df['pepe_share_price'].iloc[0]
+    df['meta_vault_share_price'] = df['net_balance'] / df['meta_vault_total_supply']
     
     # Calculate days since start for each row
     df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
