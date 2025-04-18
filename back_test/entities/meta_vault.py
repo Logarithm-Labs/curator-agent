@@ -16,8 +16,7 @@ class MetaVaultGlobalState(GlobalState):
 
 @dataclass
 class MetaVaultInternalState(InternalState):
-    assets: float = 0.0
-    allocated_vaults: List[NamedEntity] = field(default_factory=list)
+    shares: float = 0.0
 
 class MetaVault(BaseEntity):
     """
@@ -30,14 +29,34 @@ class MetaVault(BaseEntity):
     def _initialize_states(self):
         self._global_state: MetaVaultGlobalState = MetaVaultGlobalState()
         self._internal_state: MetaVaultInternalState = MetaVaultInternalState()
+        self._assets: float = 0.0
+        self._allocated_vaults: List[NamedEntity] = field(default_factory=list)
+        self._cumulative_requested_withdrawals: float = 0.0
 
-    def action_deposit(self, assets: float) -> None:
+    def action_deposit(self, assets: float) -> float:
         if assets <= 0:
             raise MetaVaultEntityException("Assets must be greater than 0")
-        self._internal_state.assets += assets
+        
+        shares_to_mint = assets if self.total_assets == 0 else assets * self.total_supply / self.total_assets
+        self._assets += assets
+        self._internal_state.shares += shares_to_mint
+        return shares_to_mint
        
-    def action_withdraw(self, assets: float) -> None:
-        pass
+    def action_withdraw(self, assets: float) -> float:
+        if assets <= 0:
+            raise MetaVaultEntityException("Assets must be greater than 0")
+        if assets > self.total_assets:
+            raise MetaVaultEntityException("Assets to withdraw are greater than the available assets")
+        
+        shares_to_burn = assets * self.total_supply / self.total_assets
+        if self.idle_assets >= assets:
+            self._assets -= assets
+        else:
+            idle = self.idle_assets
+            self._assets -= idle
+            self._cumulative_requested_withdrawals += assets - idle
+        self._internal_state.shares -= shares_to_burn
+        return shares_to_burn
 
     def action_allocate_assets(self, targets: List[NamedEntity], amounts: List[float]) -> None:
         if not targets or not amounts:
@@ -52,17 +71,17 @@ class MetaVault(BaseEntity):
                 raise MetaVaultEntityException("Asset amount must be greater than 0")
         
         total_assets_to_allocate = sum(amounts)
-        if (total_assets_to_allocate > self._internal_state.assets):
+        if (total_assets_to_allocate > self.idle_assets):
             raise MetaVaultEntityException("Assets to allocate are greater than the available assets")
 
         for target, amount in zip(targets, amounts):
             target_vault: LogarithmVault = target.entity
             target_vault.action_deposit(amount)
             # decrease assets by the amount allocated
-            self._internal_state.assets -= amount
+            self._assets -= amount
             # add target to allocated_vaults if it is not already in the List
-            if not any(allocated.entity_name == target.entity_name for allocated in self._internal_state.allocated_vaults):
-                self._internal_state.allocated_vaults.append(target)
+            if not any(allocated.entity_name == target.entity_name for allocated in self._allocated_vaults):
+                self._allocated_vaults.append(target)
 
     def action_redeem_allocations(self, targets: List[NamedEntity], amounts: List[float]) -> None:
         if not targets or not amounts:
@@ -72,7 +91,7 @@ class MetaVault(BaseEntity):
         for target in targets:
             if not isinstance(target.entity, LogarithmVault):
                 raise MetaVaultEntityException("Target must be a logarithm vault")
-            if not any(allocated.entity_name == target.entity_name for allocated in self._internal_state.allocated_vaults):
+            if not any(allocated.entity_name == target.entity_name for allocated in self._allocated_vaults):
                 raise MetaVaultEntityException("Target vault is not allocated")
         
         # validate shares against targets
@@ -88,11 +107,11 @@ class MetaVault(BaseEntity):
             target_vault: LogarithmVault = target.entity
             assets = target_vault.action_redeem(amount)
             # increase assets by the amount redeemed
-            self._internal_state.assets += assets
+            self._assets += assets
             # remove target from allocated_vaults if the shares of target is 0
             internal_state: LogarithmVaultInternalState = target_vault.internal_state
             if internal_state.shares == 0:
-                self._internal_state.allocated_vaults = [v for v in self._internal_state.allocated_vaults if v.entity_name != target.entity_name]
+                self._allocated_vaults = [v for v in self._allocated_vaults if v.entity_name != target.entity_name]
 
     def action_withdraw_allocations(self, targets: List[NamedEntity], amounts: List[float]) -> None:
         if not targets or not amounts:
@@ -102,7 +121,7 @@ class MetaVault(BaseEntity):
         for target in targets:
             if not isinstance(target.entity, LogarithmVault):
                 raise MetaVaultEntityException("Target must be a logarithm vault")
-            if not any(allocated.entity_name == target.entity_name for allocated in self._internal_state.allocated_vaults):
+            if not any(allocated.entity_name == target.entity_name for allocated in self._allocated_vaults):
                 raise MetaVaultEntityException("Target vault is not allocated")
         
         # validate assets against targets
@@ -117,17 +136,38 @@ class MetaVault(BaseEntity):
             target_vault: LogarithmVault = target.entity
             target_vault.action_withdraw(amount)
             # increase assets by the amount withdrawn
-            self._internal_state.assets += amount
+            self._assets += amount
             # remove target from allocated_vaults if the shares of target is 0
             internal_state: LogarithmVaultInternalState = target_vault.internal_state
             if internal_state.shares == 0:
-                self._internal_state.allocated_vaults = [v for v in self._internal_state.allocated_vaults if v.entity_name != target.entity_name]
+                self._allocated_vaults = [v for v in self._allocated_vaults if v.entity_name != target.entity_name]
         
     def update_state(self, state: MetaVaultGlobalState):
         self._global_state = state
 
     @property
     def balance(self) -> float:
-        # balance is the amount of assets in the vault entity
-        return self._internal_state.assets + sum(vault.entity.balance for vault in self._internal_state.allocated_vaults)
+        return self.idle_assets - self.pending_withdrawals
+
+    @property
+    def idle_assets(self) -> float:
+        idle = self._assets - self._cumulative_requested_withdrawals
+        return idle if idle > 0 else 0
+
+    @property
+    def pending_withdrawals(self) -> float:
+        requested = self._cumulative_requested_withdrawals - self._assets
+        return requested if requested > 0 else 0
+    
+    @property
+    def allocated_assets(self) -> float:
+        return sum(vault.entity.balance for vault in self._allocated_vaults)
+    
+    @property
+    def total_assets(self) -> float:
+        return self.idle_assets + self.allocated_assets - self.pending_withdrawals
+    
+    @property
+    def total_supply(self) -> float:
+        return self._internal_state.shares
 
