@@ -25,7 +25,7 @@ class MetaVault(BaseEntity):
 
     def __init__(self):
         self._assets: float = 0.0
-        self._allocated_vaults: List[NamedEntity] = field(default_factory=list)
+        self._allocated_vaults: list[NamedEntity] = []
         self._cumulative_requested_withdrawals: float = 0.0
         super().__init__()
 
@@ -34,7 +34,7 @@ class MetaVault(BaseEntity):
         self._internal_state: MetaVaultInternalState = MetaVaultInternalState()
 
     def action_deposit(self, assets: float) -> float:
-        if assets <= 0:
+        if assets < 0:
             raise MetaVaultEntityException("Assets must be greater than 0")
         
         shares_to_mint = assets if self.total_assets == 0 else assets * self.total_supply / self.total_assets
@@ -43,7 +43,7 @@ class MetaVault(BaseEntity):
         return shares_to_mint
        
     def action_withdraw(self, assets: float) -> float:
-        if assets <= 0:
+        if assets < 0:
             raise MetaVaultEntityException("Assets must be greater than 0")
         if assets > self.total_assets:
             raise MetaVaultEntityException("Assets to withdraw are greater than the available assets")
@@ -67,7 +67,7 @@ class MetaVault(BaseEntity):
             if not isinstance(target.entity, LogarithmVault):
                 raise MetaVaultEntityException("Target must be a logarithm vault")
         for amount in amounts:
-            if amount <= 0:
+            if amount < 0:
                 raise MetaVaultEntityException("Asset amount must be greater than 0")
         
         total_assets_to_allocate = sum(amounts)
@@ -96,7 +96,7 @@ class MetaVault(BaseEntity):
         
         # validate shares against targets
         for target, amount in zip(targets, amounts):
-            if amount <= 0:
+            if amount < 0:
                 raise MetaVaultEntityException("Share amount must be greater than 0")
             target_vault: LogarithmVault = target.entity
             internal_state: LogarithmVaultInternalState = target_vault.internal_state
@@ -126,7 +126,7 @@ class MetaVault(BaseEntity):
         
         # validate assets against targets
         for target, amount in zip(targets, amounts):
-            if amount <= 0:
+            if amount < 0:
                 raise MetaVaultEntityException("Asset amount must be greater than 0")
             target_vault: LogarithmVault = target.entity
             if amount > target_vault.balance:

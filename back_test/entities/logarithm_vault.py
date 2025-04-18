@@ -12,6 +12,8 @@ class LogarithmVaultGlobalState(GlobalState):
 @dataclass
 class LogarithmVaultInternalState:
     shares: float = 0.0
+    idle_assets: float = 0.0
+    pending_withdrawals: float = 0.0
 
 class LogarithmVault(BaseEntity):
     """
@@ -19,13 +21,11 @@ class LogarithmVault(BaseEntity):
     """
 
     def __init__(self, entry_cost_rate: float = 0.0035, exit_cost_rate: float = 0.0035):
-        if entry_cost_rate <= 0 or exit_cost_rate <= 0 or entry_cost_rate >= 0.01 or exit_cost_rate >= 0.01:
+        if entry_cost_rate < 0 or exit_cost_rate < 0 or entry_cost_rate > 0.01 or exit_cost_rate > 0.01:
             raise LogarithmVaultEntityException("Entry and exit costs must be between 0 and 0.01")
         
         self._entry_cost_rate = entry_cost_rate
         self._exit_cost_rate = exit_cost_rate
-        self._idle_assets: float = 0.0
-        self._pending_withdrawals: float = 0.0
 
         super().__init__()
 
@@ -42,14 +42,17 @@ class LogarithmVault(BaseEntity):
         if idle_assets > 0 and pending_withdrawals > 0:
             raise LogarithmVaultEntityException("Idle assets and pending withdrawals cannot be both greater than 0")
 
-        self._idle_assets = idle_assets
-        self._pending_withdrawals = pending_withdrawals
+        self._internal_state.idle_assets = idle_assets
+        self._internal_state.pending_withdrawals = pending_withdrawals
+
+        print(f"Idle assets: {self._internal_state.idle_assets}")
+        print(f"Pending withdrawals: {self._internal_state.pending_withdrawals}")
 
     def action_deposit(self, assets: float) -> float:
         # deposit assets to the vault entity
         # receive shares in return
 
-        if assets <= 0:
+        if assets < 0:
             raise LogarithmVaultEntityException("Assets must be greater than 0")
         
         shares_to_mint = self.preview_deposit(assets)
@@ -62,7 +65,7 @@ class LogarithmVault(BaseEntity):
         # redeem the shares from the vault entity
         # receive assets in return
 
-        if shares <= 0:
+        if shares < 0:
             raise LogarithmVaultEntityException("Shares must be greater than 0")
         if (shares > self._internal_state.shares):
             raise LogarithmVaultEntityException("Shares to redeem are greater than the available shares")
@@ -77,7 +80,7 @@ class LogarithmVault(BaseEntity):
         # withdraw assets from the vault entity
         # burn shares required to withdraw the assets
         
-        if assets <= 0:
+        if assets < 0:
             raise LogarithmVaultEntityException("Assets must be greater than 0")
         
         shares_to_burn = self.preview_withdraw(assets)
@@ -110,11 +113,11 @@ class LogarithmVault(BaseEntity):
     
     @property
     def idle_assets(self) -> float:
-        return self._idle_assets
+        return self._internal_state.idle_assets
     
     @property
     def pending_withdrawals(self) -> float:
-        return self._pending_withdrawals
+        return self._internal_state.pending_withdrawals
     
     def preview_deposit(self, assets: float) -> float:
         # Preview the number of shares that would be received for a given amount of assets
