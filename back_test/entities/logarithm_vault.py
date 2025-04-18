@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from fractal.core.base.entity import BaseEntity, EntityException, InternalState, GlobalState
-
 class LogarithmVaultEntityException(EntityException):
     """
     Exception raised for errors in the Logarithm Vault entity.
@@ -19,53 +18,64 @@ class LogarithmVault(BaseEntity):
     Represents a logarithm vault entity.
     """
 
-    def __init__(self, entry_cost: float = 0.0035, exit_cost: float = 0.0035):
-        if entry_cost <= 0 or exit_cost <= 0 or entry_cost >= 0.01 or exit_cost >= 0.01:
+    def __init__(self, entry_cost_rate: float = 0.0035, exit_cost_rate: float = 0.0035):
+        if entry_cost_rate <= 0 or exit_cost_rate <= 0 or entry_cost_rate >= 0.01 or exit_cost_rate >= 0.01:
             raise LogarithmVaultEntityException("Entry and exit costs must be between 0 and 0.01")
         
-        self._entry_cost = entry_cost
-        self._exit_cost = exit_cost
+        self._entry_cost_rate = entry_cost_rate
+        self._exit_cost_rate = exit_cost_rate
+        self._idle_assets: float = 0.0
+        self._pending_withdrawals: float = 0.0
+
         super().__init__()
 
     def _initialize_states(self):
         self._global_state: LogarithmVaultGlobalState = LogarithmVaultGlobalState()
         self._internal_state: LogarithmVaultInternalState = LogarithmVaultInternalState()
 
+    def mock_idle_n_pending_withdrawals(self, idle_assets: float, pending_withdrawals: float):
+        """
+        Mock the idle assets and pending withdrawals.
+        """
+        if idle_assets < 0 or pending_withdrawals < 0:
+            raise LogarithmVaultEntityException("Idle assets and pending withdrawals must be greater than 0")
+        if idle_assets > 0 and pending_withdrawals > 0:
+            raise LogarithmVaultEntityException("Idle assets and pending withdrawals cannot be both greater than 0")
+
+        self._idle_assets = idle_assets
+        self._pending_withdrawals = pending_withdrawals
+
     def action_deposit(self, assets: float) -> float:
         # deposit assets to the vault entity
         # receive shares in return
-        # entry cost is taken from the amount
-        # TODO entry cost should be dynamic based on the pending withdrawals on the vault
 
         if assets <= 0:
             raise LogarithmVaultEntityException("Assets must be greater than 0")
         
-        shares_in_return = self.preview_deposit(assets)
+        shares_to_mint = self.preview_deposit(assets)
 
-        self._internal_state.shares += shares_in_return
+        self._internal_state.shares += shares_to_mint
 
-        return shares_in_return
+        return shares_to_mint
     
     def action_redeem(self, shares: float) -> float:
         # redeem the shares from the vault entity
         # receive assets in return
-        # exit cost is taken from the amount
-        # TODO exit cost should be dynamic based on the pending deposits on the vault
 
         if shares <= 0:
             raise LogarithmVaultEntityException("Shares must be greater than 0")
         if (shares > self._internal_state.shares):
             raise LogarithmVaultEntityException("Shares to redeem are greater than the available shares")
+        
+        assets_to_withdraw = self.preview_redeem(shares)
 
         self._internal_state.shares -= shares
 
-        return self.preview_redeem(shares)
+        return assets_to_withdraw
     
     def action_withdraw(self, assets: float) -> float:
         # withdraw assets from the vault entity
         # burn shares required to withdraw the assets
-        # exit cost is taken from the amount
-        # TODO exit cost should be dynamic based on the idle assets on the vault
         
         if assets <= 0:
             raise LogarithmVaultEntityException("Assets must be greater than 0")
@@ -87,40 +97,54 @@ class LogarithmVault(BaseEntity):
 
     @property
     def balance(self) -> float:
-        # balance is the amount of assets in the vault entity
-        # exit cost is taken into account
-        # TODO exit cost should be dynamic based on the idle assets on the vault
+        # balance is the amount of assets held in the vault entity
         return self.preview_redeem(self._internal_state.shares)
+    
+    @property
+    def entry_cost_rate(self) -> float:
+        return self._entry_cost_rate
 
+    @property
+    def exit_cost_rate(self) -> float:
+        return self._exit_cost_rate
+    
+    @property
+    def idle_assets(self) -> float:
+        return self._idle_assets
+    
+    @property
+    def pending_withdrawals(self) -> float:
+        return self._pending_withdrawals
+    
+    def preview_deposit(self, assets: float) -> float:
+        # Preview the number of shares that would be received for a given amount of assets
+        # without modifying the internal state.
+
+        assets_to_utilize = assets - self.pending_withdrawals if assets > self.pending_withdrawals else 0        
+        entry_cost = assets_to_utilize * self.entry_cost_rate / (1 + self.entry_cost_rate)
+        assets_after_entry_cost = assets - entry_cost
+        shares_in_return = assets_after_entry_cost / self._global_state.share_price
+
+        return shares_in_return
+    
     def preview_redeem(self, shares: float) -> float:
         # Preview the assets that would be received for a given number of shares
         # without modifying the internal state.
         
-        assets_before_exit_cost = shares * self._global_state.share_price
-        assets_after_exit_cost = assets_before_exit_cost / (1 + self._exit_cost)
+        assets = shares * self._global_state.share_price
+        assets_to_deutilize = assets - self.idle_assets if assets > self.idle_assets else 0
+        exit_cost = assets_to_deutilize * self.exit_cost_rate / (1 + self.exit_cost_rate)
+        assets_after_exit_cost = assets - exit_cost
 
         return assets_after_exit_cost
-    
-    def entry_cost(self) -> float:
-        return self._entry_cost
-
-    def exit_cost(self) -> float:
-        return self._exit_cost
 
     def preview_withdraw(self, assets: float) -> float:
         # Preview the number of shares that would be burned for a given amount of assets
         # without modifying the internal state.
         
-        assets_after_exit_cost = assets * (1 + self._exit_cost)
+        assets_from_deutilize = assets - self.idle_assets if assets > self.idle_assets else 0
+        exit_cost = assets_from_deutilize * self.exit_cost_rate
+        assets_after_exit_cost = assets + exit_cost
         shares_to_burn = assets_after_exit_cost / self._global_state.share_price
 
         return shares_to_burn
-
-    def preview_deposit(self, assets: float) -> float:
-        # Preview the number of shares that would be received for a given amount of assets
-        # without modifying the internal state.
-        
-        assets_after_entry_cost = assets / (1 + self._entry_cost)
-        shares_in_return = assets_after_entry_cost / self._global_state.share_price
-
-        return shares_in_return

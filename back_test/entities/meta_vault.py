@@ -16,7 +16,7 @@ class MetaVaultGlobalState(GlobalState):
 
 @dataclass
 class MetaVaultInternalState(InternalState):
-    shares: float = 0.0
+    total_supply: float = 0.0
 
 class MetaVault(BaseEntity):
     """
@@ -24,14 +24,14 @@ class MetaVault(BaseEntity):
     """
 
     def __init__(self):
+        self._assets: float = 0.0
+        self._allocated_vaults: List[NamedEntity] = field(default_factory=list)
+        self._cumulative_requested_withdrawals: float = 0.0
         super().__init__()
 
     def _initialize_states(self):
         self._global_state: MetaVaultGlobalState = MetaVaultGlobalState()
         self._internal_state: MetaVaultInternalState = MetaVaultInternalState()
-        self._assets: float = 0.0
-        self._allocated_vaults: List[NamedEntity] = field(default_factory=list)
-        self._cumulative_requested_withdrawals: float = 0.0
 
     def action_deposit(self, assets: float) -> float:
         if assets <= 0:
@@ -39,7 +39,7 @@ class MetaVault(BaseEntity):
         
         shares_to_mint = assets if self.total_assets == 0 else assets * self.total_supply / self.total_assets
         self._assets += assets
-        self._internal_state.shares += shares_to_mint
+        self._internal_state.total_supply += shares_to_mint
         return shares_to_mint
        
     def action_withdraw(self, assets: float) -> float:
@@ -55,7 +55,7 @@ class MetaVault(BaseEntity):
             idle = self.idle_assets
             self._assets -= idle
             self._cumulative_requested_withdrawals += assets - idle
-        self._internal_state.shares -= shares_to_burn
+        self._internal_state.total_supply -= shares_to_burn
         return shares_to_burn
 
     def action_allocate_assets(self, targets: List[NamedEntity], amounts: List[float]) -> None:
@@ -169,5 +169,5 @@ class MetaVault(BaseEntity):
     
     @property
     def total_supply(self) -> float:
-        return self._internal_state.shares
+        return self._internal_state.total_supply
 
