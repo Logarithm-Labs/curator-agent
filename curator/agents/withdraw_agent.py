@@ -3,67 +3,37 @@ from typing import List
 from agents import Agent
 
 class WithdrawAction(BaseModel):
-    vault_names: List[str] = Field(description="List of allocated logarithm vault names to withdraw assets from")
+    vault_names: List[str] = Field(description="List of allocated logarithm vault names to withdraw from")
     amounts: List[float] = Field(
-        description="""
-        List of amounts corresponding to each logarithm vault presented in vault_names.
-        Each amount should be less than or equal to the allocated assets of the corresponding vault.
-        """
+        description="List of amounts corresponding to each logarithm vault presented in vault_names."
     )
     reasoning: str = Field(description="The agent's reasoning for taking this action")
 
 WITHDRAW_PROMPT = """
-# Withdraw Agent Instructions
+You are an asset withdrawal advisor for allocated on-chain vaults.
+You are given a total asset amount to withdraw, along with the allocated (eligible to withdraw) amounts for each vault. 
+Your task is to recommend which vaults to withdraw from and how much to withdraw from each,
+ensuring that the total withdrawn amount exactly matches the specified total.
+Your goal is to minimize exit costs while prioritizing underperforming vaults.
+Some vaults may not have allocated assets or may be absent in the input list, so withdrawals from them are not possible.
 
-You are an AI agent responsible for recommending actions to withdraw an exact given asset amount from the allocated logarithm vaults while minimizing the exit cost.
+Available tools:
+- get_logarithm_vaults_infos: Get current states of all vaults (share price, exit cost rate, idle assets)
+- share_price_trend_analysis: Analyze vault performance trends, possible to process multiple vaults at once.
 
-## Goals
-
-- **Minimize exit cost** based on current vault conditions.
-- Withdraw from **underperforming vaults first**.
-
-## Inputs
-
-You will receive:
-- A specific **total withdrawal amount**.
-- A list of **logarithm vaults**, each with:
-  - Current **share price**
-  - **Share price trends**
-  - **Allocated assets**
-  - **Idle assets**
-  - **Exit cost rate**
-
-## Outputs
-
-You will output a **list of vault names** and the corresponding **withdrawal amounts** from each vault.  
-Each withdrawal amount must satisfy:
-  - `sum(withdrawal_amounts) = total_withdrawal_amount`
-  - `withdrawal_amount ≤ allocated_assets` (per vault)
-
-## Exit Cost Rules
-
-For each vault, exit cost is calculated as follows:
-
-- If `withdraw_amount ≤ idle_assets`, then:
-  ```
-  exit_cost = 0
-  ```
-- If `withdraw_amount > idle_assets`, then:
-  ```
-  exit_cost = (withdraw_amount - idle_assets) * exit_cost_rate
-  ```
-
-## Objective
-
-Use the given data to **strategically withdraw** the total asset amount across the allocated vaults to:
-
-- **Minimize total exit cost**
-- **Prioritize withdrawals** from **underperforming vaults**
+Withdrawal strategy:
+1. First, use idle assets to reduce exit costs:
+   - If withdrawal ≤ idle_assets: No exit cost
+   - If withdrawal > idle_assets: Exit cost = (withdrawal - idle_assets) * exit_cost_rate
+2. Then, withdraw from underperforming vaults
+3. The withdrawal amount can't exceed the allocated amount of the corresponding vault.
 """
 
+# Note: We will add available tools at runtime
 withdraw_agent = Agent(
-    name="Withdraw Agent",
+    name="WithdrawAgent",
     instructions=WITHDRAW_PROMPT,
-    output_type=WithdrawAction
+    output_type=WithdrawAction,
+    model="gpt-4o-2024-08-06"
 )
 

@@ -121,8 +121,6 @@ class MetaVault(BaseEntity):
         for target in targets:
             if not isinstance(target.entity, LogarithmVault):
                 raise MetaVaultEntityException("Target must be a logarithm vault")
-            if not any(allocated.entity_name == target.entity_name for allocated in self._allocated_vaults):
-                raise MetaVaultEntityException("Target vault is not allocated")
         
         # validate assets against targets
         for target, amount in zip(targets, amounts):

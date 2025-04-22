@@ -4,7 +4,7 @@ Curator Strategy Module
 This module implements a strategy for managing asset allocation across multiple logarithm vaults
 using an AI agent to make allocation decisions.
 """
-
+import math
 import time
 import random
 import pandas as pd
@@ -74,18 +74,17 @@ class CuratorStrategy(BaseStrategy):
         """
         
         @function_tool
-        def get_logarithm_vault_infos() -> Dict[str, Dict]:
+        def get_logarithm_vaults_infos() -> Dict[str, Dict]:
             """Get comprehensive information about all logarithm vaults.
 
             Returns:
-                Dict[str, Dict]: Dictionary of vault information, where the key is the vault name and the value is a dictionary containing:
-                    - share_price: Current share price of the vault as float
-                    - entry_cost_rate: Entry cost rate for the vault as float
-                    - exit_cost_rate: Exit cost rate for the vault as float
-                    - idle_assets: Free assets in the vault as float
-                    - pending_withdrawals: Pending withdrawals from the vault as float
-                    - allocated_shares: Number of shares allocated to the vault as float
-                    - allocated_assets: Number of assets allocated to the vault as float
+                Dict[str, Dict]: A dictionary mapping vault names to their detailed information.
+                    Each vault's information contains:
+                    - share_price (float): Current price per share of the logarithm vault
+                    - entry_cost_rate (float): Fee rate applied when depositing assets (as a decimal)
+                    - exit_cost_rate (float): Fee rate applied when withdrawing assets (as a decimal)
+                    - idle_assets (float): Assets in the logarithm vault available for withdrawal without exit cost
+                    - pending_withdrawals (float): Assets queued for withdrawal in the logarithm vault, offsetting entry costs
             """
             vault_infos = {}
             
@@ -101,8 +100,8 @@ class CuratorStrategy(BaseStrategy):
                     "exit_cost_rate": float(vault.exit_cost_rate),
                     "idle_assets": float(vault.idle_assets),
                     "pending_withdrawals": float(vault.pending_withdrawals),
-                    "allocated_shares": float(internal_state.shares),
-                    "allocated_assets": float(vault.balance)
+                    # "allocated_shares": float(internal_state.shares),
+                    # "allocated_assets": float(vault.balance),
                 }
 
                 vault_infos[vault_name] = vault_info
@@ -147,12 +146,12 @@ class CuratorStrategy(BaseStrategy):
         analysis_agent_with_tools = analysis_agent.clone(tools=[get_share_price_history])
         analysis_tool = analysis_agent_with_tools.as_tool(
             tool_name="share_price_trend_analysis",
-            tool_description="Use to get share price trends of logarithm vaults",
+            tool_description="Use to get share price trends of all vaults",
             custom_output_extractor=summary_extractor
         )
 
-        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
-        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
+        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vaults_infos, analysis_tool])
+        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vaults_infos, analysis_tool])
 
         return {
             "allocation_agent": allocation_agent_with_tools,
@@ -205,9 +204,11 @@ class CuratorStrategy(BaseStrategy):
             # predict actions
             actions = []
             if meta_vault.idle_assets > 0:
+                msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
+                msg += f"Sum of the output amounts must be the same as the total asset amount {meta_vault.idle_assets}"
                 res = Runner.run_sync(
                     self._allocation_agent,
-                    f"Allocate {meta_vault.idle_assets} assets to the logarithm vaults"
+                    msg
                 )
                 prediction: AllocationAction = res.final_output
                 self._debug(f"Action: allocate_assets, Prediction: {prediction}")
@@ -225,10 +226,13 @@ class CuratorStrategy(BaseStrategy):
                     )
                 )
             elif meta_vault.pending_withdrawals > 0:
-                res = Runner.run_sync(
-                    self._withdraw_agent,
-                    f"Withdraw {meta_vault.pending_withdrawals} assets from the logarithm vaults"
-                )
+                msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Allocated asset amount for each vault:\n "
+                for vault_name in LOG_VAULT_NAMES:
+                    vault: LogarithmVault = self.get_entity(vault_name)
+                    if math.floor(vault.balance) > 0:
+                        msg += f"- `{vault_name}`: {math.floor(vault.balance)} \n"
+                msg += f"\nSum of the output amounts must be the same as the total asset amount {meta_vault.pending_withdrawals}."
+                res = Runner.run_sync(self._withdraw_agent, msg)
                 prediction: WithdrawAction = res.final_output
                 self._debug(f"Action: withdraw_allocations, Prediction: {prediction}")
                 actions.append(

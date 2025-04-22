@@ -4,20 +4,26 @@ from agents import Agent, RunResult
 
 # A sub‑agent specializing in identifying risk factors or concerns.
 ANALYSIS_PROMPT = """
-You are a helpful assistant that analyzes the share price trends of logarithm vaults.
-You are given share price histories of all logarithm vaults.
-You analyze the share price trends of each vault by using linear regression and provide a summary of the trends.
-Do **not** compare share prices between vaults.  
+You are a vault performance analyst for on-chain vaults.
+You task is to analyze and summarize the performance trend of each vault based on its share price history.
+You have to call the tool `get_share_price_history` only once at first to get the share price histories of all vaults.
+
+Analysis rules:
+1. Use linear regression to analyze each vault's share price trend
+2. Focus on individual vault performance
+3. Do not compare share prices between different vaults
 """
 
 class AnalysisSummary(BaseModel):
     summary: str
     """Share price trends summary for each vault."""
 
+# Note: We will add available tools at runtime
 analysis_agent = Agent(
     name="AnalysisAgent",
     instructions=ANALYSIS_PROMPT,
-    output_type=AnalysisSummary
+    output_type=AnalysisSummary,
+    model="gpt-4o-2024-08-06"
 )
 
 async def summary_extractor(run_result: RunResult) -> str:
