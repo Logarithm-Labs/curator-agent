@@ -89,36 +89,30 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                             last_observation = None
                 
                 # Extract both actions and reasoning from the same line
-                elif "actions=[" in line and "reasoning=" in line:
+                elif "Action:" in line and "reasoning=" in line:
                     if last_observation is not None:
                         # Extract all actions from the line
-                        action_matches = re.finditer(
-                            r"Action\(name='(\w+)', vault_names=\[([^\]]+)\], amounts=\[([^\]]+)\]\)",
-                            line
+                        match = re.search(
+                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning='(.*?)'",
+                            line,
+                            re.DOTALL
                         )
                         
-                        action_list = []
-                        for match in action_matches:
+                        if match:
                             action_name = match.group(1)
-                            targets = [t.strip("' ") for t in match.group(2).split(',')]
-                            amounts = [float(amt.strip()) for amt in match.group(3).split(',')]
-                            
-                            action_list.append({
-                                "action_name": action_name,
-                                "targets": targets,
-                                "amounts": amounts
-                            })
+                            targets = [t.strip("'\" ") for t in match.group(2).split(',')]
+                            amounts = [float(a.strip()) for a in match.group(3).split(',')]
+                            reasoning = match.group(4).strip()
 
-                        # Extract reasoning
-                        reasoning_match = re.search(r"reasoning='(.*?)'", line)
-                        reasoning = reasoning_match.group(1) if reasoning_match else None
-
-                        if action_list and reasoning:  # Only add if we found both actions and reasoning
                             actions.append({
                                 "date": last_observation,
-                                "actions": action_list,
+                                "action_name": action_name,
+                                "targets": targets,
+                                "amounts": amounts,
                                 "reasoning": reasoning
                             })
+
+
     except Exception as e:
         print(f"Error reading {log_file_path}: {e}")
 
@@ -138,11 +132,11 @@ def get_marker_y(perf_df: pd.DataFrame, date: datetime, action_type: str, vault_
     if not row.empty:
         if action_type == 'allocate_assets':
             return row.iloc[0][f'{vault_name}_vault_apy'] * 0.9
-        elif action_type == 'redeem_allocations':
+        else:
             return row.iloc[0][f'{vault_name}_vault_apy'] * 1.1
     return None
 
-def create_performance_chart(perf_df: pd.DataFrame, actions_df: pd.DataFrame, template: dict) -> go.Figure:
+def create_performance_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
     """
     Creates a performance chart comparing APY
     Add actions to the chart
@@ -185,21 +179,6 @@ def create_performance_chart(perf_df: pd.DataFrame, actions_df: pd.DataFrame, te
         mode='lines',
         name='Meta Vault'
     ))
-    
-    if not actions_df.empty:
-        for index, row in actions_df.iterrows():
-            for action in row['actions']:
-                for i, (target, amount) in enumerate(zip(action['targets'], action['amounts'])):
-                    y = get_marker_y(perf_df, row['date'], action['action_name'], target)
-                    action_name = action['action_name']
-                    fig.add_trace(go.Scatter(
-                        x=[row['date']],
-                        y=[y],
-                        mode='markers',
-                        marker=dict(symbol='triangle-up' if action_name == 'allocate_assets' else 'triangle-down', color='green' if action_name == 'allocate_assets' else 'red', size=12),
-                        name=f'{action_name} {target} {amount}',
-                        text=row['WrappedReasoning']
-                    ))
 
     fig.update_layout(
         title='Vaults Performance',
@@ -209,21 +188,76 @@ def create_performance_chart(perf_df: pd.DataFrame, actions_df: pd.DataFrame, te
     )
     return fig
 
+
+def create_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
+    # Flatten the list of targets and amounts into long-form
+    records = []
+    for idx, row in actions_df.iterrows():
+        for target, amount in zip(row["targets"], row["amounts"]):
+            records.append({
+                "date": row["date"],
+                "action_name": row["action_name"],
+                "vault": target.lower(),
+                "amount": amount if row["action_name"] == "allocate_assets" else -float(amount),
+                "WrappedReasoning": row["WrappedReasoning"]
+            })
+
+    flattened_df = pd.DataFrame(records)
+    # Get unique vaults and sorted dates
+    vaults = flattened_df["vault"].unique()
+    dates = sorted(flattened_df["date"].unique())
+
+    fig = go.Figure()
+    for vault in vaults:
+        y_values = []
+        hover_texts = []
+
+        for date in dates:
+            match = flattened_df[(flattened_df["vault"] == vault) & (flattened_df["date"] == date)]
+            if not match.empty:
+                amt = match["amount"].values[0]
+                y_values.append(amt)
+                hover_texts.append(f"Vault: {vault}<br>Date: {date.date()}<br>Amount: {amt}<br><br>{match['WrappedReasoning'].values[0]}")
+            else:
+                y_values.append(0)
+                hover_texts.append(f"Vault: {vault}<br>Date: {date.date()}<br>Amount: 0")
+
+        fig.add_trace(go.Bar(
+            x=[str(d.date()) for d in dates],
+            y=y_values,
+            name=vault,
+            # text=hover_texts,
+            hovertext=hover_texts
+        ))
+
+    fig.update_layout(
+        barmode='stack',
+        title='Actions',
+        xaxis_title='Date',
+        yaxis_title='Allocations',
+        **template
+    )
+    return fig
+
 def main():
     # load strategy results
     perf_df = load_vaults_performance("result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("runs/CuratorStrategy/1874f789-e073-4dfa-b730-3db1aec6bbed/logs/logs.log")
+    actions_df = parse_log_file("runs/CuratorStrategy/1ee652ce-0adc-4db3-857f-cad11c16e5b6/logs/logs.log")
 
     # build performance chart
-    fig_perf = create_performance_chart(perf_df, actions_df, TRADINGVIEW_TEMPLATE)
+    fig_perf = create_performance_chart(perf_df, TRADINGVIEW_TEMPLATE)
+    fig_actions = create_action_chart(actions_df, TRADINGVIEW_TEMPLATE)
 
     # run dash app
     app = dash.Dash(__name__)
     app.layout = html.Div([
-        dcc.Graph(figure=fig_perf)
+        dcc.Graph(figure=fig_perf),  dcc.Graph(figure=fig_actions)
     ])
+    # app.layout = html.Div([
+    #     dcc.Graph(figure=fig_actions)
+    # ])
     app.run(debug=True)
 
 
