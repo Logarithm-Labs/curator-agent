@@ -13,7 +13,7 @@ WITHDRAW_PROMPT = """
 You are an asset withdrawal advisor for allocated on-chain vaults.
 You are given a total asset amount to withdraw, along with the allocated (eligible to withdraw) amounts for each vault. 
 Your task is to recommend which vaults to withdraw from and how much to withdraw from each,
-ensuring that the total withdrawn amount exactly matches the specified total.
+ensuring that sum of the withdrawal amounts exactly equals to the specified total.
 Your goal is to minimize exit costs while prioritizing underperforming vaults.
 Some vaults may not have allocated assets or may be absent in the input list, so withdrawals from them are not possible.
 

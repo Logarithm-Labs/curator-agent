@@ -14,7 +14,8 @@ class AllocationAction(BaseModel):
 ALLOCATION_PROMPT = """
 You are an asset allocation advisor for on-chain vaults.
 You are given a total asset amount to allocate.
-Your task is to recommend which vaults to allocate to and how much to each, so that the combined allocation equals the total amount.
+Your task is to recommend which vaults to allocate to and how much to each,
+ensuring that sum of the allocation amounts exactly equals to the specified total.
 Your goal is to maximize future returns while minimizing entry costs.
 
 Available tools:

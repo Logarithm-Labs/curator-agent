@@ -10,7 +10,7 @@ import random
 import pandas as pd
 from dataclasses import dataclass
 from datetime import datetime, UTC
-from agents import function_tool, Runner, Agent
+from agents import function_tool, Runner, Agent, trace, TResponseInputItem
 from typing import List, Dict, Tuple
 from fractal.core.base import (
     BaseStrategy, Action, BaseStrategyParams,
@@ -23,6 +23,7 @@ from back_test.openai_agent import create_agent, ActionList
 from curator.agents.allocation_agent import allocation_agent, AllocationAction
 from curator.agents.withdraw_agent import withdraw_agent, WithdrawAction
 from curator.agents.analysis_agent import analysis_agent, summary_extractor
+from curator.utils.validate_actions import validate_allocation, validate_withdraw
 
 # Define vault names
 LOG_VAULT_NAMES = ['btc', 'eth', 'doge', 'pepe']
@@ -184,9 +185,9 @@ class CuratorStrategy(BaseStrategy):
                 opportunity_to_withdraw = random.randint(0, 1)
                 if opportunity_to_withdraw == 1:
                     idle_assets = 0
-                    pending_withdrawals = random.randint(0, 1000)
+                    pending_withdrawals = random.randint(0, 5000)
                 else:
-                    idle_assets = random.randint(0, 1000)
+                    idle_assets = random.randint(0, 5000)
                     pending_withdrawals = 0
                 self._debug(f"vault_name: {vault_name}, idle_assets: {idle_assets}, pending_withdrawals: {pending_withdrawals}")
                 vault.mock_idle_n_pending_withdrawals(idle_assets=idle_assets, pending_withdrawals=pending_withdrawals)
@@ -195,58 +196,87 @@ class CuratorStrategy(BaseStrategy):
 
             # randomly deposit or withdraw assets from the meta vault
             if random.randint(0, 1) == 1:
-                assets = random.randint(0, 1000)
+                assets = random.randint(0, 100000)
                 meta_vault.action_deposit(assets)
             else:
-                assets = random.randint(0, 1000)
-                meta_vault.action_withdraw(assets)
+                assets = random.randint(0, 50000)
+                max = int(meta_vault.total_assets)
+                if assets < max:
+                    meta_vault.action_withdraw(assets)
 
             # predict actions
             actions = []
             if meta_vault.idle_assets > 0:
                 msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
                 msg += f"Sum of the output amounts must be the same as the total asset amount {meta_vault.idle_assets}"
-                res = Runner.run_sync(
-                    self._allocation_agent,
-                    msg
-                )
-                prediction: AllocationAction = res.final_output
-                self._debug(f"Action: allocate_assets, Prediction: {prediction}")
-                
-                actions.append(
-                    ActionToTake(
-                        entity_name=META_VAULT_NAME,
-                        action=Action(
-                            action="allocate_assets",
-                            args={
-                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
-                                'amounts': prediction.amounts
-                            }
+                input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
+
+                with trace("Allocation with Feedback"):
+                    while True:
+                        res = Runner.run_sync(
+                            self._allocation_agent,
+                            input_items
                         )
-                    )
-                )
+                        input_items = res.to_input_list()
+                        prediction: AllocationAction = res.final_output
+                        validation_result = validate_allocation(meta_vault.idle_assets, prediction.vault_names, prediction.amounts)
+                        if validation_result.result == 'pass':
+                            self._debug(f"Action: allocate_assets, Prediction: {prediction}")
+                            actions.append(
+                                ActionToTake(
+                                    entity_name=META_VAULT_NAME,
+                                    action=Action(
+                                        action="allocate_assets",
+                                        args={
+                                            'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
+                                            'amounts': prediction.amounts
+                                        }
+                                    )
+                                )
+                            )
+                            break
+                        else:
+                            self._debug(f"Action(Failed): allocate_assets, Prediction: {prediction}")
+                            input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
+
             elif meta_vault.pending_withdrawals > 0:
                 msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Allocated asset amount for each vault:\n "
+                balances: dict[str, float] = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
-                    if math.floor(vault.balance) > 0:
-                        msg += f"- `{vault_name}`: {math.floor(vault.balance)} \n"
+                    if vault.balance > 0:
+                        msg += f"- `{vault_name}`: {vault.balance} \n"
+                        balances[vault_name] = vault.balance
                 msg += f"\nSum of the output amounts must be the same as the total asset amount {meta_vault.pending_withdrawals}."
-                res = Runner.run_sync(self._withdraw_agent, msg)
-                prediction: WithdrawAction = res.final_output
-                self._debug(f"Action: withdraw_allocations, Prediction: {prediction}")
-                actions.append(
-                    ActionToTake(
-                        entity_name=META_VAULT_NAME,
-                        action=Action(
-                            action="withdraw_allocations",
-                            args={
-                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
-                                'amounts': prediction.amounts
-                            }
+                input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
+
+                with trace("Withdraw with Feedback"):
+                    while True:
+                        res = Runner.run_sync(
+                            self._withdraw_agent,
+                            input_items
                         )
-                    )
-                )
+                        input_items = res.to_input_list()
+                        prediction: WithdrawAction = res.final_output
+                        validation_result = validate_withdraw(meta_vault.pending_withdrawals, prediction.vault_names, prediction.amounts, balances)
+                        if validation_result.result == 'pass':
+                            self._debug(f"Action: withdraw_allocations, Prediction: {prediction}")
+                            actions.append(
+                                ActionToTake(
+                                    entity_name=META_VAULT_NAME,
+                                    action=Action(
+                                        action="withdraw_allocations",
+                                        args={
+                                            'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
+                                            'amounts': prediction.amounts
+                                        }
+                                    )
+                                )
+                            )
+                            break
+                        else:
+                            self._debug(f"Action(Failed): withdraw_allocations, Prediction: {prediction}")
+                            input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
 
             # sleep to avoid rate limit
             time.sleep(5)
@@ -294,11 +324,6 @@ def build_observations() -> List[Observation]:
             states[vault_name] = LogarithmVaultGlobalState(share_price=share_price)
         
         observations.append(Observation(timestamp=timestamp, states=states))
-    # gradually increase pepe vault's share price by 0.2% each day from April 2024 to December 2024
-    for i in range(len(observations)):
-        if i > 0:
-            if observations[i].timestamp.month >= 4 and observations[i].timestamp.year == 2024:
-                observations[i].states['pepe'].share_price = observations[i-1].states['pepe'].share_price * 1.001
                 
     
     return observations
