@@ -93,7 +93,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                     if last_observation is not None:
                         # Extract all actions from the line
                         match = re.search(
-                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning='(.*?)'",
+                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning=[',\"](.*?)['\"]",
                             line,
                             re.DOTALL
                         )
@@ -120,6 +120,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
     if not actions_df.empty:
         actions_df["date"] = pd.to_datetime(actions_df["date"])
         actions_df["WrappedReasoning"] = actions_df["reasoning"].apply(lambda x: wrap_text(x, width=50) if x else "")
+   
     return actions_df
 
 def get_marker_y(perf_df: pd.DataFrame, date: datetime, action_type: str, vault_name: str) -> float:
@@ -181,13 +182,137 @@ def create_performance_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
     ))
 
     fig.update_layout(
-        title='Vaults Performance',
+        title='Vaults APY',
         xaxis_title='Date',
         yaxis_title='APY',
         **template
     )
     return fig
 
+def create_share_price_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
+    btc_share_price = perf_df['btc_share_price']
+    eth_share_price = perf_df['eth_share_price']
+    doge_share_price = perf_df['doge_share_price']
+    pepe_share_price = perf_df['pepe_share_price']
+    meta_vault_share_price = perf_df['meta_vault_share_price']
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=perf_df['date'],
+        y=btc_share_price,
+        mode='lines',
+        name='BTC'
+    ))
+    fig.add_trace(go.Scatter(
+        x=perf_df['date'],
+        y=eth_share_price,
+        mode='lines',
+        name='ETH'
+    ))
+    fig.add_trace(go.Scatter(
+        x=perf_df['date'],
+        y=doge_share_price,
+        mode='lines',
+        name='DOGE'
+    ))
+    fig.add_trace(go.Scatter(
+        x=perf_df['date'],
+        y=pepe_share_price,
+        mode='lines',
+        name='PEPE'
+    ))
+    fig.add_trace(go.Scatter(
+        x=perf_df['date'],
+        y=meta_vault_share_price,
+        mode='lines',
+        name='Meta Vault'
+    ))
+
+    fig.update_layout(
+        title='Vault Share Prices',
+        xaxis_title='Date',
+        yaxis_title='Price',
+        **template
+    )
+    return fig
+
+def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
+    btc_shares = perf_df['btc_shares']
+    eth_shares = perf_df['eth_shares']
+    doge_shares = perf_df['doge_shares']
+    pepe_shares = perf_df['pepe_shares']
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=btc_shares,
+        name='BTC'
+    ))
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=eth_shares,
+        name='ETH'
+    ))
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=doge_shares,
+        name='DOGE'
+    ))
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=pepe_shares,
+        name='PEPE'
+    ))
+
+    fig.update_layout(
+        barmode='stack',
+        title='Vaults Allocations',
+        xaxis_title='Date',
+        yaxis_title='Shares',
+        **template
+    )
+    return fig
+
+def create_idle_withdrawal_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
+    btc_idle_assets = perf_df['btc_idle_assets']
+    eth_idle_assets = perf_df['eth_idle_assets']
+    doge_idle_assets = perf_df['doge_idle_assets']
+    pepe_idle_assets = perf_df['pepe_idle_assets']
+    btc_pending_withdrawals = perf_df['btc_pending_withdrawals']
+    eth_pending_withdrawals = perf_df['eth_pending_withdrawals']
+    doge_pending_withdrawals = perf_df['doge_pending_withdrawals']
+    pepe_pending_withdrawals = perf_df['pepe_pending_withdrawals']
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=btc_idle_assets - btc_pending_withdrawals,
+        name='BTC'
+    ))
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=eth_idle_assets - eth_pending_withdrawals,
+        name='ETH'
+    ))
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=doge_idle_assets - doge_pending_withdrawals,
+        name='DOGE'
+    ))
+    fig.add_trace(go.Bar(
+        x=perf_df['date'],
+        y=pepe_idle_assets - pepe_pending_withdrawals,
+        name='PEPE'
+    ))
+
+    fig.update_layout(
+        barmode='relative',
+        title='Vault States',
+        xaxis_title='Date',
+        yaxis_title='Idles & Withdrawals',
+        **template
+    )
+    return fig
 
 def create_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
     # Flatten the list of targets and amounts into long-form
@@ -234,7 +359,7 @@ def create_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
         barmode='stack',
         title='Actions',
         xaxis_title='Date',
-        yaxis_title='Allocations',
+        yaxis_title='Actions',
         **template
     )
     return fig
@@ -244,16 +369,19 @@ def main():
     perf_df = load_vaults_performance("result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("runs/CuratorStrategy/59b77f0d-3a40-4850-9578-dab98f9dc04e/logs/logs.log")
+    actions_df = parse_log_file("runs/CuratorStrategy/da0055b4-78b8-4855-ad48-5207b32476b1/logs/logs.log")
 
     # build performance chart
+    fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)
+    fig_idle_withdrawal = create_idle_withdrawal_chart(perf_df, TRADINGVIEW_TEMPLATE)
+    fig_share_price = create_share_price_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_perf = create_performance_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_actions = create_action_chart(actions_df, TRADINGVIEW_TEMPLATE)
 
     # run dash app
     app = dash.Dash(__name__)
     app.layout = html.Div([
-        dcc.Graph(figure=fig_perf),  dcc.Graph(figure=fig_actions)
+        dcc.Graph(figure=fig_share_price), dcc.Graph(figure=fig_idle_withdrawal), dcc.Graph(figure=fig_perf), dcc.Graph(figure=fig_allocation), dcc.Graph(figure=fig_actions)
     ])
     # app.layout = html.Div([
     #     dcc.Graph(figure=fig_actions)

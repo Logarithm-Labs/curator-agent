@@ -83,14 +83,20 @@ class LogarithmVault(BaseEntity):
         if assets < 0:
             raise LogarithmVaultEntityException("Assets must be greater than 0")
         
-        shares_to_burn = self.preview_withdraw(assets)
+        allocated_assets = self.balance
+        if assets == allocated_assets:
+            shares_to_burn = self._internal_state.shares
+            self._internal_state.shares = 0
+            return shares_to_burn
+        elif assets > allocated_assets:
+            raise LogarithmVaultEntityException("Not enough allocated assets")
+        else:
+            shares_to_burn = self.preview_withdraw(assets)
+            if shares_to_burn > self._internal_state.shares:
+                raise LogarithmVaultEntityException("Not enough shares available to withdraw the requested assets")
+            self._internal_state.shares -= shares_to_burn
 
-        if shares_to_burn > self._internal_state.shares:
-            raise LogarithmVaultEntityException("Not enough shares available to withdraw the requested assets")
-
-        self._internal_state.shares -= shares_to_burn
-
-        return shares_to_burn
+            return shares_to_burn
         
     def update_state(self, state: LogarithmVaultGlobalState):
         if state.share_price <= 0:

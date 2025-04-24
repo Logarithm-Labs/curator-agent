@@ -20,7 +20,7 @@ def validate_allocation(total_assets: float, vault_names: list[str], allocations
             )
     if total_assets < sum(allocations):
         return ValidationFeedback(
-            feedback=f'Sum of allocations cannot exceed the total asset amount ({total_assets}) to allocate',
+            feedback=f'Sum of allocations ({sum(allocations)}) cannot exceed the total asset amount ({total_assets}) to allocate',
             result='fail'
         )
     return ValidationFeedback(
@@ -40,9 +40,9 @@ def validate_withdraw(total_assets: float, vault_names: list[str], withdrawals: 
                 feedback=f'The withdrawal amount {amount} cannot be negative.',
                 result='fail'
             )
-    if total_assets != sum(withdrawals):
+    if total_assets > sum(withdrawals):
         return ValidationFeedback(
-            feedback=f'Sum of withdraw amounts must be equal to the total asset amount ({total_assets}) to withdraw',
+            feedback=f'Sum of withdraw amounts ({sum(withdrawals)}) cannot be smaller than the total asset amount ({total_assets}) to withdraw',
             result='fail'
         )
     for (vault_name, withdrawal) in zip(vault_names, withdrawals):

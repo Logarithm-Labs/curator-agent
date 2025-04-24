@@ -197,12 +197,16 @@ class CuratorStrategy(BaseStrategy):
             # randomly deposit or withdraw assets from the meta vault
             if random.randint(0, 1) == 1:
                 assets = random.randint(0, 100000)
-                meta_vault.action_deposit(assets)
+                shares = meta_vault.action_deposit(assets)
+                self._debug(f"Deposit Assets: {assets}")
+                self._debug(f"Mint Share: {shares}")
             else:
                 assets = random.randint(0, 50000)
                 max = int(meta_vault.total_assets)
                 if assets < max:
-                    meta_vault.action_withdraw(assets)
+                    shares = meta_vault.action_withdraw(assets)
+                    self._debug(f"Withdraw Assets: {assets}")
+                    self._debug(f"Burnt Shares: {shares}")
 
             # predict actions
             actions = []
@@ -279,7 +283,7 @@ class CuratorStrategy(BaseStrategy):
                             input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
 
             # sleep to avoid rate limit
-            time.sleep(5)
+            time.sleep(1)
             self._window_size = self._params.WINDOW_SIZE
             return actions
         else:
@@ -331,10 +335,10 @@ def build_observations() -> List[Observation]:
 if __name__ == "__main__":
     # load strategy_backtest_data.csv for each of the logarithm vaults
     observations = build_observations()
-    # save observations to csv
-    with open('observations.csv', 'w') as f:
-        for observation in observations:
-            f.write(f"{observation.timestamp},{observation.states['btc'].share_price},{observation.states['eth'].share_price},{observation.states['doge'].share_price},{observation.states['pepe'].share_price}\n")
+    # # save observations to csv
+    # with open('observations.csv', 'w') as f:
+    #     for observation in observations:
+    #         f.write(f"{observation.timestamp},{observation.states['btc'].share_price},{observation.states['eth'].share_price},{observation.states['doge'].share_price},{observation.states['pepe'].share_price}\n")
     # Run the strategy with an Agent
     params: CuratorStrategyParams = CuratorStrategyParams()
     strategy = CuratorStrategy(debug=True, params=params,
