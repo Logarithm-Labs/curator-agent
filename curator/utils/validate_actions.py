@@ -60,3 +60,55 @@ def validate_withdraw(total_assets: float, vault_names: list[str], withdrawals: 
         feedback='',
         result='pass'
     )
+
+def validate_redeem(vault_names: list[str], redeem_shares: list[float], balances: dict[str, float]) -> ValidationFeedback:
+    if len(vault_names) != 0:
+        if len(vault_names) != len(redeem_shares):
+            return ValidationFeedback(
+                feedback='The length of vaults names is not the same as the length of share amounts.',
+                result='fail'
+            )
+        for amount in redeem_shares:
+            if amount < 0:
+                return ValidationFeedback(
+                    feedback=f'The share amount {amount} cannot be negative.',
+                    result='fail'
+                )
+        for (vault_name, share) in zip(vault_names, redeem_shares):
+            if not balances[vault_name]:
+                return ValidationFeedback(
+                    feedback=f'Cannot redeem from {vault_name} because it dose not have allocation.',
+                    result='fail'
+                )
+            elif share > balances[vault_name]:
+                return ValidationFeedback(
+                    feedback=f'The redeem share amount ({share}) of {vault_name} cannot exceeds the the balance ({balances[vault_name]})',
+                    result='fail'
+                )
+    return ValidationFeedback(
+        feedback='',
+        result='pass'
+    )
+
+def validate_reallocation(vault_names: list[str], weights: list[float]) -> ValidationFeedback:
+    if len(vault_names) != 0:
+        if len(vault_names) != len(weights):
+            return ValidationFeedback(
+                feedback='The length of vaults names is not the same as the length of weights.',
+                result='fail'
+            )
+        for weight in weights:
+            if weight < 0 or weight > 1:
+                return ValidationFeedback(
+                    feedback=f'The weight ({weight}) should be between 0 and 1.',
+                    result='fail'
+                )
+        if sum(weights) != 1:
+            return ValidationFeedback(
+                feedback=f'Sum of weights ({sum(weights)}) should equal to 1.',
+                result='fail'
+            )
+    return ValidationFeedback(
+        feedback='',
+        result='pass'
+    )

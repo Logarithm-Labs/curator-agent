@@ -18,6 +18,7 @@ class MetaVaultGlobalState(GlobalState):
 class MetaVaultInternalState(InternalState):
     total_supply: float = 0.0
 
+DUST = 0.000001
 class MetaVault(BaseEntity):
     """
     Represents a logarithm vault entity.
@@ -71,8 +72,10 @@ class MetaVault(BaseEntity):
                 raise MetaVaultEntityException("Asset amount must be greater than 0")
         
         total_assets_to_allocate = sum(amounts)
-        if (total_assets_to_allocate > self.idle_assets):
-            raise MetaVaultEntityException("Assets to allocate are greater than the available assets")
+        if (total_assets_to_allocate > self.idle_assets + DUST):
+            raise MetaVaultEntityException(f"Assets to allocate are greater than the available assets")
+        elif total_assets_to_allocate > self.idle_assets:
+            amounts[-1] -= (total_assets_to_allocate - self.idle_assets)
 
         for target, amount in zip(targets, amounts):
             target_vault: LogarithmVault = target.entity

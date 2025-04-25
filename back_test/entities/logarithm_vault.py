@@ -108,6 +108,10 @@ class LogarithmVault(BaseEntity):
     def balance(self) -> float:
         # balance is the amount of assets held in the vault entity
         return self.preview_redeem(self._internal_state.shares)
+
+    @property
+    def shares(self) -> float:
+        return self._internal_state.shares
     
     @property
     def entry_cost_rate(self) -> float:
