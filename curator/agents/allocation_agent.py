@@ -13,15 +13,14 @@ class AllocationAction(BaseModel):
 
 ALLOCATION_PROMPT = """
 You are an asset allocation advisor for on-chain vaults.
-You are given a total asset amount to allocate.
+You are given a total asset amount to allocate, along with a list of target Logarithm vault names.
 Your task is to recommend which vaults to allocate to and how much to each,
-ensuring that sum of the allocation amounts exactly equals to the specified total.
+ensuring that sum of the allocation amounts exactly equals to the specified total or little bit smaller.
 Your goal is to maximize future returns while minimizing total entry costs.
 You have to prioritize the future returns before the total entry costs.
-
-Available tools:
-- get_logarithm_vaults_infos: Get current states of all vaults (share price, entry cost rate, pending withdrawals)
-- share_price_trend_analysis: Analyze vault performance trends, possible to process multiple vaults at once.
+You can call the available tools (e.g. get_logarithm_vault_infos, share_price_trend_analysis) 
+to get the detailed information of vaults and their performance trends analysis.
+As long as possible, you should avoid calling the same tool multiple times.
 
 Entry cost calculation:
     - If allocation ≤ pending_withdrawals: No entry cost

@@ -75,25 +75,31 @@ class CuratorStrategy(BaseStrategy):
         """
         
         @function_tool
-        def get_logarithm_vaults_infos() -> Dict[str, Dict]:
-            """Get comprehensive information about all logarithm vaults.
+        def get_logarithm_vault_infos(vault_names: List[str]) -> Dict[str, Dict]:
+            """Get the comprehensive information of Logarithm vaults.
+
+            Input:
+                vault_names (List): List of Logarithm vault names
 
             Returns:
                 Dict[str, Dict]: A dictionary mapping vault names to their detailed information.
                     Each vault's information contains:
-                    - share_price (float): Current price per share of the logarithm vault
+                    - share_price (float): Current price per share of the Logarithm vault
                     - entry_cost_rate (float): Fee rate applied when depositing assets (as a decimal)
                     - exit_cost_rate (float): Fee rate applied when withdrawing assets (as a decimal)
-                    - idle_assets (float): Assets in the logarithm vault available for withdrawal without exit cost
-                    - pending_withdrawals (float): Assets queued for withdrawal in the logarithm vault, offsetting entry costs
+                    - idle_assets (float): Assets in the Logarithm vault available for withdrawal without exit cost
+                    - pending_withdrawals (float): Assets queued for withdrawal in the Logarithm vault, offsetting entry costs
             """
             vault_infos = {}
             
-            for vault_name in LOG_VAULT_NAMES:
+            for vault_name in vault_names:
                 # get vault entity
                 vault: LogarithmVault = self.get_entity(vault_name)
+                
+                if vault is None:
+                    raise ValueError(f"Vault {vault_name} not found")
+                
                 global_state: LogarithmVaultGlobalState = vault.global_state
-                internal_state: LogarithmVaultInternalState = vault.internal_state
                 
                 vault_info = {
                     "share_price": float(global_state.share_price),
@@ -101,8 +107,6 @@ class CuratorStrategy(BaseStrategy):
                     "exit_cost_rate": float(vault.exit_cost_rate),
                     "idle_assets": float(vault.idle_assets),
                     "pending_withdrawals": float(vault.pending_withdrawals),
-                    # "allocated_shares": float(internal_state.shares),
-                    # "allocated_assets": float(vault.balance),
                 }
 
                 vault_infos[vault_name] = vault_info
@@ -110,29 +114,32 @@ class CuratorStrategy(BaseStrategy):
             return vault_infos
 
         @function_tool
-        def get_share_price_history() -> Dict[str, List[Tuple[str, float]]]:
-            """Get the share price history of all logarithm vaults for the previous 10 days.  
+        def get_share_price_history(vault_name: str) -> List[Tuple[str, float]]:
+            """Use to get the historical share price for a given Logarithm vault.
+
+            Input:
+                vault_name (str): Logarithm vault name
 
             Returns:
-                Dict[str, List[Tuple[str, float]]]: Dictionary where:
-                    - Key: Vault name
-                    - Value: List of tuples containing:
-                        - timestamp: Timestamp of the observation as ISO format string
-                        - share_price: Share price of the vault as float
+                List[Tuple[str, float]]: List of tuples containing:
+                    - timestamp: Timestamp of the observation as ISO format string
+                    - share_price: Share price of the vault as float
+                        
             """
             observations = self.observations_storage.read()
-            history = {}
             
-            for vault_name in LOG_VAULT_NAMES:
-                # Get only the last 2 * WINDOW_SIZE of observations
-                analysis_window_size = self._params.WINDOW_SIZE * 2
-                recent_observations = observations[-analysis_window_size:] if len(observations) > analysis_window_size else observations
-                history[vault_name] = [
-                    (observation.timestamp.isoformat(), float(observation.states[vault_name].share_price))
-                    for observation in recent_observations
-                ]
-            
-            return history
+            # Get only the last 2 * WINDOW_SIZE of observations
+            analysis_window_size = self._params.WINDOW_SIZE * 2
+            recent_observations = observations[-analysis_window_size:] if len(observations) > analysis_window_size else observations
+            # Filter out observations that do not contain the vault name
+            recent_observations = [observation for observation in recent_observations if vault_name in observation.states]
+            # Sort observations by timestamp in descending order
+            recent_observations.sort(key=lambda x: x.timestamp, reverse=True)
+            # Get the share price history for the vault
+            return [
+                (observation.timestamp.isoformat(), float(observation.states[vault_name].share_price))
+                for observation in recent_observations
+            ]
         
         # @function_tool
         # def allocate_action_validation(vault_names: list[str], amounts: list[float]) -> str:
@@ -147,12 +154,12 @@ class CuratorStrategy(BaseStrategy):
         analysis_agent_with_tools = analysis_agent.clone(tools=[get_share_price_history])
         analysis_tool = analysis_agent_with_tools.as_tool(
             tool_name="share_price_trend_analysis",
-            tool_description="Use to get share price trends of all vaults",
+            tool_description="Use to get performance trends of given logarithm vaults which are separated by commas.",
             custom_output_extractor=summary_extractor
         )
 
-        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vaults_infos, analysis_tool])
-        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vaults_infos, analysis_tool])
+        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
+        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
 
         return {
             "allocation_agent": allocation_agent_with_tools,
@@ -212,6 +219,7 @@ class CuratorStrategy(BaseStrategy):
             actions = []
             if meta_vault.idle_assets > 0:
                 msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
+                msg += f"The target vaults are {LOG_VAULT_NAMES}.\n"
                 msg += f"Sum of the output amounts must be the same as the total asset amount {meta_vault.idle_assets}"
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 

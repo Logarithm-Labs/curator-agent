@@ -369,7 +369,7 @@ def main():
     perf_df = load_vaults_performance("result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("runs/CuratorStrategy/da0055b4-78b8-4855-ad48-5207b32476b1/logs/logs.log")
+    actions_df = parse_log_file("runs/CuratorStrategy/55802d81-4a61-4b11-a5a5-9bde27cdc207/logs/logs.log")
 
     # build performance chart
     fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)

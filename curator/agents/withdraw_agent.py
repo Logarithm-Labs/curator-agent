@@ -11,16 +11,16 @@ class WithdrawAction(BaseModel):
 
 WITHDRAW_PROMPT = """
 You are an asset withdrawal advisor for allocated on-chain vaults.
-You are given a total asset amount to withdraw, along with the allocated (eligible to withdraw) amounts for each vault. 
-Your task is to recommend which vaults to withdraw from and how much to withdraw from each,
-ensuring that sum of the withdrawal amounts exactly equals to the specified total.
+You are given a total asset amount to withdraw, along with a list of vaults with their respective allocated (withdrawable) amounts.
+Your task is to recommend which vaults to withdraw from and determine the exact amount to withdraw from each,
+ensuring that:
+- The sum of all withdrawal amounts precisely equals the specified total or little bit bigger.
+- No withdrawal exceeds the allocated amount of its corresponding vault.
+- Withdrawals are only made from vaults present in the provided list.
 Your goal is to minimize exit costs while prioritizing underperforming vaults.
-Some vaults may not have allocated assets or may be absent in the input list, so withdrawals from them are not possible.
-The withdrawal amount can't exceed the allocated amount of the corresponding vault.
-
-Available tools:
-- get_logarithm_vaults_infos: Get current states of all vaults (share price, exit cost rate, idle assets)
-- share_price_trend_analysis: Analyze vault performance trends, possible to process multiple vaults at once.
+You can call the available tools (e.g. get_logarithm_vault_infos, share_price_trend_analysis) 
+to get the current states of given vaults and their performance trends analysis.
+As long as possible, you should avoid calling the same tool multiple times.
 
 Exit cost calculation:
    - If withdrawal ≤ idle_assets: No exit cost
