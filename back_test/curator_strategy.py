@@ -117,11 +117,12 @@ class CuratorStrategy(BaseStrategy):
             return vault_infos
 
         @function_tool
-        def get_share_price_history(vault_name: str) -> List[Tuple[str, float]]:
-            """Use to get the historical share price for a given Logarithm vault.
+        def get_share_price_history(vault_name: str, length: int) -> List[Tuple[str, float]]:
+            """Use to get the historical daily share price for a given Logarithm vault.
 
             Input:
                 vault_name (str): Logarithm vault name
+                length: Number of the most recent data points
 
             Returns:
                 List[Tuple[str, float]]: List of tuples containing:
@@ -132,8 +133,7 @@ class CuratorStrategy(BaseStrategy):
             observations = self.observations_storage.read()
             
             # Get only the last 2 * WINDOW_SIZE of observations
-            analysis_window_size = self._params.WINDOW_SIZE * 2
-            recent_observations = observations[-analysis_window_size:] if len(observations) > analysis_window_size else observations
+            recent_observations = observations[-length:] if len(observations) > length else observations
             # Filter out observations that do not contain the vault name
             recent_observations = [observation for observation in recent_observations if vault_name in observation.states]
             # Sort observations by timestamp in descending order
@@ -305,7 +305,7 @@ class CuratorStrategy(BaseStrategy):
                         
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
-                with trace("Reallocation"):
+                with trace("Reallocation with Feedback"):
                     while True:
                         res = Runner.run_sync(
                             self._reallocation_agent,

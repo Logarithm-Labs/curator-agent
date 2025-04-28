@@ -32,7 +32,7 @@ Entry cost calculation (Allocation cost):
 
 # Note: We will add available tools at runtime
 reallocation_agent = Agent(
-    name="AllocationAgent",
+    name="ReallocationAgent",
     instructions=REALLOCATION_PROMPT,
     output_type=ReallocationAction,
     model="gpt-4o-2024-08-06"

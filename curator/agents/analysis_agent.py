@@ -4,14 +4,10 @@ from agents import Agent, RunResult
 
 # A sub‑agent specializing in identifying risk factors or concerns.
 ANALYSIS_PROMPT = """
-You are a vault performance analyst for on-chain vaults.
-You are given a list of vault names to analyze.
-You task is to analyze and summarize the performance trend of each given vault based on its share price history.
-You can call the available tool (e.g. get_share_price_history) to get all the share price history.
-
-Analysis rules:
-1. Use linear regression to analyze each vault's share price trend
-2. Do not compare share prices between different vaults
+You are an on-chain vault performance analyst.
+You are given a list of vault names.
+Your task is to **analyze and summarize the performance trend** for each vault based on its **share price history**.
+You can call the available tool (e.g. `get_share_price_history`) to get the share price history.
 """
 
 class AnalysisSummary(BaseModel):
