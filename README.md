@@ -26,3 +26,4 @@
    ```bash
    uv run -m back_test.dashboard
    ```
+   Important: Make sure you set the latest running log path in `dashboard.py`.

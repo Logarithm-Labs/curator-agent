@@ -156,7 +156,6 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                             re.DOTALL
                         )
                         if match:
-                            print("realloc")
                             targets = [t.strip("'\" ") for t in match.group(1).split(',')]
                             raw_amounts = match.group(2).split(',')
                             amounts = []
@@ -429,7 +428,7 @@ def main():
     perf_df = load_vaults_performance("result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("runs/CuratorStrategy/3c5ab086-1477-42af-8efd-f255aa27d565/logs/logs.log")
+    actions_df = parse_log_file("runs/CuratorStrategy/468811e6-4fc7-442a-9f34-9ad5ae2d9c29/logs/logs.log")
     # build performance chart
     fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_idle_withdrawal = create_idle_withdrawal_chart(perf_df, TRADINGVIEW_TEMPLATE)
