@@ -46,7 +46,7 @@ def validate_withdraw(total_assets: float, vault_names: list[str], withdrawals: 
             result='fail'
         )
     for (vault_name, withdrawal) in zip(vault_names, withdrawals):
-        if not balances[vault_name]:
+        if withdrawal > 0 and not balances[vault_name]:
             return ValidationFeedback(
                 feedback=f'Cannot withdraw from {vault_name} because it dose not have allocation.',
                 result='fail'
@@ -75,7 +75,7 @@ def validate_redeem(vault_names: list[str], redeem_shares: list[float], balances
                     result='fail'
                 )
         for (vault_name, share) in zip(vault_names, redeem_shares):
-            if not balances[vault_name]:
+            if share > 0 and not balances[vault_name]:
                 return ValidationFeedback(
                     feedback=f'Cannot redeem from {vault_name} because it dose not have allocation.',
                     result='fail'
