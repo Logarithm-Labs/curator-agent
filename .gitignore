@@ -13,7 +13,6 @@ fractal_data/
 mlruns/
 mlartifacts/
 runs/
-result.csv
 
 .env
 *.db
