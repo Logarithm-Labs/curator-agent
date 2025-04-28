@@ -300,9 +300,9 @@ class CuratorStrategy(BaseStrategy):
                 balances: dict[str, float] = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
-                    if vault.shares > 0:
-                        msg += f"- `{vault_name}`: {vault.shares} \n"
-                        balances[vault_name] = vault.shares
+                    msg += f"- `{vault_name}`: {vault.shares} \n"
+                    balances[vault_name] = vault.shares
+                        
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
                 with trace("Reallocation"):
