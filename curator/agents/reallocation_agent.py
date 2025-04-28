@@ -18,15 +18,15 @@ Your tasks are:
     a. Recommend which vaults to redeem from and specify the share amounts to redeem from each.
     b. Recommend which vaults to reallocate the withdrawn assets to and specify the target weights (ratios summing to 1) for distribution.
 3. Provide a clear and concise reasoning for your recommendations.
-Ensure that your recommendations are based on sound financial principles and take into account the potential risks and entry/exit costs.
+Ensure that your recommendations take into account the entry/exit costs and potential risks and are based on sound financial principles.
 You can call the available tools (e.g. get_logarithm_vault_infos, share_price_trend_analysis),
 to get the detailed information of vaults and their performance trends or forecasting analysis.
 
-Exit cost calculation:
+Exit cost calculation (Redemption cost):
    - If share_amount * share_price ≤ idle_assets: No exit cost
    - If share_amount * share_price > idle_assets: exit cost = (share_amount * share_price - idle_assets) * exit_cost_rate
 
-Entry cost calculation:
+Entry cost calculation (Allocate cost):
     - If allocation ≤ pending_withdrawals: No entry cost
     - If allocation > pending_withdrawals: entry_cost = (allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)
 """

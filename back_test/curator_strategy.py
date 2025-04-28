@@ -29,6 +29,7 @@ from curator.utils.validate_actions import validate_allocation, validate_withdra
 # Define vault names
 LOG_VAULT_NAMES = ['btc', 'eth', 'doge', 'pepe']
 META_VAULT_NAME = 'meta_vault'
+DUST = 0.000001
 @dataclass
 class CuratorStrategyParams(BaseStrategyParams):
     """
@@ -221,7 +222,7 @@ class CuratorStrategy(BaseStrategy):
 
             # predict actions
             actions = []
-            if meta_vault.idle_assets > 0:
+            if meta_vault.idle_assets > DUST:
                 msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
                 msg += f"The target vaults are {LOG_VAULT_NAMES}.\n"
                 msg += f"Sum of the output amounts must be the same as the total asset amount {meta_vault.idle_assets}"
@@ -255,7 +256,7 @@ class CuratorStrategy(BaseStrategy):
                             self._debug(f"Action(Failed): allocate_assets, Prediction: {prediction}")
                             input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
 
-            elif meta_vault.pending_withdrawals > 0:
+            elif meta_vault.pending_withdrawals > DUST:
                 msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Allocated asset amount for each vault:\n "
                 balances: dict[str, float] = {}
                 for vault_name in LOG_VAULT_NAMES:
@@ -318,10 +319,11 @@ class CuratorStrategy(BaseStrategy):
                             if validation_result.result == 'pass':
                                 self._debug(f"Action: reallocation, Prediction: {prediction}")
                                 if len(prediction.redeem_vault_names) > 0:
-                                    total_withdrawals = sum(
+                                    assets_to_redeem = [
                                         self.get_entity(redeem_vault_name.lower()).preview_redeem(redeem_share_amount)
                                         for (redeem_vault_name, redeem_share_amount) in zip(prediction.redeem_vault_names, prediction.redeem_share_amounts)
-                                    )
+                                    ]
+                                    total_withdrawals = sum(assets_to_redeem) - meta_vault.pending_withdrawals
                                     actions.append(
                                         ActionToTake(
                                             entity_name=META_VAULT_NAME,
@@ -335,6 +337,13 @@ class CuratorStrategy(BaseStrategy):
                                         )
                                     )
 
+                                    # debug the vault names and assets amounts that are going to be withdrawn
+                                    self._debug(f"Action: redeem_allocations, vault_names: {prediction.redeem_vault_names}, amounts: {assets_to_redeem}")
+                                    
+                                    assets_to_allocate = [total_withdrawals * weight for weight in prediction.allocation_weights[:-1]]
+                                    allocated_sum = sum(assets_to_allocate)
+                                    last_allocation = total_withdrawals - allocated_sum
+                                    assets_to_allocate.append(last_allocation)
                                     actions.append(
                                         ActionToTake(
                                             entity_name=META_VAULT_NAME,
@@ -342,11 +351,15 @@ class CuratorStrategy(BaseStrategy):
                                                 action="allocate_assets",
                                                 args={
                                                     'targets': [NamedEntity(entity_name=allocation_vault_name, entity=self.get_entity(allocation_vault_name.lower())) for allocation_vault_name in prediction.allocation_vault_names],
-                                                    'amounts': [total_withdrawals * weight for weight in prediction.allocation_weights]
+                                                    'amounts': assets_to_allocate
                                                 }
                                             )
                                         )
                                     )
+
+                                    # debug the vault names and assets amounts to which to allocate withdrawn assets
+                                    self._debug(f"Action: allocate_assets, vault_names: {prediction.allocation_vault_names}, amounts: {assets_to_allocate}")
+
                                 break
                             else:
                                 self._debug(f"Action(Failed): reallocation, Prediction: {prediction}")

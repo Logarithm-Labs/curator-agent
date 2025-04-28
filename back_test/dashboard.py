@@ -71,6 +71,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
     """
     actions = []
     last_observation = None
+    last_reallocation_reasoning = ""
 
     try:
         with open(log_file_path, 'r') as f:
@@ -91,9 +92,15 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                 # Extract both actions and reasoning from the same line
                 elif "Action:" in line and "reasoning=" in line:
                     if last_observation is not None:
-                        # Extract all actions from the line
+                        # Extract all actions from the line except reallocation
                         match = re.search(
-                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning=[',\"](.*?)['\"]",
+                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning=['\"](.*?)['\"]",
+                            line,
+                            re.DOTALL
+                        )
+
+                        reallocation_math = re.search(
+                            r"Action: reallocation, \s*Prediction:\s*redeem_vault_names=\[([^\]]+)\]\s*redeem_share_amounts=\[([^\]]+)\]\s*allocation_vault_names=\[([^\]]+)\]\s*allocation_weights=\[([^\]]+)\]\s*reasoning=['\"](.*?)['\"]",
                             line,
                             re.DOTALL
                         )
@@ -109,9 +116,62 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                                 "action_name": action_name,
                                 "targets": targets,
                                 "amounts": amounts,
-                                "reasoning": reasoning
+                                "reasoning": f"{reasoning}"
                             })
+                        elif reallocation_math:
+                            redeem_vault_names = [t.strip("'\" ") for t in reallocation_math.group(1).split(',')]
+                            redeem_share_amounts = [float(a.strip()) for a in reallocation_math.group(2).split(',')]
+                            allocation_vault_names = [t.strip("'\" ") for t in reallocation_math.group(3).split(',')]
+                            allocation_weights = [float(a.strip()) for a in reallocation_math.group(4).split(',')]
+                            last_reallocation_reasoning = reallocation_math.group(5).strip()
 
+                elif "Action: redeem_allocations" in line:
+                    if last_observation is not None and last_reallocation_reasoning is not None:
+                        match = re.search(
+                            r"Action: redeem_allocations,\s*vault_names:\s*\[([^\]]+)\],\s*amounts:\s*\[([^\]]+)\]",
+                            line,
+                            re.DOTALL
+                        )
+                        if match:
+                            targets = [t.strip("'\" ") for t in match.group(1).split(',')]
+                            raw_amounts = match.group(2).split(',')
+                            amounts = []
+                            for a in raw_amounts:
+                                # extract the number inside np.float64(...)
+                                num_match = re.search(r'np\.float64\(([^)]+)\)', a)
+                                if num_match:
+                                    amounts.append(float(num_match.group(1)))
+                            actions.append({
+                                "date": last_observation,
+                                "action_name": "redeem_allocations",
+                                "targets": targets,
+                                "amounts": amounts,
+                                "reasoning": last_reallocation_reasoning
+                            })
+                elif "Action: allocate_assets" in line and "Prediction:" not in line:
+                    if last_observation is not None:
+                        match = re.search(
+                            r"Action: allocate_assets,\s*vault_names:\s*\[([^\]]+)\],\s*amounts:\s*\[([^\]]+)\]",
+                            line,
+                            re.DOTALL
+                        )
+                        if match:
+                            print("realloc")
+                            targets = [t.strip("'\" ") for t in match.group(1).split(',')]
+                            raw_amounts = match.group(2).split(',')
+                            amounts = []
+                            for a in raw_amounts:
+                                # extract the number inside np.float64(...)
+                                num_match = re.search(r'np\.float64\(([^)]+)\)', a)
+                                if num_match:
+                                    amounts.append(float(num_match.group(1)))
+                            actions.append({
+                                "date": last_observation,
+                                "action_name": "allocate_assets",
+                                "targets": targets,
+                                "amounts": amounts,
+                                "reasoning": last_reallocation_reasoning
+                            })
 
     except Exception as e:
         print(f"Error reading {log_file_path}: {e}")
@@ -356,7 +416,7 @@ def create_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
         ))
 
     fig.update_layout(
-        barmode='stack',
+        barmode='relative',
         title='Actions',
         xaxis_title='Date',
         yaxis_title='Actions',
@@ -369,8 +429,7 @@ def main():
     perf_df = load_vaults_performance("result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("runs/CuratorStrategy/55802d81-4a61-4b11-a5a5-9bde27cdc207/logs/logs.log")
-
+    actions_df = parse_log_file("runs/CuratorStrategy/3c5ab086-1477-42af-8efd-f255aa27d565/logs/logs.log")
     # build performance chart
     fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_idle_withdrawal = create_idle_withdrawal_chart(perf_df, TRADINGVIEW_TEMPLATE)
