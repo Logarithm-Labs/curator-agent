@@ -33,18 +33,12 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
     
     # Calculate APR for each point in time
-    df['meta_vault_apr'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
-    df['eth_vault_apr'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
-    df['btc_vault_apr'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
-    df['doge_vault_apr'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
-    df['pepe_vault_apr'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
+    df['meta_vault_apy'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
+    df['eth_vault_apy'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
+    df['btc_vault_apy'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
+    df['doge_vault_apy'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
+    df['pepe_vault_apy'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
 
-    # Calculate APY for each point in time
-    df['meta_vault_apy'] = (1 + df['meta_vault_apr'] / 365) ** 365 - 1
-    df['eth_vault_apy'] = (1 + df['eth_vault_apr'] / 365) ** 365 - 1
-    df['btc_vault_apy'] = (1 + df['btc_vault_apr'] / 365) ** 365 - 1
-    df['doge_vault_apy'] = (1 + df['doge_vault_apr'] / 365) ** 365 - 1
-    df['pepe_vault_apy'] = (1 + df['pepe_vault_apr'] / 365) ** 365 - 1
     
     return df
 
@@ -56,19 +50,6 @@ def wrap_text(text: str, width: int = 50) -> str:
 
 
 def parse_log_file(log_file_path: str) -> pd.DataFrame:
-    """
-    Parses a log file to extract agent actions. For each action, the timestamp of
-    the last observation is used. Returns a DataFrame of actions with the following format:
-    [{
-        "date": last observation before the action
-        "actions": [{
-            "action_name": "allocate_assets" / "redeem_allocations"
-            "targets": vault_names list
-            "amounts": amounts list
-        }]
-        "reasoning": reasoning string
-    }]
-    """
     actions = []
     last_observation = None
     last_reallocation_reasoning = ""
@@ -94,13 +75,13 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                     if last_observation is not None:
                         # Extract all actions from the line except reallocation
                         match = re.search(
-                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning=['\"](.*?)['\"]",
+                            r"Action:\s*(\w+),\s*Prediction:\s*vault_names=\[([^\]]+)\]\s*amounts=\[([^\]]+)\]\s*reasoning=(\"(.*?)\"|'(.*?)')",
                             line,
                             re.DOTALL
                         )
 
                         reallocation_math = re.search(
-                            r"Action: reallocation, \s*Prediction:\s*redeem_vault_names=\[([^\]]+)\]\s*redeem_share_amounts=\[([^\]]+)\]\s*allocation_vault_names=\[([^\]]+)\]\s*allocation_weights=\[([^\]]+)\]\s*reasoning=['\"](.*?)['\"]",
+                            r"Action: reallocation, \s*Prediction:\s*redeem_vault_names=\[([^\]]+)\]\s*redeem_share_amounts=\[([^\]]+)\]\s*allocation_vault_names=\[([^\]]+)\]\s*allocation_weights=\[([^\]]+)\]\s*reasoning=(\"(.*?)\"|'(.*?)')",
                             line,
                             re.DOTALL
                         )
@@ -288,7 +269,7 @@ def create_share_price_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
     ))
 
     fig.update_layout(
-        title='Vault Share Prices',
+        title='Vault Share Price',
         xaxis_title='Date',
         yaxis_title='Price',
         **template
@@ -325,7 +306,7 @@ def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
 
     fig.update_layout(
         barmode='stack',
-        title='Vaults Allocations',
+        title='Vault Allocations',
         xaxis_title='Date',
         yaxis_title='Shares',
         **template
@@ -366,9 +347,9 @@ def create_idle_withdrawal_chart(perf_df: pd.DataFrame, template: dict) -> go.Fi
 
     fig.update_layout(
         barmode='relative',
-        title='Vault States',
+        title='Simulated Vault States (Idle and Pending Withdrawal Assets)',
         xaxis_title='Date',
-        yaxis_title='Idles & Withdrawals',
+        yaxis_title='State',
         **template
     )
     return fig
@@ -439,7 +420,7 @@ def main():
     # run dash app
     app = dash.Dash(__name__)
     app.layout = html.Div([
-        dcc.Graph(figure=fig_share_price), dcc.Graph(figure=fig_idle_withdrawal), dcc.Graph(figure=fig_perf), dcc.Graph(figure=fig_allocation), dcc.Graph(figure=fig_actions)
+       dcc.Graph(figure=fig_share_price), dcc.Graph(figure=fig_perf), dcc.Graph(figure=fig_idle_withdrawal), dcc.Graph(figure=fig_allocation), dcc.Graph(figure=fig_actions)
     ])
     # app.layout = html.Div([
     #     dcc.Graph(figure=fig_actions)
