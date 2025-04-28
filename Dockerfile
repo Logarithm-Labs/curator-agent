@@ -8,6 +8,8 @@ ADD . /app
 # Set the working directory
 WORKDIR /app
 
+EXPOSE 8050
+
 # Install project dependencies using uv
 RUN uv sync --locked
 
