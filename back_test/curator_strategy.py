@@ -220,15 +220,13 @@ class CuratorStrategy(BaseStrategy):
                         validation_result = validate_reallocation(reallocation_prediction.allocation_vault_names, reallocation_prediction.allocation_weights)
                         if validation_result.result == 'pass':
                             self._debug(f"Action: reallocation, Prediction: {reallocation_prediction}")
-                            if len(reallocation_prediction.redeem_vault_names) > 0:
+                            if len(reallocation_prediction.redeem_vault_names) > 0 and sum(reallocation_prediction.redeem_share_amounts) > 0:
                                 assets_to_redeem = [
                                     self.get_entity(redeem_vault_name.lower()).preview_redeem(redeem_share_amount)
                                     for (redeem_vault_name, redeem_share_amount) in zip(reallocation_prediction.redeem_vault_names, reallocation_prediction.redeem_share_amounts)
                                 ]
                                 total_idle = sum(assets_to_redeem) + meta_vault.idle_assets- meta_vault.pending_withdrawals
-
-                                if len(reallocation_prediction.redeem_vault_names) > 0:
-                                    actions.append(
+                                actions.append(
                                         ActionToTake(
                                             entity_name=META_VAULT_NAME,
                                             action=Action(
@@ -241,8 +239,9 @@ class CuratorStrategy(BaseStrategy):
                                         )
                                     )
 
-                                    # debug the vault names and assets amounts that are going to be withdrawn
-                                    self._debug(f"Action: redeem_allocations, vault_names: {reallocation_prediction.redeem_vault_names}, amounts: {assets_to_redeem}")
+                                # debug the vault names and assets amounts that are going to be withdrawn
+                                self._debug(f"Action: redeem_allocations, vault_names: {reallocation_prediction.redeem_vault_names}, amounts: {assets_to_redeem}")
+                                    
                                 
                                 if total_idle > 0 and len(reallocation_prediction.allocation_vault_names) > 0:
                                     assets_to_allocate = [total_idle * weight for weight in reallocation_prediction.allocation_weights[:-1]]
@@ -273,6 +272,7 @@ class CuratorStrategy(BaseStrategy):
                         self._debug(f"Action(Failed): reallocation, Prediction: {reallocation_prediction}")
                         input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
 
+            # when no reallocation
             if len(actions) == 0 and meta_vault.idle_assets > DUST:
                 msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
                 msg += f"The target vaults are {LOG_VAULT_NAMES}.\n"
@@ -309,7 +309,7 @@ class CuratorStrategy(BaseStrategy):
 
             elif len(actions) == 0 and meta_vault.pending_withdrawals > DUST:
                 msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Allocated asset amount for each vault:\n "
-                balances: dict[str, float] = {}
+                balances = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
                     if vault.balance > 0:
