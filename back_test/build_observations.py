@@ -15,7 +15,7 @@ def build_observations(with_run: bool = True) -> List[Observation]:
         List[Observation]: List of observations containing vault states for each day
     """
     observations: List[Observation] = []
-    vault_data = VaultsLoader(1_0000_000, LOG_VAULT_NAMES, META_VAULT_NAME, 'back_test/data/hyperliquid').read(with_run=with_run)
+    vault_data = VaultsLoader(1_000_000, LOG_VAULT_NAMES, META_VAULT_NAME, 'back_test/data/hyperliquid').read(with_run=with_run)
     min_length = min(len(df) for df in vault_data.values())
     for i in range(min_length):
         states = {}
