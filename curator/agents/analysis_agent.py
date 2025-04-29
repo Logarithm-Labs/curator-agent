@@ -21,8 +21,8 @@ For each vault,
 1. **Retrieve** the share price history using the tool.
 2. **Analyze the trend** using linear regression or something you prefer.
 3. **Classify the trend** and optionally forecast the share price over a short-term horizon (e.g., 7 days).
-4. **Return output in the following structured JSON format:**
-    ```json
+4. **Return output in the following format:**
+    ```
     [
         {
             "vault_name": "<string>",

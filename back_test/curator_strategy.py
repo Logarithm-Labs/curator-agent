@@ -196,7 +196,84 @@ class CuratorStrategy(BaseStrategy):
         if self._window_size == 0:
             # predict actions
             actions = []
-            if meta_vault.idle_assets > DUST:
+
+            # reallocation check
+            msg = f"Share holdings for each vault:\n "
+            balances: dict[str, float] = {}
+            for vault_name in LOG_VAULT_NAMES:
+                vault: LogarithmVault = self.get_entity(vault_name)
+                msg += f"- `{vault_name}`: {vault.shares} \n"
+                balances[vault_name] = vault.shares
+                    
+            input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
+
+            with trace("Reallocation with Feedback"):
+                while True:
+                    res = Runner.run_sync(
+                        self._reallocation_agent,
+                        input_items
+                    )
+                    input_items = res.to_input_list()
+                    reallocation_prediction: ReallocationAction = res.final_output
+                    validation_result = validate_redeem(reallocation_prediction.redeem_vault_names, reallocation_prediction.redeem_share_amounts, balances)
+                    if validation_result.result == 'pass':
+                        validation_result = validate_reallocation(reallocation_prediction.allocation_vault_names, reallocation_prediction.allocation_weights)
+                        if validation_result.result == 'pass':
+                            self._debug(f"Action: reallocation, Prediction: {reallocation_prediction}")
+                            if len(reallocation_prediction.redeem_vault_names) > 0:
+                                assets_to_redeem = [
+                                    self.get_entity(redeem_vault_name.lower()).preview_redeem(redeem_share_amount)
+                                    for (redeem_vault_name, redeem_share_amount) in zip(reallocation_prediction.redeem_vault_names, reallocation_prediction.redeem_share_amounts)
+                                ]
+                                total_idle = sum(assets_to_redeem) + meta_vault.idle_assets- meta_vault.pending_withdrawals
+
+                                if len(reallocation_prediction.redeem_vault_names) > 0:
+                                    actions.append(
+                                        ActionToTake(
+                                            entity_name=META_VAULT_NAME,
+                                            action=Action(
+                                                action="redeem_allocations",
+                                                args={
+                                                    'targets': [NamedEntity(entity_name=redeem_vault_name, entity=self.get_entity(redeem_vault_name.lower())) for redeem_vault_name in reallocation_prediction.redeem_vault_names],
+                                                    'amounts': reallocation_prediction.redeem_share_amounts
+                                                }
+                                            )
+                                        )
+                                    )
+
+                                    # debug the vault names and assets amounts that are going to be withdrawn
+                                    self._debug(f"Action: redeem_allocations, vault_names: {reallocation_prediction.redeem_vault_names}, amounts: {assets_to_redeem}")
+                                
+                                if total_idle > 0 and len(reallocation_prediction.allocation_vault_names) > 0:
+                                    assets_to_allocate = [total_idle * weight for weight in reallocation_prediction.allocation_weights[:-1]]
+                                    allocated_sum = sum(assets_to_allocate)
+                                    last_allocation = total_idle - allocated_sum
+                                    assets_to_allocate.append(last_allocation)
+                                    actions.append(
+                                        ActionToTake(
+                                            entity_name=META_VAULT_NAME,
+                                            action=Action(
+                                                action="allocate_assets",
+                                                args={
+                                                    'targets': [NamedEntity(entity_name=allocation_vault_name, entity=self.get_entity(allocation_vault_name.lower())) for allocation_vault_name in reallocation_prediction.allocation_vault_names],
+                                                    'amounts': assets_to_allocate
+                                                }
+                                            )
+                                        )
+                                    )
+
+                                    # debug the vault names and assets amounts to which to allocate withdrawn assets
+                                    self._debug(f"Action: allocate_assets, vault_names: {reallocation_prediction.allocation_vault_names}, amounts: {assets_to_allocate}")
+
+                            break
+                        else:
+                            self._debug(f"Action(Failed): reallocation, Prediction: {reallocation_prediction}")
+                            input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
+                    else:
+                        self._debug(f"Action(Failed): reallocation, Prediction: {reallocation_prediction}")
+                        input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
+
+            if len(actions) == 0 and meta_vault.idle_assets > DUST:
                 msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
                 msg += f"The target vaults are {LOG_VAULT_NAMES}.\n"
                 msg += f"Sum of the output amounts must be the same as the total asset amount {meta_vault.idle_assets}"
@@ -230,7 +307,7 @@ class CuratorStrategy(BaseStrategy):
                             self._debug(f"Action(Failed): allocate_assets, Prediction: {prediction}")
                             input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
 
-            elif meta_vault.pending_withdrawals > DUST:
+            elif len(actions) == 0 and meta_vault.pending_withdrawals > DUST:
                 msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Allocated asset amount for each vault:\n "
                 balances: dict[str, float] = {}
                 for vault_name in LOG_VAULT_NAMES:
@@ -268,80 +345,6 @@ class CuratorStrategy(BaseStrategy):
                         else:
                             self._debug(f"Action(Failed): withdraw_allocations, Prediction: {prediction}")
                             input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
-
-            else:
-                msg = f"Share holdings for each vault:\n "
-                balances: dict[str, float] = {}
-                for vault_name in LOG_VAULT_NAMES:
-                    vault: LogarithmVault = self.get_entity(vault_name)
-                    msg += f"- `{vault_name}`: {vault.shares} \n"
-                    balances[vault_name] = vault.shares
-                        
-                input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
-
-                with trace("Reallocation with Feedback"):
-                    while True:
-                        res = Runner.run_sync(
-                            self._reallocation_agent,
-                            input_items
-                        )
-                        input_items = res.to_input_list()
-                        prediction: ReallocationAction = res.final_output
-                        validation_result = validate_redeem(prediction.redeem_vault_names, prediction.redeem_share_amounts, balances)
-                        if validation_result.result == 'pass':
-                            validation_result = validate_reallocation(prediction.allocation_vault_names, prediction.allocation_weights)
-                            if validation_result.result == 'pass':
-                                self._debug(f"Action: reallocation, Prediction: {prediction}")
-                                if len(prediction.redeem_vault_names) > 0:
-                                    assets_to_redeem = [
-                                        self.get_entity(redeem_vault_name.lower()).preview_redeem(redeem_share_amount)
-                                        for (redeem_vault_name, redeem_share_amount) in zip(prediction.redeem_vault_names, prediction.redeem_share_amounts)
-                                    ]
-                                    total_withdrawals = sum(assets_to_redeem) - meta_vault.pending_withdrawals
-                                    actions.append(
-                                        ActionToTake(
-                                            entity_name=META_VAULT_NAME,
-                                            action=Action(
-                                                action="redeem_allocations",
-                                                args={
-                                                    'targets': [NamedEntity(entity_name=redeem_vault_name, entity=self.get_entity(redeem_vault_name.lower())) for redeem_vault_name in prediction.redeem_vault_names],
-                                                    'amounts': prediction.redeem_share_amounts
-                                                }
-                                            )
-                                        )
-                                    )
-
-                                    # debug the vault names and assets amounts that are going to be withdrawn
-                                    self._debug(f"Action: redeem_allocations, vault_names: {prediction.redeem_vault_names}, amounts: {assets_to_redeem}")
-                                    
-                                    assets_to_allocate = [total_withdrawals * weight for weight in prediction.allocation_weights[:-1]]
-                                    allocated_sum = sum(assets_to_allocate)
-                                    last_allocation = total_withdrawals - allocated_sum
-                                    assets_to_allocate.append(last_allocation)
-                                    actions.append(
-                                        ActionToTake(
-                                            entity_name=META_VAULT_NAME,
-                                            action=Action(
-                                                action="allocate_assets",
-                                                args={
-                                                    'targets': [NamedEntity(entity_name=allocation_vault_name, entity=self.get_entity(allocation_vault_name.lower())) for allocation_vault_name in prediction.allocation_vault_names],
-                                                    'amounts': assets_to_allocate
-                                                }
-                                            )
-                                        )
-                                    )
-
-                                    # debug the vault names and assets amounts to which to allocate withdrawn assets
-                                    self._debug(f"Action: allocate_assets, vault_names: {prediction.allocation_vault_names}, amounts: {assets_to_allocate}")
-
-                                break
-                            else:
-                                self._debug(f"Action(Failed): reallocation, Prediction: {prediction}")
-                                input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
-                        else:
-                            self._debug(f"Action(Failed): reallocation, Prediction: {prediction}")
-                            input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
-
             # sleep to avoid rate limit
             time.sleep(1)
             self._window_size = self._params.WINDOW_SIZE
