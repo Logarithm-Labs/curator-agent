@@ -3,10 +3,10 @@ from typing import List
 from agents import Agent
 
 class ReallocationAction(BaseModel):
-    redeem_vault_names: List[str] = Field(description="A list of vault names from which shares will be redeemed, e.g ['btc', 'eth']. Empty if no action is needed.")
-    redeem_share_amounts: List[float] = Field(description="A list of share amounts to be redeemed from the corresponding vaults presented in `redeem_vault_names`. Empty if no action is needed.")
-    allocation_vault_names: List[str] = Field(description="A list of vault names to which withdrawn assets by redeeming will be allocated, e.g ['btc', 'eth']. Empty if no action is needed.")
-    allocation_weights: List[float] = Field(description="A list of weights to allocate the redeemed assets to the corresponding vaults presented in `allocation_vault_names`. Empty if no action is needed.")
+    redeem_vault_names: List[str] = Field(description="List of vault names from which shares will be redeemed, e.g ['btc', 'eth']. Empty if no action is needed.")
+    redeem_share_amounts: List[float] = Field(description="List of share amounts to be redeemed from the corresponding vaults presented in `redeem_vault_names`. Empty if no action is needed.")
+    allocation_vault_names: List[str] = Field(description="List of vault names to which assets withdrawn by redeeming will be allocated, e.g ['btc', 'eth']. Empty if no action is needed.")
+    allocation_weights: List[float] = Field(description="List of weights (ratios summing to 1) to allocate the redeemed assets to the corresponding vaults presented in `allocation_vault_names`. Empty if no action is needed.")
     reasoning: str = Field(description="The agent's reasoning for taking this action.")
 
 REALLOCATION_PROMPT = """
@@ -34,9 +34,9 @@ Your task is to **analyze current holdings and vault performance**, and recommen
   If `allocation ≤ pending_withdrawals`: no cost  
   Else: `(allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)`
 
-### Tools
-- `get_logarithm_vault_infos`
-- `share_price_trend_analysis`
+### Tools Available
+- `get_logarithm_vault_infos`: retrieves current share price, pending withdrawals, idle assets and cost info
+- `share_price_trend_analysis`: performance direction and forecast
 """
 
 # Note: We will add available tools at runtime
