@@ -12,7 +12,8 @@ class MetaVaultEntityException(EntityException):
 
 @dataclass
 class MetaVaultGlobalState(GlobalState):
-    pass
+    deposits: float = 0.0
+    withdrawals: float = 0.0
 
 @dataclass
 class MetaVaultInternalState(InternalState):
@@ -143,6 +144,11 @@ class MetaVault(BaseEntity):
                 self._allocated_vaults = [v for v in self._allocated_vaults if v.entity_name != target.entity_name]
         
     def update_state(self, state: MetaVaultGlobalState):
+        if state.deposits < 0 or state.withdrawals < 0:
+            raise MetaVaultEntityException("Idle assets and pending withdrawals must be greater than 0")
+        if state.deposits > 0 and state.withdrawals > 0:
+            raise MetaVaultEntityException("Both idle assets and pending withdrawals cannot be greater than 0")
+
         self._global_state = state
 
     @property

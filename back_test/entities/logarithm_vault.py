@@ -8,12 +8,12 @@ class LogarithmVaultEntityException(EntityException):
 @dataclass
 class LogarithmVaultGlobalState(GlobalState):
     share_price: float = 1.0
+    idle_assets: float = 0.0
+    pending_withdrawals: float = 0.0
 
 @dataclass
 class LogarithmVaultInternalState:
     shares: float = 0.0
-    idle_assets: float = 0.0
-    pending_withdrawals: float = 0.0
 
 class LogarithmVault(BaseEntity):
     """
@@ -32,21 +32,6 @@ class LogarithmVault(BaseEntity):
     def _initialize_states(self):
         self._global_state: LogarithmVaultGlobalState = LogarithmVaultGlobalState()
         self._internal_state: LogarithmVaultInternalState = LogarithmVaultInternalState()
-
-    def mock_idle_n_pending_withdrawals(self, idle_assets: float, pending_withdrawals: float):
-        """
-        Mock the idle assets and pending withdrawals.
-        """
-        if idle_assets < 0 or pending_withdrawals < 0:
-            raise LogarithmVaultEntityException("Idle assets and pending withdrawals must be greater than 0")
-        if idle_assets > 0 and pending_withdrawals > 0:
-            raise LogarithmVaultEntityException("Idle assets and pending withdrawals cannot be both greater than 0")
-
-        self._internal_state.idle_assets = idle_assets
-        self._internal_state.pending_withdrawals = pending_withdrawals
-
-        print(f"Idle assets: {self._internal_state.idle_assets}")
-        print(f"Pending withdrawals: {self._internal_state.pending_withdrawals}")
 
     def action_deposit(self, assets: float) -> float:
         # deposit assets to the vault entity
@@ -101,7 +86,11 @@ class LogarithmVault(BaseEntity):
     def update_state(self, state: LogarithmVaultGlobalState):
         if state.share_price <= 0:
             raise LogarithmVaultEntityException("Share price must be greater than 0")
-        
+        if state.idle_assets < 0 or state.pending_withdrawals < 0:
+            raise LogarithmVaultEntityException("Idle assets and pending withdrawals must be greater than 0")
+        if state.idle_assets > 0 and state.pending_withdrawals > 0:
+            raise LogarithmVaultEntityException("Idle assets and pending withdrawals cannot be both greater than 0")
+
         self._global_state = state
 
     @property
@@ -123,11 +112,11 @@ class LogarithmVault(BaseEntity):
     
     @property
     def idle_assets(self) -> float:
-        return self._internal_state.idle_assets
+        return self._global_state.idle_assets
     
     @property
     def pending_withdrawals(self) -> float:
-        return self._internal_state.pending_withdrawals
+        return self._global_state.pending_withdrawals
     
     def preview_deposit(self, assets: float) -> float:
         # Preview the number of shares that would be received for a given amount of assets

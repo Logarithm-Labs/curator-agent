@@ -6,29 +6,24 @@ using an AI agent to make allocation decisions.
 """
 import math
 import time
-import random
-import pandas as pd
 from dataclasses import dataclass
-from datetime import datetime, UTC
 from agents import function_tool, Runner, Agent, trace, TResponseInputItem
 from typing import List, Dict, Tuple
 from fractal.core.base import (
     BaseStrategy, Action, BaseStrategyParams,
-    ActionToTake, NamedEntity, Observation)
+    ActionToTake, NamedEntity)
 from fractal.core.base.observations import ObservationsStorage, SQLiteObservationsStorage
-from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState, LogarithmVaultInternalState
-from back_test.entities.meta_vault import MetaVault, MetaVaultInternalState
+from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState
+from back_test.entities.meta_vault import MetaVault, MetaVaultGlobalState
 from back_test.prompts import ACTIVE_PROMPT
-from back_test.openai_agent import create_agent, ActionList
 from curator.agents.allocation_agent import allocation_agent, AllocationAction
 from curator.agents.withdraw_agent import withdraw_agent, WithdrawAction
 from curator.agents.reallocation_agent import reallocation_agent, ReallocationAction
 from curator.agents.analysis_agent import analysis_agent, summary_extractor
 from curator.utils.validate_actions import validate_allocation, validate_withdraw, validate_redeem, validate_reallocation
+from back_test.constants import LOG_VAULT_NAMES, META_VAULT_NAME
+from back_test.build_observations import build_observations
 
-# Define vault names
-LOG_VAULT_NAMES = ['btc', 'eth', 'doge', 'pepe']
-META_VAULT_NAME = 'meta_vault'
 DUST = 0.000001
 @dataclass
 class CuratorStrategyParams(BaseStrategyParams):
@@ -190,36 +185,15 @@ class CuratorStrategy(BaseStrategy):
         Returns:
             List[ActionToTake]: List of actions to take for asset allocation
         """
+        meta_vault: MetaVault = self.get_entity(META_VAULT_NAME)
+        meta_vault_state: MetaVaultGlobalState = meta_vault.global_state
+        if meta_vault_state.deposits > 0:
+            meta_vault.action_deposit(meta_vault_state.deposits)
+        elif meta_vault_state.withdrawals > 0:
+            assets = min(meta_vault_state.withdrawals, meta_vault.total_assets)
+            meta_vault.action_withdraw(assets)
+
         if self._window_size == 0:
-            # mock idle and pending withdrawals randomly for each logarithm vault
-            for vault_name in LOG_VAULT_NAMES:
-                vault: LogarithmVault = self.get_entity(vault_name)
-                opportunity_to_withdraw = random.randint(0, 1)
-                if opportunity_to_withdraw == 1:
-                    idle_assets = 0
-                    pending_withdrawals = random.randint(0, 5000)
-                else:
-                    idle_assets = random.randint(0, 5000)
-                    pending_withdrawals = 0
-                self._debug(f"vault_name: {vault_name}, idle_assets: {idle_assets}, pending_withdrawals: {pending_withdrawals}")
-                vault.mock_idle_n_pending_withdrawals(idle_assets=idle_assets, pending_withdrawals=pending_withdrawals)
-
-            meta_vault: MetaVault = self.get_entity(META_VAULT_NAME)
-            rand = random.randint(0, 3)
-            # randomly deposit or withdraw assets from the meta vault
-            if rand == 0:
-                assets = random.randint(0, 100000)
-                shares = meta_vault.action_deposit(assets)
-                self._debug(f"Deposit Assets: {assets}")
-                self._debug(f"Mint Share: {shares}")
-            elif rand == 1:
-                assets = random.randint(0, 50000)
-                max = int(meta_vault.total_assets)
-                if assets < max:
-                    shares = meta_vault.action_withdraw(assets)
-                    self._debug(f"Withdraw Assets: {assets}")
-                    self._debug(f"Burnt Shares: {shares}")
-
             # predict actions
             actions = []
             if meta_vault.idle_assets > DUST:
@@ -376,55 +350,9 @@ class CuratorStrategy(BaseStrategy):
             self._window_size -= 1
             return []
 
-
-def build_observations() -> List[Observation]:
-    """
-    Build observations list from strategy backtest data, grouped by day.
-    
-    Returns:
-        List[Observation]: List of observations containing vault states for each day
-    """
-    observations: List[Observation] = []
-    vault_data: Dict[str, pd.DataFrame] = {}
-    
-    # Load strategy backtest data for each vault
-    for vault_name in LOG_VAULT_NAMES:
-        with open(f"back_test/data/hyperliquid/{vault_name}/strategy_backtest_data.csv", "r") as f:
-            df = pd.read_csv(f)
-            # Convert timestamp to datetime and set as index
-            df['timestamp'] = pd.to_datetime(df['timestamp'])
-            df.set_index('timestamp', inplace=True)
-            # Group by day and take the last value of each day
-            df = df.resample('d').last()
-            vault_data[vault_name] = df
-    
-    # Get the minimum length of data across all vaults
-    min_length = min(len(df) for df in vault_data.values())
-    
-    # Build observations list
-    for i in range(min_length):
-        states = {}
-        timestamp = None
-        for vault_name in LOG_VAULT_NAMES:
-            df = vault_data[vault_name]
-            initial_balance = 1_000_000
-            current_balance = df.iloc[i]['net_balance']
-            share_price = current_balance / initial_balance
-            timestamp = df.index[i].to_pydatetime().astimezone(UTC)
-            states[vault_name] = LogarithmVaultGlobalState(share_price=share_price)
-        
-        observations.append(Observation(timestamp=timestamp, states=states))
-                
-    
-    return observations
-
 if __name__ == "__main__":
     # load strategy_backtest_data.csv for each of the logarithm vaults
-    observations = build_observations()
-    # # save observations to csv
-    # with open('observations.csv', 'w') as f:
-    #     for observation in observations:
-    #         f.write(f"{observation.timestamp},{observation.states['btc'].share_price},{observation.states['eth'].share_price},{observation.states['doge'].share_price},{observation.states['pepe'].share_price}\n")
+    observations = build_observations(False)
     # Run the strategy with an Agent
     params: CuratorStrategyParams = CuratorStrategyParams()
     strategy = CuratorStrategy(debug=True, params=params,
