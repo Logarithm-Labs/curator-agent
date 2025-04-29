@@ -131,8 +131,8 @@ class CuratorStrategy(BaseStrategy):
             recent_observations = observations[-length:] if len(observations) > length else observations
             # Filter out observations that do not contain the vault name
             recent_observations = [observation for observation in recent_observations if vault_name in observation.states]
-            # Sort observations by timestamp in descending order
-            recent_observations.sort(key=lambda x: x.timestamp, reverse=True)
+            # Sort observations by timestamp in ascending order
+            recent_observations.sort(key=lambda x: x.timestamp, reverse=False)
             # Get the share price history for the vault
             return [
                 (observation.timestamp.isoformat(), float(observation.states[vault_name].share_price))
