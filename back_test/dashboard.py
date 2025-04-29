@@ -19,8 +19,8 @@ TRADINGVIEW_TEMPLATE = {
 def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     """
     Loads the vaults performance from a CSV file.
-    And derive the performance APY for each vault based on share price.
-    APY is calculated as: (current_share_price - 1) * (365 days / days_since_start)
+    And derive the performance APR for each vault based on share price.
+    APR is calculated as: (current_share_price - 1) * (365 days / days_since_start)
     """
     df = pd.read_csv(result_file_path)
     df['date'] = pd.to_datetime(df['timestamp'])
@@ -33,11 +33,11 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
     
     # Calculate APR for each point in time
-    df['meta_vault_apy'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
-    df['eth_vault_apy'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
-    df['btc_vault_apy'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
-    df['doge_vault_apy'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
-    df['pepe_vault_apy'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
+    df['meta_vault_apr'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
+    df['eth_vault_apr'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
+    df['btc_vault_apr'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
+    df['doge_vault_apr'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
+    df['pepe_vault_apr'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
 
     
     return df
@@ -172,59 +172,59 @@ def get_marker_y(perf_df: pd.DataFrame, date: datetime, action_type: str, vault_
     row = perf_df[perf_df['date'].dt.date == date.date()]
     if not row.empty:
         if action_type == 'allocate_assets':
-            return row.iloc[0][f'{vault_name}_vault_apy'] * 0.9
+            return row.iloc[0][f'{vault_name}_vault_apr'] * 0.9
         else:
-            return row.iloc[0][f'{vault_name}_vault_apy'] * 1.1
+            return row.iloc[0][f'{vault_name}_vault_apr'] * 1.1
     return None
 
 def create_performance_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
     """
-    Creates a performance chart comparing APY
+    Creates a performance chart comparing APR
     Add actions to the chart
     """
 
-    btc_apy = perf_df['btc_vault_apy']
-    eth_apy = perf_df['eth_vault_apy']
-    doge_apy = perf_df['doge_vault_apy']
-    pepe_apy = perf_df['pepe_vault_apy']
-    meta_vault_apy = perf_df['meta_vault_apy']
+    btc_apr = perf_df['btc_vault_apr']
+    eth_apr = perf_df['eth_vault_apr']
+    doge_apr = perf_df['doge_vault_apr']
+    pepe_apr = perf_df['pepe_vault_apr']
+    meta_vault_apr = perf_df['meta_vault_apr']
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=perf_df['date'],
-        y=btc_apy,
+        y=btc_apr,
         mode='lines',
         name='BTC'
     ))
     fig.add_trace(go.Scatter(
         x=perf_df['date'],
-        y=eth_apy,
+        y=eth_apr,
         mode='lines',
         name='ETH'
     ))
     fig.add_trace(go.Scatter(
         x=perf_df['date'],
-        y=doge_apy,
+        y=doge_apr,
         mode='lines',
         name='DOGE'
     ))
     fig.add_trace(go.Scatter(
         x=perf_df['date'],
-        y=pepe_apy,
+        y=pepe_apr,
         mode='lines',
         name='PEPE'
     ))
     fig.add_trace(go.Scatter(
         x=perf_df['date'],
-        y=meta_vault_apy,
+        y=meta_vault_apr,
         mode='lines',
         name='Meta Vault'
     ))
 
     fig.update_layout(
-        title='Vaults APY',
+        title='Vaults APR',
         xaxis_title='Date',
-        yaxis_title='APY',
+        yaxis_title='APR',
         **template
     )
     return fig
@@ -420,7 +420,7 @@ def main():
     # run dash app
     app = dash.Dash(__name__)
     app.layout = html.Div([
-       dcc.Graph(figure=fig_share_price), dcc.Graph(figure=fig_perf), dcc.Graph(figure=fig_idle_withdrawal), dcc.Graph(figure=fig_allocation), dcc.Graph(figure=fig_actions)
+        dcc.Graph(figure=fig_actions), dcc.Graph(figure=fig_share_price), dcc.Graph(figure=fig_perf), dcc.Graph(figure=fig_idle_withdrawal), dcc.Graph(figure=fig_allocation)
     ])
     # app.layout = html.Div([
     #     dcc.Graph(figure=fig_actions)
