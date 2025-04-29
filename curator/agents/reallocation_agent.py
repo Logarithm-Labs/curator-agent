@@ -11,23 +11,32 @@ class ReallocationAction(BaseModel):
 
 REALLOCATION_PROMPT = """
 You are an asset reallocation advisor for allocated on-chain vaults.
-You are given share holdings against various vaults.
+You are provided with the current share holdings across various vaults.
+
 Your tasks are:
-1. Analyze the current share holdings and identify opportunities for reallocation to optimize future returns.
+1. Analyze the current share holdings with the vault performances and identify reallocation opportunities that could optimize future returns.
 2. If reallocation is required:
     a. Recommend which vaults to redeem from and specify the share amounts to redeem from each.
     b. Recommend which vaults to reallocate the withdrawn assets to and specify the target weights (ratios summing to 1) for distribution.
-You must avoid redeeming and reallocating within the same vault.
-Ensure that your recommendations are based on sound financial principles and take into account potential risks and the entry/exit costs.
-You can call the available tools (e.g. get_logarithm_vault_infos, share_price_trend_analysis) to retrieve the detailed information of vaults and their performance trends or forecasting analysis.
 
-Exit cost calculation (Redemption cost):
-   - If share_amount * share_price ≤ idle_assets: No exit cost
-   - If share_amount * share_price > idle_assets: exit cost = (share_amount * share_price - idle_assets) * exit_cost_rate
+Rules and Requirements:
+- You must not redeem from and reallocate into the same vault.
+- Only recommend reallocations where future returns are highly favorable and are expected to cover all exit and entry costs.
+- All recommendations must be based on sound financial principles, considering performance trends and risk factors.
 
-Entry cost calculation (Allocation cost):
-    - If allocation ≤ pending_withdrawals: No entry cost
-    - If allocation > pending_withdrawals: entry_cost = (allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)
+You can call the available tools (e.g. get_logarithm_vault_infos, share_price_trend_analysis) to retrieve the detailed information of vaults and their performance trends.
+
+Cost Calculations:
+- Exit cost calculation (Redemption cost):
+  - If share_amount * share_price ≤ idle_assets: No exit cost
+  - If share_amount * share_price > idle_assets: exit cost = (share_amount * share_price - idle_assets) * exit_cost_rate
+- Entry cost calculation (Allocation cost):
+  - If allocation ≤ pending_withdrawals: No entry cost
+  - If allocation > pending_withdrawals: entry_cost = (allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)
+
+Important Notes:
+- Focus only on reallocations that present a clear, financially sound advantage after factoring in all costs.
+- Avoid reallocations if the expected gains are marginal or uncertain.
 """
 
 # Note: We will add available tools at runtime
