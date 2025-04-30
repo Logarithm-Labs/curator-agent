@@ -99,7 +99,7 @@ class VaultsLoader(Loader):
             freq=self.interval
         )
         deposits_withdrawals = [
-            self._random.uniform(-self.init_balance / 1000, self.init_balance / 1000) if self._random.randint(0,1) == 0 else 0  
+            self._random.uniform(-self.init_balance / 200, self.init_balance / 200) if self._random.randint(0,1) == 0 else 0  
             for _ in range(len(timestamps))
         ]
         meta_vault_data = pd.DataFrame({

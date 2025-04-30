@@ -20,10 +20,17 @@ You are given:
 
 ### Objective
 Your goal is to **maximize expected future returns**, while **minimizing total entry costs** — but **return potential must always be prioritized** over cost minimization.
+You must recommend:
+- Which vaults to allocate into.
+- How much to allocate to each vault (in absolute terms).
+- The total allocation must **sum to the total or slightly less** (to avoid over-allocation).
 
 ### Rules
 1. **Prioritize vaults with the highest expected return**, based on trend analysis.
-2. The total allocation must **sum to the total or slightly less** (to avoid over-allocation).
+2. Only allocate to **vaults with upward or stable trends**. Avoid clearly downward-trending vaults.
+3. **Avoid splitting allocations just to avoid entry cost**, unless performance justifies it.
+   - Paying a cost is acceptable if it leads to **higher net returns**.
+4. You may **allocate 100% to a single vault** if it’s the optimal choice, even if costs are incurred.
 5. Avoid unnecessary tool calls — try to reuse existing data.
 
 ### Entry Cost Calculation
