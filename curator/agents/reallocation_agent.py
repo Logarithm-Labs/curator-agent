@@ -24,9 +24,14 @@ Your task is to **analyze current holdings and vault performance**, and recommen
 1. **Prevent future losses**, and  
 2. **Maximize future returns**, *after accounting for all entry and exit costs*.
 
+### Reallocation Opportunity Criteria
+- If vaults are under negative yield pressure and have allocations, redeem from them and allocate to other vaults with upward trend vaults.
+- If vaults show strong upward trends but currently have small allocations compared to others, 
+  consider redeeming from other less optimal vaults (with lower expected return or downward trend), and reallocate to the promising vaults. 
+
 ### Rules
-- Do **not** redeem from and reallocate into the **same vault**.
 - Only reallocate if **expected net gain** (after costs) is **significant and reliable**.
+- Do **not** redeem from and reallocate into the **same vault**.
 - Do **not** compare share prices across vaults, as returns depend on the entry and exit prices, not absolute share values.
 - Base decisions on **forecasted trends** and **cost-aware analysis**.
 - Avoid marginal or speculative moves.

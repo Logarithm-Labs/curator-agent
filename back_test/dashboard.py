@@ -81,7 +81,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                         )
 
                         reallocation_math = re.search(
-                            r"Action: reallocation, \s*Prediction:\s*redeem_vault_names=\[([^\]]+)\]\s*redeem_share_amounts=\[([^\]]+)\]\s*allocation_vault_names=\[([^\]]+)\]\s*allocation_weights=\[([^\]]+)\]\s*reasoning=(\"(.*?)\"|'(.*?)')",
+                            r"Action: reallocation, Prediction: action_needed=True(.*)reasoning=(\"(.*?)\"|'(.*?)')",
                             line,
                             re.DOTALL
                         )
@@ -100,11 +100,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                                 "reasoning": f"{reasoning}"
                             })
                         elif reallocation_math:
-                            redeem_vault_names = [t.strip("'\" ") for t in reallocation_math.group(1).split(',')]
-                            redeem_share_amounts = [float(a.strip()) for a in reallocation_math.group(2).split(',')]
-                            allocation_vault_names = [t.strip("'\" ") for t in reallocation_math.group(3).split(',')]
-                            allocation_weights = [float(a.strip()) for a in reallocation_math.group(4).split(',')]
-                            last_reallocation_reasoning = reallocation_math.group(5).strip()
+                            last_reallocation_reasoning = reallocation_math.group(2).strip()
 
                 elif "Action: redeem_allocations" in line:
                     if last_observation is not None and last_reallocation_reasoning is not None:
