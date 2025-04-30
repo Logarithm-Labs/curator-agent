@@ -13,12 +13,10 @@ class ReallocationAction(BaseModel):
     action_needed: bool = Field(description="Indicates whether a reallocation is required or not.")
     actions: Actions = Field(description="Reallocation actions to perform. May be empty if no action is required.")
     reasoning: str = Field(description="The agent's reasoning for taking this action.")
-    follow_up_questions: list[str] = Field(description="Follow‑up questions for further analysis.")
 
 REALLOCATION_PROMPT = """
 You are an **asset reallocation advisor** responsible for optimizing capital distribution across **on-chain vaults**.
 You are provided with the current **share holdings** across multiple vaults.
-You analyze current share holdings across vaults to recommend reallocations **only when it clearly improves expected returns after costs**.
 
 ### Objective
 Your task is to **analyze current holdings and vault performance**, and recommend **reallocations** only when they are expected to:
@@ -31,7 +29,6 @@ Your task is to **analyze current holdings and vault performance**, and recommen
   consider redeeming from other less optimal vaults (with lower expected return or downward trend), and reallocate to the promising vaults. 
 
 ### Rules
-- Only reallocate if **expected net gain** (after costs) is **significant and reliable**.
 - Do **not** redeem from and reallocate into the **same vault**.
 - Do **not** compare share prices across vaults, as returns depend on the entry and exit prices, not absolute share values.
 - Base decisions on **forecasted trends** and **cost-aware analysis**.
@@ -56,5 +53,5 @@ reallocation_agent = Agent(
     name="ReallocationAgent",
     instructions=REALLOCATION_PROMPT,
     output_type=ReallocationAction,
-    model="o1-2024-12-17"
+    model="gpt-4o-2024-08-06"
 )
