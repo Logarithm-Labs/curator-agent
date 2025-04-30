@@ -11,15 +11,18 @@
    Synchronize the required dependencies by running:
 
    ```bash
-   uv sync
+   uv sync --locked
    ```
 
 3. **Run Backtest**  
-   Execute the backtest to get results:
-
-   ```bash
-   uv run -m back_test.curator_strategy
-   ```
+   1. Execute to build observations:
+      ```bash
+      uv run -m back_test.build_observations
+      ```
+   2. Execute to get backtest data:
+      ```bash
+      uv run -m back_test.curator_strategy
+      ```
 
 4. **View Results in Charts**  
    Visualize the results in chart format by running:
