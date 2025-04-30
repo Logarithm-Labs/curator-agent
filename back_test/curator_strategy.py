@@ -215,6 +215,8 @@ class CuratorStrategy(BaseStrategy):
                     )
                     input_items = res.to_input_list()
                     reallocation_prediction: ReallocationAction = res.final_output
+                    
+                    print(reallocation_prediction.follow_up_questions)
 
                     if not reallocation_prediction.action_needed:
                         break

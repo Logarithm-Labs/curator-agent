@@ -13,6 +13,7 @@ class ReallocationAction(BaseModel):
     action_needed: bool = Field(description="Indicates whether a reallocation is required or not.")
     actions: Actions = Field(description="Reallocation actions to perform. May be empty if no action is required.")
     reasoning: str = Field(description="The agent's reasoning for taking this action.")
+    follow_up_questions: list[str] = Field(description="Follow‑up questions for further analysis.")
 
 REALLOCATION_PROMPT = """
 You are an **asset reallocation advisor** responsible for optimizing capital distribution across **on-chain vaults**.
@@ -55,5 +56,5 @@ reallocation_agent = Agent(
     name="ReallocationAgent",
     instructions=REALLOCATION_PROMPT,
     output_type=ReallocationAction,
-    model="gpt-4o-2024-08-06"
+    model="o1-2024-12-17"
 )
