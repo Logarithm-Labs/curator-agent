@@ -215,15 +215,19 @@ class CuratorStrategy(BaseStrategy):
                     )
                     input_items = res.to_input_list()
                     reallocation_prediction: ReallocationAction = res.final_output
-                    validation_result = validate_redeem(reallocation_prediction.redeem_vault_names, reallocation_prediction.redeem_share_amounts, balances)
+
+                    if not reallocation_prediction.action_needed:
+                        break
+
+                    validation_result = validate_redeem(reallocation_prediction.actions.redeem_vault_names, reallocation_prediction.actions.redeem_share_amounts, balances)
                     if validation_result.result == 'pass':
-                        validation_result = validate_reallocation(reallocation_prediction.allocation_vault_names, reallocation_prediction.allocation_weights)
+                        validation_result = validate_reallocation(reallocation_prediction.actions.allocation_vault_names, reallocation_prediction.actions.allocation_weights)
                         if validation_result.result == 'pass':
                             self._debug(f"Action: reallocation, Prediction: {reallocation_prediction}")
-                            if len(reallocation_prediction.redeem_vault_names) > 0 and sum(reallocation_prediction.redeem_share_amounts) > 0:
+                            if len(reallocation_prediction.actions.redeem_vault_names) > 0 and sum(reallocation_prediction.actions.redeem_share_amounts) > 0:
                                 assets_to_redeem = [
                                     self.get_entity(redeem_vault_name.lower()).preview_redeem(redeem_share_amount)
-                                    for (redeem_vault_name, redeem_share_amount) in zip(reallocation_prediction.redeem_vault_names, reallocation_prediction.redeem_share_amounts)
+                                    for (redeem_vault_name, redeem_share_amount) in zip(reallocation_prediction.actions.redeem_vault_names, reallocation_prediction.actions.redeem_share_amounts)
                                 ]
                                 total_idle = sum(assets_to_redeem) + meta_vault.idle_assets- meta_vault.pending_withdrawals
                                 actions.append(
@@ -232,19 +236,19 @@ class CuratorStrategy(BaseStrategy):
                                             action=Action(
                                                 action="redeem_allocations",
                                                 args={
-                                                    'targets': [NamedEntity(entity_name=redeem_vault_name, entity=self.get_entity(redeem_vault_name.lower())) for redeem_vault_name in reallocation_prediction.redeem_vault_names],
-                                                    'amounts': reallocation_prediction.redeem_share_amounts
+                                                    'targets': [NamedEntity(entity_name=redeem_vault_name, entity=self.get_entity(redeem_vault_name.lower())) for redeem_vault_name in reallocation_prediction.actions.redeem_vault_names],
+                                                    'amounts': reallocation_prediction.actions.redeem_share_amounts
                                                 }
                                             )
                                         )
                                     )
 
                                 # debug the vault names and assets amounts that are going to be withdrawn
-                                self._debug(f"Action: redeem_allocations, vault_names: {reallocation_prediction.redeem_vault_names}, amounts: {assets_to_redeem}")
+                                self._debug(f"Action: redeem_allocations, vault_names: {reallocation_prediction.actions.redeem_vault_names}, amounts: {assets_to_redeem}")
                                     
                                 
-                                if total_idle > 0 and len(reallocation_prediction.allocation_vault_names) > 0:
-                                    assets_to_allocate = [total_idle * weight for weight in reallocation_prediction.allocation_weights[:-1]]
+                                if total_idle > 0 and len(reallocation_prediction.actions.allocation_vault_names) > 0:
+                                    assets_to_allocate = [total_idle * weight for weight in reallocation_prediction.actions.allocation_weights[:-1]]
                                     allocated_sum = sum(assets_to_allocate)
                                     last_allocation = total_idle - allocated_sum
                                     assets_to_allocate.append(last_allocation)
@@ -254,7 +258,7 @@ class CuratorStrategy(BaseStrategy):
                                             action=Action(
                                                 action="allocate_assets",
                                                 args={
-                                                    'targets': [NamedEntity(entity_name=allocation_vault_name, entity=self.get_entity(allocation_vault_name.lower())) for allocation_vault_name in reallocation_prediction.allocation_vault_names],
+                                                    'targets': [NamedEntity(entity_name=allocation_vault_name, entity=self.get_entity(allocation_vault_name.lower())) for allocation_vault_name in reallocation_prediction.actions.allocation_vault_names],
                                                     'amounts': assets_to_allocate
                                                 }
                                             )
@@ -262,7 +266,7 @@ class CuratorStrategy(BaseStrategy):
                                     )
 
                                     # debug the vault names and assets amounts to which to allocate withdrawn assets
-                                    self._debug(f"Action: allocate_assets, vault_names: {reallocation_prediction.allocation_vault_names}, amounts: {assets_to_allocate}")
+                                    self._debug(f"Action: allocate_assets, vault_names: {reallocation_prediction.actions.allocation_vault_names}, amounts: {assets_to_allocate}")
 
                             break
                         else:

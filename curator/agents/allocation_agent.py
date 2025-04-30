@@ -4,9 +4,9 @@ from agents import Agent
 from dataclasses import dataclass
 
 class AllocationAction(BaseModel):
-    vault_names: List[str] = Field(description="List of vault names to allocate, e.g ['btc', 'eth']")
+    vault_names: List[str] = Field(description="Names of vaults to which assets should be allocated. e.g ['btc', 'eth']")
     amounts: List[float] = Field(
-        description="List of amounts corresponding to each vault presented in vault_names."
+        description="Amounts of assets to allocate to the corresponding vaults listed in `vault_names`. Must be the same length"
     )
     reasoning: str = Field(description="The agent's reasoning for taking this action")
 

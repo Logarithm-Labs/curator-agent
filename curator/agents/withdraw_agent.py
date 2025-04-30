@@ -3,9 +3,9 @@ from typing import List
 from agents import Agent
 
 class WithdrawAction(BaseModel):
-    vault_names: List[str] = Field(description="List of allocated vault names to withdraw from, e.g ['btc', 'eth']")
+    vault_names: List[str] = Field(description="Names of vaults from which assets should be withdrawn, e.g ['btc', 'eth']")
     amounts: List[float] = Field(
-        description="List of amounts corresponding to each vault presented in vault_names."
+        description="Amounts of assets to withdraw from the corresponding vaults listed in `vault_names`. Must be the same length"
     )
     reasoning: str = Field(description="The agent's reasoning for taking this action")
 
