@@ -15,7 +15,6 @@ from fractal.core.base import (
 from fractal.core.base.observations import ObservationsStorage, SQLiteObservationsStorage
 from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultGlobalState
 from back_test.entities.meta_vault import MetaVault, MetaVaultGlobalState
-from back_test.prompts import ACTIVE_PROMPT
 from curator.agents.allocation_agent import allocation_agent, AllocationAction
 from curator.agents.withdraw_agent import withdraw_agent, WithdrawAction
 from curator.agents.reallocation_agent import reallocation_agent, ReallocationAction
@@ -33,13 +32,9 @@ class CuratorStrategyParams(BaseStrategyParams):
     Attributes:
         INIT_BALANCE (float): Initial balance to start with (default: 100,000)
         WINDOW_SIZE (int): Size of the observation window (default: 7)
-        MODEL (str): Name of the AI model to use (default: 'gpt-4-turbo')
-        PROMPT (str): Prompt template for the AI agent (default: ACTIVE_PROMPT)
     """
     INIT_BALANCE: float = 100_000
     WINDOW_SIZE: int = 7
-    MODEL: str = 'gpt-4-turbo'
-    PROMPT: str = ACTIVE_PROMPT
 
 class CuratorStrategy(BaseStrategy):
     """
