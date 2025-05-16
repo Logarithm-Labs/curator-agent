@@ -6,6 +6,7 @@ import dash
 from dash import dcc, html
 import plotly.graph_objects as go
 import pandas as pd
+from back_test.constants import LOG_VAULT_NAMES, META_VAULT_NAME
 
 # TradingView-like style template
 TRADINGVIEW_TEMPLATE = {
@@ -27,18 +28,17 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     df.sort_values(by='date', inplace=True)
     
     # Calculate share prices relative to start
-    df['meta_vault_share_price'] = df['net_balance'] / df['meta_vault_total_supply']
+    df[f'{META_VAULT_NAME}_vault_share_price'] = df['net_balance'] / df['meta_vault_total_supply']
+    for vault_name in LOG_VAULT_NAMES:
+        df[f'{vault_name}_vault_share_price'] = df[f'{vault_name}_share_price']
     
     # Calculate days since start for each row
     df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
     
     # Calculate APR for each point in time
-    df['meta_vault_apr'] = (df['meta_vault_share_price'] - 1) * (365 / df['days_since_start'])
-    df['eth_vault_apr'] = (df['eth_share_price'] - 1) * (365 / df['days_since_start'])
-    df['btc_vault_apr'] = (df['btc_share_price'] - 1) * (365 / df['days_since_start'])
-    df['doge_vault_apr'] = (df['doge_share_price'] - 1) * (365 / df['days_since_start'])
-    df['pepe_vault_apr'] = (df['pepe_share_price'] - 1) * (365 / df['days_since_start'])
-
+    df[f'{META_VAULT_NAME}_vault_apr'] = (df[f'{META_VAULT_NAME}_vault_share_price']/df[f'{META_VAULT_NAME}_vault_share_price'].iloc[0] - 1) * (365 / df['days_since_start'])
+    for vault_name in LOG_VAULT_NAMES:
+        df[f'{vault_name}_vault_apr'] = (df[f'{vault_name}_vault_share_price']/df[f'{vault_name}_vault_share_price'].iloc[0] - 1) * (365 / df['days_since_start'])
     
     return df
 
@@ -178,44 +178,20 @@ def create_performance_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
     Creates a performance chart comparing APR
     Add actions to the chart
     """
+    apr_data = {}
+    for vault_name in LOG_VAULT_NAMES:
+        apr_data[vault_name] = perf_df[f'{vault_name}_vault_apr']
+    apr_data[META_VAULT_NAME] = perf_df[f'{META_VAULT_NAME}_vault_apr']
 
-    btc_apr = perf_df['btc_vault_apr']
-    eth_apr = perf_df['eth_vault_apr']
-    doge_apr = perf_df['doge_vault_apr']
-    pepe_apr = perf_df['pepe_vault_apr']
-    meta_vault_apr = perf_df['meta_vault_apr']
 
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=btc_apr,
-        mode='lines',
-        name='BTC'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=eth_apr,
-        mode='lines',
-        name='ETH'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=doge_apr,
-        mode='lines',
-        name='DOGE'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=pepe_apr,
-        mode='lines',
-        name='PEPE'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=meta_vault_apr,
-        mode='lines',
-        name='Meta Vault'
-    ))
+    for vault_name, apr in apr_data.items():
+        fig.add_trace(go.Scatter(
+            x=perf_df['date'],
+            y=apr,
+            mode='lines',
+            name=vault_name
+        ))
 
     fig.update_layout(
         title='Vaults APR',
@@ -226,43 +202,20 @@ def create_performance_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
     return fig
 
 def create_share_price_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
-    btc_share_price = perf_df['btc_share_price']
-    eth_share_price = perf_df['eth_share_price']
-    doge_share_price = perf_df['doge_share_price']
-    pepe_share_price = perf_df['pepe_share_price']
-    meta_vault_share_price = perf_df['meta_vault_share_price']
+    share_price_data = {}
+    share_price_data[META_VAULT_NAME] = perf_df[f'{META_VAULT_NAME}_vault_share_price']
+    for vault_name in LOG_VAULT_NAMES:
+        share_price_data[vault_name] = perf_df[f'{vault_name}_vault_share_price']
+
 
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=btc_share_price,
-        mode='lines',
-        name='BTC'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=eth_share_price,
-        mode='lines',
-        name='ETH'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=doge_share_price,
-        mode='lines',
-        name='DOGE'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=pepe_share_price,
-        mode='lines',
-        name='PEPE'
-    ))
-    fig.add_trace(go.Scatter(
-        x=perf_df['date'],
-        y=meta_vault_share_price,
-        mode='lines',
-        name='Meta Vault'
-    ))
+    for vault_name, share_price in share_price_data.items():
+        fig.add_trace(go.Scatter(
+            x=perf_df['date'],
+            y=share_price,
+            mode='lines',
+            name=vault_name
+        ))
 
     fig.update_layout(
         title='Vault Share Price',
@@ -273,32 +226,18 @@ def create_share_price_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
     return fig
 
 def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
-    btc_shares = perf_df['btc_shares']
-    eth_shares = perf_df['eth_shares']
-    doge_shares = perf_df['doge_shares']
-    pepe_shares = perf_df['pepe_shares']
+    allocation_data = {}
+    for vault_name in LOG_VAULT_NAMES:
+        allocation_data[vault_name] = perf_df[f'{vault_name}_shares']
 
     fig = go.Figure()
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=btc_shares,
-        name='BTC'
-    ))
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=eth_shares,
-        name='ETH'
-    ))
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=doge_shares,
-        name='DOGE'
-    ))
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=pepe_shares,
-        name='PEPE'
-    ))
+    for vault_name, shares in allocation_data.items():
+        if vault_name != META_VAULT_NAME:
+            fig.add_trace(go.Bar(
+                x=perf_df['date'],
+                y=shares,
+                name=vault_name
+            ))
 
     fig.update_layout(
         barmode='stack',
@@ -310,36 +249,17 @@ def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
     return fig
 
 def create_idle_withdrawal_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
-    btc_idle_assets = perf_df['btc_idle_assets']
-    eth_idle_assets = perf_df['eth_idle_assets']
-    doge_idle_assets = perf_df['doge_idle_assets']
-    pepe_idle_assets = perf_df['pepe_idle_assets']
-    btc_pending_withdrawals = perf_df['btc_pending_withdrawals']
-    eth_pending_withdrawals = perf_df['eth_pending_withdrawals']
-    doge_pending_withdrawals = perf_df['doge_pending_withdrawals']
-    pepe_pending_withdrawals = perf_df['pepe_pending_withdrawals']
+    idle_withdrawal_data = {}
+    for vault_name in LOG_VAULT_NAMES:
+        idle_withdrawal_data[vault_name] = perf_df[f'{vault_name}_idle_assets'] - perf_df[f'{vault_name}_pending_withdrawals']
 
     fig = go.Figure()
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=btc_idle_assets - btc_pending_withdrawals,
-        name='BTC'
-    ))
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=eth_idle_assets - eth_pending_withdrawals,
-        name='ETH'
-    ))
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=doge_idle_assets - doge_pending_withdrawals,
-        name='DOGE'
-    ))
-    fig.add_trace(go.Bar(
-        x=perf_df['date'],
-        y=pepe_idle_assets - pepe_pending_withdrawals,
-        name='PEPE'
-    ))
+    for vault_name, idle_withdrawal in idle_withdrawal_data.items():
+        fig.add_trace(go.Bar(
+            x=perf_df['date'],
+            y=idle_withdrawal,
+            name=vault_name
+        ))
 
     fig.update_layout(
         barmode='relative',
