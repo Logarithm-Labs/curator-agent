@@ -4,7 +4,6 @@ Curator Strategy Module
 This module implements a strategy for managing asset allocation across multiple logarithm vaults
 using an AI agent to make allocation decisions.
 """
-import math
 import time
 from dataclasses import dataclass
 from agents import function_tool, Runner, Agent, trace, TResponseInputItem
@@ -353,7 +352,6 @@ class CuratorStrategy(BaseStrategy):
             return []
 
 if __name__ == "__main__":
-    # load strategy_backtest_data.csv for each of the logarithm vaults
     observations = build_observations(False)
     # Run the strategy with an Agent
     params: CuratorStrategyParams = CuratorStrategyParams()

@@ -52,11 +52,8 @@ class LogVaultLoader(Loader):
             df = pd.read_csv(f)
             # Convert timestamp to datetime and ensure UTC timezone
             timestamps = pd.to_datetime(df['timestamp'])
-            # Handle both tz-naive and tz-aware timestamps
-            if timestamps.dt.tz is None:
-                timestamps = timestamps.dt.tz_localize(UTC)
-            else:
-                timestamps = timestamps.dt.tz_convert(UTC)
+            # Remove Timezone if it exists
+            timestamps = timestamps.dt.tz_localize(None)
             df['timestamp'] = timestamps
             df.set_index('timestamp', inplace=True)
             df = df.sort_index()
@@ -84,7 +81,7 @@ class LogVaultLoader(Loader):
     def load(self):
         self._load(self._file_id)
 
-    def read(self, with_run: bool = False) -> Dict[str, pd.DataFrame]:
+    def read(self, with_run: bool = False) -> pd.DataFrame:
         if with_run:
             self.run()
         else:

@@ -51,7 +51,7 @@ class MetaVaultLoader(Loader):
     
 
     def extract(self):
-        self._data = pd.DataFrame(index=pd.date_range(start=self.start_time, end=self.end_time, freq=self.interval, tz=UTC))
+        self._data = pd.DataFrame(index=pd.date_range(start=self.start_time, end=self.end_time, freq=self.interval, tz=None))
         # set index field name as 'timestamp'
         self._data.index.name = 'timestamp'
 
@@ -64,7 +64,7 @@ class MetaVaultLoader(Loader):
     def load(self):
         self._load(self._file_id)
 
-    def read(self, with_run: bool = False) -> Dict[str, pd.DataFrame]:
+    def read(self, with_run: bool = False) -> pd.DataFrame:
         if with_run:
             self.run()
         else:
