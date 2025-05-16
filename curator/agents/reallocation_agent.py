@@ -16,10 +16,10 @@ class ReallocationAction(BaseModel):
 
 REALLOCATION_PROMPT = """
 You are an **asset reallocation advisor** responsible for optimizing capital distribution across **on-chain vaults**.
-You are provided with the current **share holdings** across multiple vaults.
+You are provided with the current **share holdings** across all vaults.
 
 ### Objective
-Your task is to **analyze current holdings and vault performance**, and recommend **reallocations** only when they are expected to:
+Your task is to analyze the **performance of all vaults** and the **current holdings**, and recommend **reallocations** only when they are expected to:
 1. **Prevent future losses**, and  
 2. **Maximize future returns**, *after accounting for all entry and exit costs*.
 
@@ -53,5 +53,5 @@ reallocation_agent = Agent(
     name="ReallocationAgent",
     instructions=REALLOCATION_PROMPT,
     output_type=ReallocationAction,
-    model="gpt-4o-2024-08-06"
+    model="o4-mini"
 )

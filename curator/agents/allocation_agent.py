@@ -47,6 +47,6 @@ allocation_agent = Agent(
     name="AllocationAgent",
     instructions=ALLOCATION_PROMPT,
     output_type=AllocationAction,
-    model="gpt-4o-2024-08-06"
+    model="o4-mini"
 )
 

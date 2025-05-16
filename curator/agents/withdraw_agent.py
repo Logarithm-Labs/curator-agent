@@ -45,6 +45,6 @@ withdraw_agent = Agent(
     name="WithdrawAgent",
     instructions=WITHDRAW_PROMPT,
     output_type=WithdrawAction,
-    model="gpt-4o-2024-08-06"
+    model="o4-mini"
 )
 

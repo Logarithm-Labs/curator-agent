@@ -28,17 +28,17 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     df.sort_values(by='date', inplace=True)
     
     # Calculate share prices relative to start
-    df[f'{META_VAULT_NAME}_vault_share_price'] = df['net_balance'] / df['meta_vault_total_supply']
     for vault_name in LOG_VAULT_NAMES:
         df[f'{vault_name}_vault_share_price'] = df[f'{vault_name}_share_price']
+    df[f'{META_VAULT_NAME}_vault_share_price'] = df['net_balance'] / df['meta_vault_total_supply']
     
     # Calculate days since start for each row
     df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
     
     # Calculate APR for each point in time
-    df[f'{META_VAULT_NAME}_vault_apr'] = (df[f'{META_VAULT_NAME}_vault_share_price']/df[f'{META_VAULT_NAME}_vault_share_price'].iloc[0] - 1) * (365 / df['days_since_start'])
     for vault_name in LOG_VAULT_NAMES:
         df[f'{vault_name}_vault_apr'] = (df[f'{vault_name}_vault_share_price']/df[f'{vault_name}_vault_share_price'].iloc[0] - 1) * (365 / df['days_since_start'])
+    df[f'{META_VAULT_NAME}_vault_apr'] = (df[f'{META_VAULT_NAME}_vault_share_price']/df[f'{META_VAULT_NAME}_vault_share_price'].iloc[0] - 1) * (365 / df['days_since_start'])
     
     return df
 
@@ -55,7 +55,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
     last_reallocation_reasoning = ""
 
     try:
-        with open(log_file_path, 'r') as f:
+        with open(log_file_path, 'r', encoding='utf-8', errors='replace') as f:
             for line in f:
                 # Update last_observation if the line contains an Observation timestamp
                 if "Observation:" in line:
@@ -203,9 +203,10 @@ def create_performance_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
 
 def create_share_price_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
     share_price_data = {}
-    share_price_data[META_VAULT_NAME] = perf_df[f'{META_VAULT_NAME}_vault_share_price']
+    
     for vault_name in LOG_VAULT_NAMES:
         share_price_data[vault_name] = perf_df[f'{vault_name}_vault_share_price']
+    share_price_data[META_VAULT_NAME] = perf_df[f'{META_VAULT_NAME}_vault_share_price']
 
 
     fig = go.Figure()

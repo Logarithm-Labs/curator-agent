@@ -33,7 +33,7 @@ class CuratorStrategyParams(BaseStrategyParams):
         WINDOW_SIZE (int): Size of the observation window (default: 7)
     """
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 7
+    WINDOW_SIZE: int = 1
 
 class CuratorStrategy(BaseStrategy):
     """
