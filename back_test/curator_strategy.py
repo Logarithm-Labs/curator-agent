@@ -23,7 +23,7 @@ from back_test.constants import LOG_VAULT_NAMES, META_VAULT_NAME
 from back_test.build_observations import build_observations
 
 DUST = 0.000001
-INIT_WINDOW = 30
+INIT_WINDOW_SIZE = 30
 @dataclass
 class CuratorStrategyParams(BaseStrategyParams):
     """
@@ -58,7 +58,7 @@ class CuratorStrategy(BaseStrategy):
         self._reallocation_agent = agents['reallocation_agent']
         self._withdraw_agent = agents['withdraw_agent']
         self._window_size = params.WINDOW_SIZE
-        self._init_window = INIT_WINDOW
+        self._init_window_size = INIT_WINDOW_SIZE
 
     def __create_agent(self) -> Dict[str, Agent]:
         """
@@ -189,7 +189,11 @@ class CuratorStrategy(BaseStrategy):
             assets = min(meta_vault_state.withdrawals, meta_vault.total_assets)
             meta_vault.action_withdraw(assets)
 
-        if self._window_size == 0 and self._init_window == 0:
+        if self._init_window_size != 0:
+            self._init_window_size -= 1
+            return []
+
+        if self._window_size == 0:
             # predict actions
             actions = []
 
@@ -351,7 +355,6 @@ class CuratorStrategy(BaseStrategy):
             return actions
         else:
             self._window_size -= 1
-            self._init_window -= 1
             return []
 
 if __name__ == "__main__":
