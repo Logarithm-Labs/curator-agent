@@ -16,23 +16,16 @@ class ReallocationAction(BaseModel):
 
 REALLOCATION_PROMPT = """
 You are an **asset reallocation advisor** responsible for optimizing capital distribution across **on-chain vaults**.
-You are provided with the current **share holdings** across all vaults.
+You are provided with a list of vault names to analyze.
 
 ### Objective
-Your task is to analyze the **performance of all vaults** and the **current holdings**, and recommend **reallocations** only when they are expected to:
-1. **Prevent future losses**, and  
+Your task is to analyze the **performance of all given vaults** and the **current share holdings** with the **open assets**, and recommend **reallocations** only when they are expected to:
+1. **Prevent future losses**, and
 2. **Maximize future returns**, *after accounting for all entry and exit costs*.
-
-### Reallocation Opportunity Criteria
-- If vaults are under negative yield pressure and have allocations, redeem from them and allocate to other vaults with upward trend vaults.
-- If vaults show strong upward trends but currently have small allocations compared to others, 
-  consider redeeming from other less optimal vaults (with lower expected return or downward trend), and reallocate to the promising vaults. 
 
 ### Rules
 - Do **not** redeem from and reallocate into the **same vault**.
-- Do **not** compare share prices across vaults, as returns depend on the entry and exit prices, not absolute share values.
-- Base decisions on **forecasted trends** and **cost-aware analysis**.
-- Avoid marginal or speculative moves.
+- Do **not** compare share prices across vaults.
 
 ### Cost Calculations
 - **Exit Cost**:  
@@ -43,9 +36,20 @@ Your task is to analyze the **performance of all vaults** and the **current hold
   If `allocation ≤ pending_withdrawals`: no cost  
   Else: `(allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)`
 
+### Current Return Calculations
+  `return = current_assets - allocated_assets`
+
 ### Tools Available
-- `get_logarithm_vault_infos`: retrieves current share price, pending withdrawals, idle assets and cost info
-- `share_price_trend_analysis`: performance direction and forecast
+- `get_logarithm_vault_infos`: return the following information for each vault:
+    - current_share_price (float): Current price per share of the vault
+    - entry_cost_rate (float): Fee rate applied when depositing assets (as a decimal)
+    - exit_cost_rate (float): Fee rate applied when withdrawing assets (as a decimal)
+    - idle_assets (float): Assets in the vault available for withdrawal without exit cost
+    - pending_withdrawals (float): Assets queued for withdrawal in the vault, offsetting entry costs
+    - current_share_holding (float): Current share holding of the vault
+    - allocated_assets (float): Assets amount invested in the vault, can be negative which means the vault is in profit
+    - current_assets (float): Assets amount of the current share holding
+- `share_price_trend_analysis`: performance trend of the vault
 """
 
 # Note: We will add available tools at runtime

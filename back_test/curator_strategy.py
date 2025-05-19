@@ -72,17 +72,20 @@ class CuratorStrategy(BaseStrategy):
         def get_logarithm_vault_infos(vault_names: List[str]) -> Dict[str, Dict]:
             """Get the comprehensive information of Logarithm vaults.
 
-            Input:
+            Args:
                 vault_names (List): List of Logarithm vault names
 
             Returns:
                 Dict[str, Dict]: A dictionary mapping vault names to their detailed information.
                     Each vault's information contains:
-                    - share_price (float): Current price per share of the Logarithm vault
+                    - current_share_price (float): Current price per share of the Logarithm vault
                     - entry_cost_rate (float): Fee rate applied when depositing assets (as a decimal)
                     - exit_cost_rate (float): Fee rate applied when withdrawing assets (as a decimal)
                     - idle_assets (float): Assets in the Logarithm vault available for withdrawal without exit cost
                     - pending_withdrawals (float): Assets queued for withdrawal in the Logarithm vault, offsetting entry costs
+                    - current_share_holding (float): Current share holding of the Logarithm vault
+                    - allocated_assets (float): Assets amount invested in the Logarithm vault
+                    - current_assets (float): Assets amount of the current share holding
             """
             vault_infos = {}
             
@@ -96,11 +99,14 @@ class CuratorStrategy(BaseStrategy):
                 global_state: LogarithmVaultGlobalState = vault.global_state
                 
                 vault_info = {
-                    "share_price": float(global_state.share_price),
+                    "current_share_price": float(global_state.share_price),
                     "entry_cost_rate": float(vault.entry_cost_rate),
                     "exit_cost_rate": float(vault.exit_cost_rate),
                     "idle_assets": float(vault.idle_assets),
                     "pending_withdrawals": float(vault.pending_withdrawals),
+                    "current_share_holding": float(vault.shares),
+                    "allocated_assets": float(vault.open_assets),
+                    "current_assets": float(vault.balance),
                 }
 
                 vault_infos[vault_name] = vault_info
@@ -111,7 +117,7 @@ class CuratorStrategy(BaseStrategy):
         def get_share_price_history(vault_name: str, length: int) -> List[Tuple[str, float]]:
             """Use to get the historical daily share price for a given Logarithm vault.
 
-            Input:
+            Args:
                 vault_name (str): Logarithm vault name
                 length: Number of the most recent data points
 
@@ -198,11 +204,10 @@ class CuratorStrategy(BaseStrategy):
             actions = []
 
             # reallocation check
-            msg = f"Share holdings for each vault:\n "
+            msg = f"Vaults to analyze: {LOG_VAULT_NAMES}"
             balances: dict[str, float] = {}
             for vault_name in LOG_VAULT_NAMES:
                 vault: LogarithmVault = self.get_entity(vault_name)
-                msg += f"- `{vault_name}`: {vault.shares} \n"
                 balances[vault_name] = vault.shares
                     
             input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
@@ -279,8 +284,7 @@ class CuratorStrategy(BaseStrategy):
             # when no reallocation
             if len(actions) == 0 and meta_vault.idle_assets > DUST:
                 msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
-                msg += f"The target vaults are {LOG_VAULT_NAMES}.\n"
-                msg += f"Sum of the output amounts must be the same as the total asset amount {meta_vault.idle_assets}"
+                msg += f"The target vaults are {LOG_VAULT_NAMES}."
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
                 with trace("Allocation with Feedback"):
@@ -312,14 +316,12 @@ class CuratorStrategy(BaseStrategy):
                             input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
 
             elif len(actions) == 0 and meta_vault.pending_withdrawals > DUST:
-                msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Allocated asset amount for each vault:\n "
+                msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Candidate vaults to withdraw from: {LOG_VAULT_NAMES}"
                 balances = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
                     if vault.balance > 0:
-                        msg += f"- `{vault_name}`: {vault.balance} \n"
                         balances[vault_name] = vault.balance
-                msg += f"\nSum of the output amounts must be the same as the total asset amount {meta_vault.pending_withdrawals}."
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
                 with trace("Withdraw with Feedback"):

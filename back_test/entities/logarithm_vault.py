@@ -14,6 +14,7 @@ class LogarithmVaultGlobalState(GlobalState):
 @dataclass
 class LogarithmVaultInternalState:
     shares: float = 0.0
+    open_assets: float = 0.0
 
 class LogarithmVault(BaseEntity):
     """
@@ -42,7 +43,7 @@ class LogarithmVault(BaseEntity):
         
         shares_to_mint = self.preview_deposit(assets)
 
-        self._internal_state.shares += shares_to_mint
+        self._update_internal_state(shares_to_mint, assets)
 
         return shares_to_mint
     
@@ -57,7 +58,7 @@ class LogarithmVault(BaseEntity):
         
         assets_to_withdraw = self.preview_redeem(shares)
 
-        self._internal_state.shares -= shares
+        self._update_internal_state(-shares, -assets_to_withdraw)
 
         return assets_to_withdraw
     
@@ -71,7 +72,7 @@ class LogarithmVault(BaseEntity):
         allocated_assets = self.balance
         if assets == allocated_assets:
             shares_to_burn = self._internal_state.shares
-            self._internal_state.shares = 0
+            self._update_internal_state(-shares_to_burn, -allocated_assets)
             return shares_to_burn
         elif assets > allocated_assets:
             raise LogarithmVaultEntityException("Not enough allocated assets")
@@ -79,7 +80,7 @@ class LogarithmVault(BaseEntity):
             shares_to_burn = self.preview_withdraw(assets)
             if shares_to_burn > self._internal_state.shares:
                 raise LogarithmVaultEntityException("Not enough shares available to withdraw the requested assets")
-            self._internal_state.shares -= shares_to_burn
+            self._update_internal_state(-shares_to_burn, -assets)
 
             return shares_to_burn
         
@@ -92,6 +93,19 @@ class LogarithmVault(BaseEntity):
             raise LogarithmVaultEntityException("Idle assets and pending withdrawals cannot be both greater than 0")
 
         self._global_state = state
+
+    def _update_internal_state(self, delta_shares: float, delta_assets: float):
+        """
+        share price | open assets | shares  | delta assets | delta shares
+        1           | 100         | 100     | 100          | 100
+        2           | 200         | 150     | 100          | 50
+        4           | -200        | 50      | -400         | -100
+        """
+        self._internal_state.shares += delta_shares
+        self._internal_state.open_assets += delta_assets
+
+        if self._internal_state.shares == 0:
+            self._internal_state.open_assets = 0
 
     @property
     def balance(self) -> float:
@@ -117,6 +131,10 @@ class LogarithmVault(BaseEntity):
     @property
     def pending_withdrawals(self) -> float:
         return self._global_state.pending_withdrawals
+    
+    @property
+    def open_assets(self) -> float:
+        return self._internal_state.open_assets
     
     def preview_deposit(self, assets: float) -> float:
         # Preview the number of shares that would be received for a given amount of assets

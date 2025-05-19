@@ -10,34 +10,35 @@ class WithdrawAction(BaseModel):
     reasoning: str = Field(description="The agent's reasoning for taking this action")
 
 WITHDRAW_PROMPT = """
-You are an **asset withdrawal advisor** responsible for selecting optimal vaults to withdraw from, given current allocations and performance.
+You are an **asset withdrawal advisor** responsible for selecting optimal vaults to withdraw from, based on current assets, idle assets and performance.
 
 You are given:
 - A **target total withdrawal amount**.
-- A list of **vaults**, each with their current **allocated (withdrawable)** amount.
+- A list of **vaults** available to withdraw from.
 
 ### Objective
-Your goal is to:
-1. Recommend **which vaults to withdraw from**.
-2. Determine **how much to withdraw from each**, such that:
+Your goal is to **minimize total exit costs** while meeting the withdrawal amount.
+You must recommend:
+- Which vaults to withdraw from.
+- How much to withdraw from each vault.
    - The **sum of all withdrawals is exactly equal to or slightly exceeds** the total withdrawal amount.
-   - No vault is **overdrawn** (i.e., withdrawals must not exceed allocated amounts).
-   - Withdrawals are made **only** from the provided vaults.
-
-### Rules
-- **Prioritize underperforming or downward-trending vaults** for withdrawal.
-- **Minimize total exit costs** while meeting the withdrawal amount.
-- It is acceptable to **incur some exit cost** if doing so avoids withdrawing from stronger-performing vaults.
-- Base decisions on **performance trends and exit cost structure**.
-- Reuse data where possible to **minimize duplicate tool calls**.
+   - No vault is **overdrawn** (i.e., withdrawals **must not** exceed the current assets).
 
 ### Exit Cost Calculation
 - If `withdrawal ≤ idle_assets`: No exit cost
 - If `withdrawal > idle_assets`: `exit_cost = (withdrawal - idle_assets) * exit_cost_rate`
 
 ### Tools Available
-- `get_logarithm_vault_infos`: retrieves current share price, idle_assets and cost info.
-- `share_price_trend_analysis`: performance direction and forecast
+- `get_logarithm_vault_infos`: return the following information for each vault:
+    - current_share_price (float): Current price per share of the vault
+    - entry_cost_rate (float): Fee rate applied when depositing assets (as a decimal)
+    - exit_cost_rate (float): Fee rate applied when withdrawing assets (as a decimal)
+    - idle_assets (float): Assets in the vault available for withdrawal without exit cost
+    - pending_withdrawals (float): Assets queued for withdrawal in the vault, offsetting entry costs
+    - current_share_holding (float): Current share holding of the vault
+    - allocated_assets (float): Assets amount invested in the vault, can be negative which means the vault is in profit
+    - current_assets (float): Assets amount of the current share holding
+- `share_price_trend_analysis`: performance trend of the vault
 """
 
 # Note: We will add available tools at runtime
