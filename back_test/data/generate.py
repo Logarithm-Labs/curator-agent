@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
     # Set up
     start_time = datetime(2024, 1, 1, tzinfo=UTC)
-    end_time = datetime(2025, 1, 1, tzinfo=UTC)
+    end_time = datetime(2025, 5, 18, tzinfo=UTC)
     fidelity = '1h'
 
     HyperliquidBasis.MAX_LEVERAGE = hl_max_lvg
