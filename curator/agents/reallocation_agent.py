@@ -38,6 +38,8 @@ Your task is to analyze the **performance of all given vaults** and the **curren
 
 ### Current Return Calculations
   `return = current_assets - allocated_assets`
+  - Positive: profit
+  - Negative: loss
 
 ### Tools Available
 - `get_logarithm_vault_infos`: return the following information for each vault:

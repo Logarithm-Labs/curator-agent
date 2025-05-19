@@ -10,11 +10,11 @@ class WithdrawAction(BaseModel):
     reasoning: str = Field(description="The agent's reasoning for taking this action")
 
 WITHDRAW_PROMPT = """
-You are an **asset withdrawal advisor** responsible for selecting optimal vaults to withdraw from, based on current assets, idle assets and performance.
+You are an **asset withdrawal advisor** responsible for selecting optimal vaults to withdraw from, based on current assets, idle assets and exit cost rates.
 
 You are given:
 - A **target total withdrawal amount**.
-- A list of **vaults** available to withdraw from.
+- A list of **vaults** to analyze.
 
 ### Objective
 Your goal is to **minimize total exit costs** while meeting the withdrawal amount.
@@ -22,7 +22,7 @@ You must recommend:
 - Which vaults to withdraw from.
 - How much to withdraw from each vault.
    - The **sum of all withdrawals is exactly equal to or slightly exceeds** the total withdrawal amount.
-   - No vault is **overdrawn** (i.e., withdrawals **must not** exceed the current assets).
+   - Withdrawals **must not** exceed the `current_assets`.
 
 ### Exit Cost Calculation
 - If `withdrawal ≤ idle_assets`: No exit cost
