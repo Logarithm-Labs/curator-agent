@@ -23,7 +23,7 @@ from back_test.constants import LOG_VAULT_NAMES, META_VAULT_NAME
 from back_test.build_observations import build_observations
 
 DUST = 0.000001
-INIT_WINDOW_SIZE = 30
+INIT_WINDOW_SIZE = 14
 @dataclass
 class CuratorStrategyParams(BaseStrategyParams):
     """
@@ -34,7 +34,7 @@ class CuratorStrategyParams(BaseStrategyParams):
         WINDOW_SIZE (int): Size of the observation window (default: 7)
     """
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 1
+    WINDOW_SIZE: int = 7
 
 class CuratorStrategy(BaseStrategy):
     """
@@ -320,8 +320,7 @@ class CuratorStrategy(BaseStrategy):
                 balances = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
-                    if vault.balance > 0:
-                        balances[vault_name] = vault.balance
+                    balances[vault_name] = vault.balance
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
                 with trace("Withdraw with Feedback"):
