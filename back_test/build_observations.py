@@ -17,8 +17,8 @@ def build_observations(with_run: bool = True) -> List[Observation]:
     """
     observations: List[Observation] = []
     log_vault_df: Dict[str, pd.DataFrame] = {}
-    for log_vault_name in LOG_VAULT_NAMES:
-        log_vault_df[log_vault_name] = LogVaultLoader(log_vault_name, 1_000_000, 0.005, 'back_test/data/hyperliquid').read(with_run=with_run)
+    for i, log_vault_name in enumerate(LOG_VAULT_NAMES):
+        log_vault_df[log_vault_name] = LogVaultLoader(log_vault_name, 1_000_000, 0.005, 'back_test/data/hyperliquid', seed = i ).read(with_run=with_run)
         # set timestamp as index if it is not set
         if 'timestamp' in log_vault_df[log_vault_name].columns:
             log_vault_df[log_vault_name].set_index('timestamp', inplace=True)

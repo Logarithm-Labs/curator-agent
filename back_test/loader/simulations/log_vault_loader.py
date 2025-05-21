@@ -17,8 +17,8 @@ class LogVaultLoader(Loader):
         init_balance: The initial balance of the vault
         std_deviation_ratio: The ratio of the standard deviation to the initial balance that is used to simulate pending amounts
         data_base_path: The base path to the back tested vault data
+        seed: The seed value used for random number generation.
         interval: The interval of observations
-        seed (int): The seed value used for random number generation.
 
     Methods:
         extract(): Extracts the vault states from the base loader.
@@ -36,8 +36,8 @@ class LogVaultLoader(Loader):
         init_balance: float,
         std_deviation_ratio: float,
         data_base_path: str,
-        interval: str = 'd',
         seed: int = 420,
+        interval: str = 'd',
     ) -> None:
         super().__init__()
         self._data = None
