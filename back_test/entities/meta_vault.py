@@ -73,7 +73,7 @@ class MetaVault(BaseEntity):
                 raise MetaVaultEntityException("Asset amount must be greater than 0")
 
         shortfall = sum(amounts) - self.idle_assets
-        amounts[-1] -= shortfall if shortfall > 0 else 0
+        amounts[0] -= shortfall if shortfall > 0 else 0
         amounts = [amount if amount > DUST else 0 for amount in amounts]
         
         if (sum(amounts) > self.idle_assets):

@@ -29,7 +29,7 @@ and recommend **reallocations** or **redemptions** only when they are expected t
 ### Cost Calculations
 - **Exit Cost**:  
   If `share_price * share_to_redeem ≤ idle_assets`: no cost
-  Else: `(share_price * share_to_redeem - idle_assets) * exit_cost_rate`
+  Else: `(share_price * share_to_redeem - idle_assets) * exit_cost_rate / (exit_cost_rate + 1)`
 
 - **Entry Cost**:  
   If `assets_to_allocate ≤ pending_withdrawals`: no cost
