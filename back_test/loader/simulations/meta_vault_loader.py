@@ -17,8 +17,9 @@ class MetaVaultLoader(Loader):
         start_time: The start time of the meta vault
         end_time: The end time of the meta vault
         data_base_path: The base path to the back tested vault data
-        interval: The interval of observations
         seed (int): The seed value used for random number generation.
+        interval: The interval of observations
+        precision: float precision for simulated deposits/withdrawals
 
     Methods:
         extract(): Extracts the vault states from the base loader.
@@ -37,8 +38,9 @@ class MetaVaultLoader(Loader):
         start_time: datetime,
         end_time: datetime,
         data_base_path: str,
-        interval: str = 'd',
         seed: int = 420,
+        interval: str = 'd',
+        precision: int = 6
     ) -> None:
         super().__init__()
         self._data = None
@@ -48,6 +50,7 @@ class MetaVaultLoader(Loader):
         self.end_time = end_time
         self.data_base_path = data_base_path
         self.interval = interval
+        self.precision = precision
         self._file_id = "meta_simulated_data"
         self._random = random.Random()
         self._random.seed(seed)
@@ -63,11 +66,11 @@ class MetaVaultLoader(Loader):
         for index in range(len(self._data)):
             choice = self._random.randint(0, 2)
             if choice == 0:
-                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = self._random.uniform(0, self.deposit_simulation_limit)
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = round(self._random.uniform(0, self.deposit_simulation_limit), self.precision)
             elif choice == 1:
                 self._data.loc[self._data.index[index], 'deposits_withdrawals'] = 0
             else:
-                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = -self._random.uniform(0, self.withdraw_simulation_limit)
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = -round(self._random.uniform(0, self.withdraw_simulation_limit), self.precision)
 
 
     def load(self):

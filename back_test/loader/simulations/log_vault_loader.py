@@ -19,6 +19,7 @@ class LogVaultLoader(Loader):
         data_base_path: The base path to the back tested vault data
         seed: The seed value used for random number generation.
         interval: The interval of observations
+        precision: float precision for simulated idle assets and pending withdrawals
 
     Methods:
         extract(): Extracts the vault states from the base loader.
@@ -38,6 +39,7 @@ class LogVaultLoader(Loader):
         data_base_path: str,
         seed: int = 420,
         interval: str = 'd',
+        precision: int = 6
     ) -> None:
         super().__init__()
         self._data = None
@@ -46,6 +48,7 @@ class LogVaultLoader(Loader):
         self.log_vault_name = log_vault_name
         self.data_base_path = data_base_path
         self.interval = interval
+        self.precision = precision
         self._file_id = f"{self.log_vault_name}_simulated_data"
         self._random = random.Random()
         self._random.seed(seed)
@@ -61,7 +64,7 @@ class LogVaultLoader(Loader):
             df.set_index('timestamp', inplace=True)
             df = df.sort_index()
             # Group by day and take the last value of each day
-            df = df.resample('d').last()
+            df = df.resample(self.interval).last()
             return df
     
 
@@ -75,7 +78,7 @@ class LogVaultLoader(Loader):
         pending_withdrawals_array = []
         std_deviation = self.init_balance * self.std_deviation_ratio
         for _ in range(len(self._data)):
-            assets = self._random.normalvariate(0, std_deviation)
+            assets = round(self._random.normalvariate(0, std_deviation), self.precision)
             idle_assets_array.append(assets if assets > 0 else 0)
             pending_withdrawals_array.append(-assets if assets < 0 else 0)
         self._data['idle_assets'] = np.array(idle_assets_array)
