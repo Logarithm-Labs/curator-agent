@@ -26,7 +26,7 @@ analysis_agent = Agent(
     name="AnalysisAgent",
     instructions=ANALYSIS_PROMPT,
     output_type=AnalysisSummary,
-    model="gpt-4.1"
+    model="o4-mini"
 )
 
 def summary_extractor(run_result: RunResult) -> str:
