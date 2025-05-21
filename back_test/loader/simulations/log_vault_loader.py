@@ -13,8 +13,9 @@ class LogVaultLoader(Loader):
     This loader performs Monte Carlo simulation for each data point
 
     Attributes:
-        init_balance: The initial balance of the vault
         log_vault_name: The name of the Logarithm vault
+        init_balance: The initial balance of the vault
+        std_deviation_ratio: The ratio of the standard deviation to the initial balance that is used to simulate pending amounts
         data_base_path: The base path to the back tested vault data
         interval: The interval of observations
         seed (int): The seed value used for random number generation.
@@ -31,8 +32,9 @@ class LogVaultLoader(Loader):
 
     def __init__(
         self,
-        init_balance: float,
         log_vault_name: str,
+        init_balance: float,
+        std_deviation_ratio: float,
         data_base_path: str,
         interval: str = 'd',
         seed: int = 420,
@@ -40,6 +42,7 @@ class LogVaultLoader(Loader):
         super().__init__()
         self._data = None
         self.init_balance = init_balance
+        self.std_deviation_ratio = std_deviation_ratio
         self.log_vault_name = log_vault_name
         self.data_base_path = data_base_path
         self.interval = interval
@@ -70,7 +73,7 @@ class LogVaultLoader(Loader):
         self._data['share_price'] = self._data['net_balance'] / self.init_balance
         idle_assets_array = []
         pending_withdrawals_array = []
-        std_deviation = self.init_balance / 100
+        std_deviation = self.init_balance * self.std_deviation_ratio
         for _ in range(len(self._data)):
             assets = self._random.normalvariate(0, std_deviation)
             idle_assets_array.append(assets if assets > 0 else 0)

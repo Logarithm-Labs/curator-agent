@@ -18,7 +18,7 @@ def build_observations(with_run: bool = True) -> List[Observation]:
     observations: List[Observation] = []
     log_vault_df: Dict[str, pd.DataFrame] = {}
     for log_vault_name in LOG_VAULT_NAMES:
-        log_vault_df[log_vault_name] = LogVaultLoader(1_000_000, log_vault_name, 'back_test/data/hyperliquid').read(with_run=with_run)
+        log_vault_df[log_vault_name] = LogVaultLoader(log_vault_name, 1_000_000, 0.005, 'back_test/data/hyperliquid').read(with_run=with_run)
         # set timestamp as index if it is not set
         if 'timestamp' in log_vault_df[log_vault_name].columns:
             log_vault_df[log_vault_name].set_index('timestamp', inplace=True)
@@ -32,7 +32,7 @@ def build_observations(with_run: bool = True) -> List[Observation]:
         log_vault_df[log_vault_name] = log_vault_df[log_vault_name].loc[earliest_timestamp:latest_timestamp]
     
     # Load meta vault data
-    meta_vault_df = MetaVaultLoader(1_000_000, earliest_timestamp, latest_timestamp, 'back_test/data/hyperliquid').read(with_run=with_run)
+    meta_vault_df = MetaVaultLoader(0, 0, earliest_timestamp, latest_timestamp, 'back_test/data/hyperliquid').read(with_run=with_run)
     # set timestamp as index if it is not set
     if 'timestamp' in meta_vault_df.columns:
         meta_vault_df.set_index('timestamp', inplace=True)

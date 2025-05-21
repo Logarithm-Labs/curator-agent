@@ -12,7 +12,8 @@ class MetaVaultLoader(Loader):
     This loader performs Monte Carlo simulation for each data point
 
     Attributes:
-        init_balance: The initial balance of the meta vault
+        deposit_simulation_limit: The range of deposits of the meta vault
+        withdraw_simulation_limit: The range of withdrawals of the meta vault
         start_time: The start time of the meta vault
         end_time: The end time of the meta vault
         data_base_path: The base path to the back tested vault data
@@ -31,7 +32,8 @@ class MetaVaultLoader(Loader):
 
     def __init__(
         self,
-        init_balance: float,
+        deposit_simulation_limit: float,
+        withdraw_simulation_limit: float,
         start_time: datetime,
         end_time: datetime,
         data_base_path: str,
@@ -40,7 +42,8 @@ class MetaVaultLoader(Loader):
     ) -> None:
         super().__init__()
         self._data = None
-        self.init_balance = init_balance
+        self.deposit_simulation_limit = deposit_simulation_limit
+        self.withdraw_simulation_limit = withdraw_simulation_limit
         self.start_time = start_time
         self.end_time = end_time
         self.data_base_path = data_base_path
@@ -60,11 +63,11 @@ class MetaVaultLoader(Loader):
         for index in range(len(self._data)):
             choice = self._random.randint(0, 2)
             if choice == 0:
-                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = self._random.uniform(0, self.init_balance)
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = self._random.uniform(0, self.deposit_simulation_limit)
             elif choice == 1:
                 self._data.loc[self._data.index[index], 'deposits_withdrawals'] = 0
             else:
-                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = -self._random.uniform(0, self.init_balance / 4)
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = -self._random.uniform(0, self.withdraw_simulation_limit)
 
 
     def load(self):
