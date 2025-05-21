@@ -39,7 +39,7 @@ You must recommend:
     - current_share_holding (float): Current share holding of the vault
     - allocated_assets (float): Assets amount invested in the vault, can be negative which means the vault is in profit
     - current_assets (float): Assets amount of the current share holding
-- `share_price_trend_analysis`: performance trend of the vault
+- `get_share_price_trend_analysis`: performance analysis for given vaults
 """
 
 # Note: We will add available tools at runtime

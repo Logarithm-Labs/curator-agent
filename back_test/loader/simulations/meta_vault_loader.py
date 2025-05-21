@@ -58,7 +58,13 @@ class MetaVaultLoader(Loader):
     def transform(self):
         # Generate random deposits/withdrawals for each row
         for index in range(len(self._data)):
-            self._data.loc[self._data.index[index], 'deposits_withdrawals'] = self._random.uniform(-self.init_balance / 200, self.init_balance / 200) if self._random.randint(0,1) == 0 else 0
+            choice = self._random.randint(0, 2)
+            if choice == 0:
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = self._random.uniform(0, self.init_balance)
+            elif choice == 1:
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = 0
+            else:
+                self._data.loc[self._data.index[index], 'deposits_withdrawals'] = -self._random.uniform(0, self.init_balance / 4)
 
 
     def load(self):

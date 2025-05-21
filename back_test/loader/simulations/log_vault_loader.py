@@ -70,8 +70,9 @@ class LogVaultLoader(Loader):
         self._data['share_price'] = self._data['net_balance'] / self.init_balance
         idle_assets_array = []
         pending_withdrawals_array = []
+        std_deviation = self.init_balance / 100
         for _ in range(len(self._data)):
-            assets = self._random.normalvariate(0, self.init_balance / 1000)
+            assets = self._random.normalvariate(0, std_deviation)
             idle_assets_array.append(assets if assets > 0 else 0)
             pending_withdrawals_array.append(-assets if assets < 0 else 0)
         self._data['idle_assets'] = np.array(idle_assets_array)

@@ -141,26 +141,29 @@ class CuratorStrategy(BaseStrategy):
                 for observation in recent_observations
             ]
         
-        # @function_tool
-        # def allocate_action_validation(vault_names: list[str], amounts: list[float]) -> str:
-        #     """Validate the allocation action.
+        @function_tool
+        async def get_share_price_trend_analysis(vault_names: List[str], data_length: int, forecast_horizon: int) -> str:
+            """Use to get the performance trends of given vaults.
 
-        #     Args:
-        #         vault_names (list[str]): List of logarithm vault names
-        #         amounts (list[float]): List of amounts
-        #     """
-        #     return "Validation successful"
-        
-        analysis_agent_with_tools = analysis_agent.clone(tools=[get_share_price_history])
-        analysis_tool = analysis_agent_with_tools.as_tool(
-            tool_name="share_price_trend_analysis",
-            tool_description="Use to get performance trends of given logarithm vaults which are separated by commas.",
-            custom_output_extractor=summary_extractor
-        )
+            Args:
+                vault_names (List): List of vault names
+                data_length (int): Number of the most recent data points to analyze
+                forecast_horizon (int): Number of days to forecast
 
-        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
-        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
-        reallocation_agent_with_tools = reallocation_agent.clone(tools=[get_logarithm_vault_infos, analysis_tool])
+            Returns:
+                str: Performance trends of the vaults
+            """
+            analysis_agent_with_tools = analysis_agent.clone(tools=[get_share_price_history])
+            result = await Runner.run(
+                analysis_agent_with_tools,
+                f"Vaults to analyze: {vault_names}, Data length: {data_length}, Forecast horizon: {forecast_horizon}",
+            )
+
+            return summary_extractor(result)
+
+        allocation_agent_with_tools = allocation_agent.clone(tools=[get_logarithm_vault_infos, get_share_price_trend_analysis])
+        withdraw_agent_with_tools = withdraw_agent.clone(tools=[get_logarithm_vault_infos, get_share_price_trend_analysis])
+        reallocation_agent_with_tools = reallocation_agent.clone(tools=[get_logarithm_vault_infos, get_share_price_trend_analysis])
 
         return {
             "allocation_agent": allocation_agent_with_tools,
@@ -211,8 +214,9 @@ class CuratorStrategy(BaseStrategy):
                 balances[vault_name] = vault.shares
                     
             input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
-
-            with trace("Reallocation with Feedback"):
+            # add a data to the trace label
+            observations = self.observations_storage.read()
+            with trace(f"Reallocation with Feedback ({observations[-1].timestamp.date()})"):
                 while True:
                     res = Runner.run_sync(
                         self._reallocation_agent,
@@ -287,7 +291,7 @@ class CuratorStrategy(BaseStrategy):
                 msg += f"The target vaults are {LOG_VAULT_NAMES}."
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
-                with trace("Allocation with Feedback"):
+                with trace(f"Allocation with Feedback ({observations[-1].timestamp.date()})"):
                     while True:
                         res = Runner.run_sync(
                             self._allocation_agent,
@@ -323,7 +327,7 @@ class CuratorStrategy(BaseStrategy):
                     balances[vault_name] = vault.balance
                 input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
-                with trace("Withdraw with Feedback"):
+                with trace(f"Withdraw with Feedback ({observations[-1].timestamp.date()})"):
                     while True:
                         res = Runner.run_sync(
                             self._withdraw_agent,
