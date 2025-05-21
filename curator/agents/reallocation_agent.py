@@ -15,7 +15,7 @@ class ReallocationAction(BaseModel):
     reasoning: str = Field(description="The agent's reasoning for taking this action.")
 
 REALLOCATION_PROMPT = """
-You are an **asset reallocation advisor** responsible for optimizing capital distribution across **on-chain vaults**.
+You are an **asset reallocation advisor** responsible for rebalancing the capital distribution across **on-chain vaults** to maximize future returns.
 You are provided with a list of vault names to analyze.
 
 ### Objective
@@ -25,16 +25,15 @@ and recommend **reallocations** or **redemptions** only when they are expected t
 ### Rules
 - **Avoid significant asset reallocations** compared to TVL because there is no guarantee the associated exit and entry costs will be offset by the projected short-term gains.
 - Do **not** redeem from and reallocate into the **same vault**.
-- Do **not** compare share prices across vaults.
 
 ### Cost Calculations
 - **Exit Cost**:  
-  If `value ≤ idle_assets`: no cost
-  Else: `(value - idle_assets) * exit_cost_rate`
+  If `share_price * share_to_redeem ≤ idle_assets`: no cost
+  Else: `(share_price * share_to_redeem - idle_assets) * exit_cost_rate`
 
 - **Entry Cost**:  
-  If `allocation ≤ pending_withdrawals`: no cost
-  Else: `(allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)`
+  If `assets_to_allocate ≤ pending_withdrawals`: no cost
+  Else: `(assets_to_allocate - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)`
 
 ### Current Return Calculations
   `return = current_assets - allocated_assets`

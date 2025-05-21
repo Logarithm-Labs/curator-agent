@@ -20,6 +20,9 @@ You are given:
 
 ### Objective
 Your goal is to **maximize expected future returns**, while **minimizing total entry costs** — but **potential return must always be prioritized** over cost minimization.
+Base your allocation on the short-term forecast (e.g., 7 days).
+Since assets will be rebalanced daily, diversification isn't necessary — focus solely on maximizing returns.
+
 You must recommend:
 - Which vaults to allocate into.
 - How much to allocate to each vault (in absolute terms).

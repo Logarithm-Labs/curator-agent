@@ -206,14 +206,6 @@ class CuratorStrategy(BaseStrategy):
             # predict actions
             actions = []
 
-            # reallocation check
-            msg = f"Vaults to analyze: {LOG_VAULT_NAMES}"
-            balances: dict[str, float] = {}
-            for vault_name in LOG_VAULT_NAMES:
-                vault: LogarithmVault = self.get_entity(vault_name)
-                balances[vault_name] = vault.shares
-                    
-            input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
             # add a data to the trace label
             observations = self.observations_storage.read()
 
@@ -256,6 +248,13 @@ class CuratorStrategy(BaseStrategy):
             
             # if withdraw is not needed, then do reallocation check
             else:
+                msg = f"Vaults to analyze: {LOG_VAULT_NAMES}"
+                balances: dict[str, float] = {}
+                for vault_name in LOG_VAULT_NAMES:
+                    vault: LogarithmVault = self.get_entity(vault_name)
+                    balances[vault_name] = vault.shares
+                        
+                input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
                 with trace(f"Reallocation with Feedback ({observations[-1].timestamp.date()})"):
                     while True:
                         res = Runner.run_sync(
