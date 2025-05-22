@@ -42,6 +42,27 @@ def load_vaults_performance(result_file_path: str) -> pd.DataFrame:
     
     return df
 
+def load_benchmark_performance(result_baseline_file_path: str) -> pd.DataFrame:
+    """
+    Loads the vaults performance from a CSV file.
+    And derive the performance APR for each vault based on share price.
+    APR is calculated as: (current_share_price - 1) * (365 days / days_since_start)
+    """
+    df = pd.read_csv(result_baseline_file_path)
+    df['date'] = pd.to_datetime(df['timestamp'])
+    df.sort_values(by='date', inplace=True)
+    
+    # Calculate share prices relative to start
+    df[f'{META_VAULT_NAME}_vault_share_price'] = df['net_balance'] / df['meta_vault_total_supply']
+    
+    # Calculate days since start for each row
+    df['days_since_start'] = (df['date'] - df['date'].iloc[0]).dt.total_seconds() / (24 * 60 * 60)
+    
+    df[f'{META_VAULT_NAME}_vault_apr'] = (df[f'{META_VAULT_NAME}_vault_share_price']/df[f'{META_VAULT_NAME}_vault_share_price'].iloc[0] - 1) * (365 / df['days_since_start'])
+    
+    return df
+
+
 def wrap_text(text: str, width: int = 50) -> str:
     """
     Wraps a string into multiple lines using <br> for HTML breaks.
@@ -159,6 +180,57 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
    
     return actions_df
 
+def parse_baseline_log_file(log_file_path: str) -> pd.DataFrame:
+    actions = []
+    last_observation = None
+
+    try:
+        with open(log_file_path, 'r', encoding='utf-8', errors='replace') as f:
+            for line in f:
+                # Update last_observation if the line contains an Observation timestamp
+                if "Observation:" in line:
+                    obs_match = re.search(
+                        r'Observation:\s*(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})', line
+                    )
+                    if obs_match:
+                        try:
+                            last_observation = datetime.strptime(
+                                obs_match.group(1), '%Y-%m-%d %H:%M:%S'
+                            )
+                        except ValueError:
+                            last_observation = None
+                
+                # Extract both actions and reasoning from the same line
+                elif "Action:" in line and "vault_names:" in line and "amounts:" in line:
+                    if last_observation is not None:
+                        # Extract all actions from the line except reallocation
+                        match = re.search(
+                            r"Action:\s*(\w+),\s*vault_names:\s*\[([^\]]+)\],\s*amounts:\s*\[([^\]]+)\]",
+                            line,
+                            re.DOTALL
+                        )
+                        
+                        if match:
+                            action_name = match.group(1)
+                            targets = [t.strip("'\" ") for t in match.group(2).split(',')]
+                            amounts = [float(a.strip()) for a in match.group(3).split(',')]
+
+                            actions.append({
+                                "date": last_observation,
+                                "action_name": action_name,
+                                "targets": targets,
+                                "amounts": amounts,
+                            })
+
+    except Exception as e:
+        print(f"Error reading {log_file_path}: {e}")
+
+    actions_df = pd.DataFrame(actions)
+    if not actions_df.empty:
+        actions_df["date"] = pd.to_datetime(actions_df["date"])
+   
+    return actions_df
+
 def get_marker_y(perf_df: pd.DataFrame, date: datetime, action_type: str, vault_name: str) -> float:
     """
     Determines the y-coordinate for a marker based on the performance data.
@@ -225,6 +297,31 @@ def create_share_price_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure
         **template
     )
     return fig
+
+def create_benchmarking_chart(perf_df: pd.DataFrame, baseline_perf_df: pd.DataFrame, template: dict) -> go.Figure:
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=perf_df['date'],
+        y=perf_df[f'{META_VAULT_NAME}_vault_share_price'],
+        mode='lines',
+        name=f"{META_VAULT_NAME}"
+    ))
+    fig.add_trace(go.Scatter(
+        x=baseline_perf_df['date'],
+        y=baseline_perf_df[f'{META_VAULT_NAME}_vault_share_price'],
+        mode='lines',
+        name="benchmark"
+    ))
+        
+
+    fig.update_layout(
+        title='Vault Share Price',
+        xaxis_title='Date',
+        yaxis_title='Price',
+        **template
+    )
+    return fig
+
 
 def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
     allocation_data = {}
@@ -321,28 +418,88 @@ def create_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
     )
     return fig
 
+def create_baseline_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
+    # Flatten the list of targets and amounts into long-form
+    records = []
+    for idx, row in actions_df.iterrows():
+        for target, amount in zip(row["targets"], row["amounts"]):
+            records.append({
+                "date": row["date"],
+                "action_name": row["action_name"],
+                "vault": target.lower(),
+                "amount": amount if row["action_name"] == "allocate_assets" else -float(amount),
+            })
+
+    flattened_df = pd.DataFrame(records)
+    # Get unique vaults and sorted dates
+    vaults = flattened_df["vault"].unique()
+    dates = sorted(flattened_df["date"].unique())
+
+    fig = go.Figure()
+    for vault in vaults:
+        y_values = []
+        hover_texts = []
+
+        for date in dates:
+            match = flattened_df[(flattened_df["vault"] == vault) & (flattened_df["date"] == date)]
+            if not match.empty:
+                amt = match["amount"].values[0]
+                y_values.append(amt)
+                hover_texts.append(f"Vault: {vault}<br>Date: {date.date()}<br>Amount: {amt}")
+            else:
+                y_values.append(0)
+                hover_texts.append(f"Vault: {vault}<br>Date: {date.date()}<br>Amount: 0")
+
+        fig.add_trace(go.Bar(
+            x=[str(d.date()) for d in dates],
+            y=y_values,
+            name=vault,
+            # text=hover_texts,
+            hovertext=hover_texts
+        ))
+
+    fig.update_layout(
+        barmode='relative',
+        title='Baseline Actions',
+        xaxis_title='Date',
+        yaxis_title='Actions',
+        **template
+    )
+    return fig
+
+
 def main():
     # load strategy results
     perf_df = load_vaults_performance("result.csv")
+    baseline_perf_df = load_benchmark_performance("result_baseline.csv")
 
     # load agent actions
     actions_df = parse_log_file("logs.log")
+    baseline_actions_df = parse_baseline_log_file("baseline_logs.log")
     # build performance chart
     fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_idle_withdrawal = create_idle_withdrawal_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_share_price = create_share_price_chart(perf_df, TRADINGVIEW_TEMPLATE)
+    fig_benchmark = create_benchmarking_chart(perf_df, baseline_perf_df, TRADINGVIEW_TEMPLATE)
     fig_perf = create_performance_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_actions = create_action_chart(actions_df, TRADINGVIEW_TEMPLATE)
+    fig_baseline_actions = create_baseline_action_chart(baseline_actions_df, TRADINGVIEW_TEMPLATE)
 
     # run dash app
     app = dash.Dash(__name__)
     app.layout = html.Div([
-        dcc.Graph(figure=fig_actions), dcc.Graph(figure=fig_share_price), dcc.Graph(figure=fig_perf), dcc.Graph(figure=fig_idle_withdrawal), dcc.Graph(figure=fig_allocation)
+        dcc.Graph(figure=fig_actions), 
+        dcc.Graph(figure=fig_baseline_actions), 
+        dcc.Graph(figure=fig_benchmark), 
+        dcc.Graph(figure=fig_share_price), 
+        dcc.Graph(figure=fig_perf), 
+        dcc.Graph(figure=fig_idle_withdrawal), 
+        dcc.Graph(figure=fig_allocation)
     ])
     # app.layout = html.Div([
     #     dcc.Graph(figure=fig_actions)
     # ])
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="127.0.0.1", use_reloader=False)
 
 
 if __name__ == "__main__":

@@ -24,20 +24,12 @@ from back_test.constants import LOG_VAULT_NAMES, META_VAULT_NAME
 from back_test.build_observations import build_observations
 
 DUST = 0.000001
-INIT_WINDOW_SIZE = 14
 
 @dataclass
 class BaselineStrategyParams(BaseStrategyParams):
-    """
-    Parameters for configuring the BaselineStrategy.
-    
-    Attributes:
-        INIT_BALANCE (float): Initial balance to start with (default: 100,000)
-        WINDOW_SIZE (int): Size of the observation window (default: 7)
-    """
     INIT_BALANCE: float = 100_000
     WINDOW_SIZE: int = 7
-    TREND_ANALYSIS_HORIZON: int = 14
+    TREND_ANALYSIS_HORIZON: int = 60
     FORECAST_HORIZON: int = 7
 
 @dataclass
@@ -66,8 +58,8 @@ class BaselineStrategy(BaseStrategy):
         """
         self._params: BaselineStrategyParams = None  # set for type hinting
         super().__init__(params=params, debug=debug, observations_storage=observations_storage)
-        self._window_size = params.WINDOW_SIZE
-        self._init_window_size = INIT_WINDOW_SIZE
+        self._window_size = self._params.WINDOW_SIZE
+        self._init_window_size = self._params.FORECAST_HORIZON
 
     def _get_logarithm_vault_infos(self, vault_names: List[str]) -> Dict[str, Dict]:
         """Get the comprehensive information of Logarithm vaults.
@@ -236,6 +228,7 @@ class BaselineStrategy(BaseStrategy):
             amount = 0
 
         if amount == 0:
+            self._debug(f"Action: allocate_assets, vault_names: {list(allocations.keys())}, amounts: {[float(value) for value in allocations.values()]}")
             return [
                 ActionToTake(
                     entity_name=META_VAULT_NAME,
@@ -284,6 +277,7 @@ class BaselineStrategy(BaseStrategy):
             else:
                 break
 
+        self._debug(f"Action: withdraw_allocations, vault_names: {list(withdrawals.keys())}, amounts: {[float(value) for value in withdrawals.values()]}")
         return [
             ActionToTake(
                 entity_name=META_VAULT_NAME,
@@ -307,6 +301,7 @@ class BaselineStrategy(BaseStrategy):
 
         redemptions: Dict[str, float] = {}
         total_withdrawals = 0
+        withdrawals: Dict[str, float] = {}
 
         # pick redemption vaults
         for vault_name in LOG_VAULT_NAMES:
@@ -327,9 +322,14 @@ class BaselineStrategy(BaseStrategy):
                         redemptions[vault_name] = shares_to_redeem
                     else:
                         redemptions[vault_name] = vault_infos[vault_name]['current_share_holding']
-                total_withdrawals += self.get_entity(vault_name.lower()).preview_redeem(redemptions[vault_name])
+                withdrawal = self.get_entity(vault_name.lower()).preview_redeem(redemptions[vault_name])
+                withdrawals[vault_name] = withdrawal
+                total_withdrawals += withdrawal
         
         if total_withdrawals > 0:
+
+            self._debug(f"Action: redeem_allocations, vault_names: {list(redemptions.keys())}, amounts: {[float(withdrawals[vault]) for vault in redemptions.keys()]}")
+
             actions.append(
                 ActionToTake(
                     entity_name=META_VAULT_NAME,

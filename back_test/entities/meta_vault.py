@@ -3,7 +3,7 @@ from fractal.core.base import NamedEntity
 from fractal.core.base.entity import BaseEntity, EntityException, InternalState, GlobalState
 from back_test.entities.logarithm_vault import LogarithmVault, LogarithmVaultInternalState
 from typing import List
-
+from back_test.entities.precision import floor_to_6dp, ceil_to_6dp
 
 class MetaVaultEntityException(EntityException):
     """
@@ -39,7 +39,7 @@ class MetaVault(BaseEntity):
         if assets < 0:
             raise MetaVaultEntityException("Assets must be greater than 0")
         
-        shares_to_mint = assets if self.total_assets == 0 else assets * self.total_supply / self.total_assets
+        shares_to_mint = assets if self.total_assets == 0 else floor_to_6dp(assets * self.total_supply / self.total_assets)
         self._assets += assets
         self._internal_state.total_supply += shares_to_mint
         return shares_to_mint
@@ -50,7 +50,7 @@ class MetaVault(BaseEntity):
         if assets > self.total_assets:
             raise MetaVaultEntityException("Assets to withdraw are greater than the available assets")
         
-        shares_to_burn = assets * self.total_supply / self.total_assets
+        shares_to_burn = ceil_to_6dp(assets * self.total_supply / self.total_assets)
         if self.idle_assets >= assets:
             self._assets -= assets
         else:
@@ -71,12 +71,8 @@ class MetaVault(BaseEntity):
         for amount in amounts:
             if amount < 0:
                 raise MetaVaultEntityException("Asset amount must be greater than 0")
-
-        shortfall = sum(amounts) - self.idle_assets
-        amounts[0] -= shortfall if shortfall > 0 else 0
-        amounts = [amount if amount > DUST else 0 for amount in amounts]
         
-        if (sum(amounts) > self.idle_assets):
+        if (floor_to_6dp(sum(amounts)) > ceil_to_6dp(self.idle_assets)):
             raise MetaVaultEntityException(f"Assets to allocate are greater than the available assets")
 
         for target, amount in zip(targets, amounts):

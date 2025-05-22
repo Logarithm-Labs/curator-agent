@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from fractal.core.base.entity import BaseEntity, EntityException, InternalState, GlobalState
+from fractal.core.base.entity import BaseEntity, EntityException, GlobalState
+from back_test.entities.precision import floor_to_6dp, ceil_to_6dp
 class LogarithmVaultEntityException(EntityException):
     """
     Exception raised for errors in the Logarithm Vault entity.
@@ -136,35 +137,41 @@ class LogarithmVault(BaseEntity):
     def open_assets(self) -> float:
         return self._internal_state.open_assets
     
+    def _cost_on_raw(self, assets: float, cost_rate: float) -> float:
+        return ceil_to_6dp(assets * cost_rate)
+    
+    def _cost_on_total(self, assets: float, cost_rate: float) -> float:
+        return ceil_to_6dp(assets * cost_rate / (1 + cost_rate))
+
     def preview_deposit(self, assets: float) -> float:
         # Preview the number of shares that would be received for a given amount of assets
         # without modifying the internal state.
 
         assets_to_utilize = assets - self.pending_withdrawals if assets > self.pending_withdrawals else 0        
-        entry_cost = assets_to_utilize * self.entry_cost_rate / (1 + self.entry_cost_rate)
+        entry_cost = self._cost_on_total(assets_to_utilize, self.entry_cost_rate)
         assets_after_entry_cost = assets - entry_cost
         shares_in_return = assets_after_entry_cost / self._global_state.share_price
 
-        return shares_in_return
+        return floor_to_6dp(shares_in_return)
     
     def preview_redeem(self, shares: float) -> float:
         # Preview the assets that would be received for a given number of shares
         # without modifying the internal state.
         
-        assets = shares * self._global_state.share_price
+        assets = floor_to_6dp(shares * self._global_state.share_price)
         assets_to_deutilize = assets - self.idle_assets if assets > self.idle_assets else 0
-        exit_cost = assets_to_deutilize * self.exit_cost_rate / (1 + self.exit_cost_rate)
+        exit_cost = self._cost_on_total(assets_to_deutilize, self.exit_cost_rate)
         assets_after_exit_cost = assets - exit_cost
 
-        return assets_after_exit_cost
+        return floor_to_6dp(assets_after_exit_cost)
 
     def preview_withdraw(self, assets: float) -> float:
         # Preview the number of shares that would be burned for a given amount of assets
         # without modifying the internal state.
         
         assets_from_deutilize = assets - self.idle_assets if assets > self.idle_assets else 0
-        exit_cost = assets_from_deutilize * self.exit_cost_rate
+        exit_cost = self._cost_on_raw(assets_from_deutilize, self.exit_cost_rate) 
         assets_after_exit_cost = assets + exit_cost
         shares_to_burn = assets_after_exit_cost / self._global_state.share_price
 
-        return shares_to_burn
+        return ceil_to_6dp(shares_to_burn)
