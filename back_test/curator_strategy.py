@@ -333,7 +333,7 @@ class CuratorStrategy(BaseStrategy):
                             input_items = res.to_input_list()
                             prediction: AllocationAction = res.final_output
                             validation_result = validate_allocation(meta_vault.idle_assets, prediction.vault_names, prediction.amounts)
-                            if validation_result.result == 'pass':
+                            if validation_result.result == 'pass' and len(prediction.vault_names) > 0:
                                 self._debug(f"Action: allocate_assets, Prediction: {prediction}")
                                 actions.append(
                                     ActionToTake(
