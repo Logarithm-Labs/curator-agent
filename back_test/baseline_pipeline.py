@@ -1,15 +1,9 @@
 import warnings
 warnings.filterwarnings('ignore')
 
-from typing import List
-from datetime import datetime
 from sklearn.model_selection import ParameterGrid
 
-from fractal.loaders import LoaderType
-from fractal.loaders.binance import BinanceKlinesLoader
-from fractal.core.base import Observation
 from fractal.core.base.observations import SQLiteObservationsStorage
-from fractal.core.entities.single_spot_exchange import SingleSpotExchangeGlobalState
 from fractal.core.pipeline import (
     DefaultPipeline, MLFlowConfig, ExperimentConfig)
 
@@ -17,14 +11,13 @@ from back_test.baseline_strategy import BaselineStrategy
 from back_test.build_observations import build_observations
 
 
-
 # Build a grid of parameters to search
 def build_grid() -> ParameterGrid:
     grid = ParameterGrid({
         'INIT_BALANCE': [100_000],
-        'WINDOW_SIZE': [1, 7],
-        'TREND_ANALYSIS_HORIZON': [7, 14, 30, 60],
-        'FORECAST_HORIZON': [3, 7, 14, 30],        
+        'WINDOW': [1, 7],
+        'LOOKBACK_WINDOW': [14, 30, 60],
+        'FORECAST_HORIZON': [3, 7, 14, 30],
     })
     return grid
 

@@ -23,18 +23,13 @@ from back_test.constants import LOG_VAULT_NAMES, META_VAULT_NAME
 from back_test.build_observations import build_observations
 
 DUST = 0.000001
-INIT_WINDOW_SIZE = 14
+
 @dataclass
 class CuratorStrategyParams(BaseStrategyParams):
-    """
-    Parameters for configuring the CuratorStrategy.
-    
-    Attributes:
-        INIT_BALANCE (float): Initial balance to start with (default: 100,000)
-        WINDOW_SIZE (int): Size of the observation window (default: 7)
-    """
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 7
+    WINDOW: int = 7
+    LOOKBACK_WINDOW: int = 60
+    FORECAST_HORIZON: int = 7
 
 class CuratorStrategy(BaseStrategy):
     """
@@ -57,8 +52,8 @@ class CuratorStrategy(BaseStrategy):
         self._allocation_agent = agents['allocation_agent']
         self._reallocation_agent = agents['reallocation_agent']
         self._withdraw_agent = agents['withdraw_agent']
-        self._window_size = params.WINDOW_SIZE
-        self._init_window_size = INIT_WINDOW_SIZE
+        self._window = self._params.WINDOW
+        self._init_window = self._params.LOOKBACK_WINDOW
 
     def __create_agent(self) -> Dict[str, Agent]:
         """
@@ -129,7 +124,6 @@ class CuratorStrategy(BaseStrategy):
             """
             observations = self.observations_storage.read()
             
-            # Get only the last 2 * WINDOW_SIZE of observations
             recent_observations = observations[-length:] if len(observations) > length else observations
             # Filter out observations that do not contain the vault name
             recent_observations = [observation for observation in recent_observations if vault_name in observation.states]
@@ -198,11 +192,11 @@ class CuratorStrategy(BaseStrategy):
             assets = min(meta_vault_state.withdrawals, meta_vault.total_assets)
             meta_vault.action_withdraw(assets)
 
-        if self._init_window_size != 0:
-            self._init_window_size -= 1
+        if self._init_window != 0:
+            self._init_window -= 1
             return []
 
-        if self._window_size == 0:
+        if self._window == 0:
             # predict actions
             actions = []
 
@@ -360,10 +354,10 @@ class CuratorStrategy(BaseStrategy):
 
             # sleep to avoid rate limit
             time.sleep(1)
-            self._window_size = self._params.WINDOW_SIZE
+            self._window = self._params.WINDOW
             return actions
         else:
-            self._window_size -= 1
+            self._window -= 1
             return []
 
 if __name__ == "__main__":
@@ -374,7 +368,7 @@ if __name__ == "__main__":
                                     observations_storage=SQLiteObservationsStorage())
     result = strategy.run(observations)
     print(result.get_default_metrics())  # show metrics
-    result.to_dataframe().to_csv('result.csv')  # save result to csv
+    result.to_dataframe().to_csv('run_results/result.csv')  # save result to csv
         
         
         

@@ -28,8 +28,8 @@ DUST = 0.000001
 @dataclass
 class BaselineStrategyParams(BaseStrategyParams):
     INIT_BALANCE: float = 100_000
-    WINDOW_SIZE: int = 7
-    TREND_ANALYSIS_HORIZON: int = 60
+    WINDOW: int = 7
+    LOOKBACK_WINDOW: int = 60
     FORECAST_HORIZON: int = 7
 
 @dataclass
@@ -58,8 +58,8 @@ class BaselineStrategy(BaseStrategy):
         """
         self._params: BaselineStrategyParams = None  # set for type hinting
         super().__init__(params=params, debug=debug, observations_storage=observations_storage)
-        self._window_size = self._params.WINDOW_SIZE
-        self._init_window_size = self._params.FORECAST_HORIZON
+        self._window = self._params.WINDOW
+        self._init_window = self._params.LOOKBACK_WINDOW
 
     def _get_logarithm_vault_infos(self, vault_names: List[str]) -> Dict[str, Dict]:
         """Get the comprehensive information of Logarithm vaults.
@@ -118,7 +118,6 @@ class BaselineStrategy(BaseStrategy):
         """
         observations = self.observations_storage.read()
         
-        # Get only the last 2 * WINDOW_SIZE of observations
         recent_observations = observations[-length:] if len(observations) > length else observations
         # Filter out observations that do not contain the vault name
         recent_observations = [observation for observation in recent_observations if vault_name in observation.states]
@@ -163,12 +162,12 @@ class BaselineStrategy(BaseStrategy):
             assets = min(meta_vault_state.withdrawals, meta_vault.total_assets)
             meta_vault.action_withdraw(assets)
 
-        if self._init_window_size != 0:
-            self._init_window_size -= 1
+        if self._init_window != 0:
+            self._init_window -= 1
             return []
 
-        if self._window_size == 0:
-            self._window_size = self._params.WINDOW_SIZE
+        if self._window == 0:
+            self._window = self._params.WINDOW
 
             if meta_vault.idle_assets > DUST:
                 return self._allocate_assets(meta_vault.idle_assets)
@@ -177,7 +176,7 @@ class BaselineStrategy(BaseStrategy):
             else:
                 return self._rebalance_assets()
         else:
-            self._window_size -= 1
+            self._window -= 1
             return []
         
 
@@ -190,7 +189,7 @@ class BaselineStrategy(BaseStrategy):
         analysis_result: Dict[str, SharePriceAnalysisResult] = {}
 
         for vault_name in LOG_VAULT_NAMES:
-            share_price_history = self._get_share_price_history(vault_name, self._params.TREND_ANALYSIS_HORIZON)
+            share_price_history = self._get_share_price_history(vault_name, self._params.LOOKBACK_WINDOW)
             slope = share_price_history['share_price'].diff().mean()
             latest_price = float(share_price_history['share_price'].iloc[-1])
             forecast_price = latest_price + slope * self._params.FORECAST_HORIZON
@@ -356,7 +355,7 @@ if __name__ == "__main__":
                                     observations_storage=SQLiteObservationsStorage())
     result = strategy.run(observations)
     print(result.get_default_metrics())  # show metrics
-    result.to_dataframe().to_csv('result_baseline.csv')  # save result to csv
+    result.to_dataframe().to_csv('run_results/baseline_result.csv')  # save result to csv
         
         
         
