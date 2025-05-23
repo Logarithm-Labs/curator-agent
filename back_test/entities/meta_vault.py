@@ -154,12 +154,12 @@ class MetaVault(BaseEntity):
     @property
     def idle_assets(self) -> float:
         idle = self._assets - self._cumulative_requested_withdrawals
-        return idle if idle > 0 else 0
+        return floor_to_6dp(idle) if idle > 0 else 0
 
     @property
     def pending_withdrawals(self) -> float:
         requested = self._cumulative_requested_withdrawals - self._assets
-        return requested if requested > 0 else 0
+        return ceil_to_6dp(requested) if requested > 0 else 0
     
     @property
     def allocated_assets(self) -> float:
