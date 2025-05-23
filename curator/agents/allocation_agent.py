@@ -20,7 +20,7 @@ You are given:
 You recommend which vaults to allocate to and how much for each.
 
 ### Objective
-Your goal is to **maximize short-term returns** (7-day forecast).
+Your goal is to **maximize short-term returns** based on the current vaults performances.
 
 ### Note
 The on-chain vaults charge entry costs when allocating assets.
@@ -28,7 +28,10 @@ The on-chain vaults charge entry costs when allocating assets.
 ### Rules
 The sum of allocations mustn't exceed the target asset amount.
 
-### Entry Cost Calculation
+### Heuristics
+Greedy algorithm is the most suitable.
+
+### Allocation Cost Calculation
 - If `allocation ≤ pending_withdrawals`: No entry cost
 - If `allocation > pending_withdrawals`: `entry_cost = (allocation - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)`
 

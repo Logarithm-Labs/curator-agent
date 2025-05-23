@@ -22,7 +22,7 @@ You detect a reallocation opportunity, and if so, recommend a reallocation actio
 
 ### Objective
 Your goal is to:
-- Prevent short-term losses (7-day forecast) based on the current profits.
+- Prevent short-term losses based on the current profits.
 - Ride an opportunity to gain more by allocating to better trend vaults from worse trend ones.
 
 ### Note
@@ -33,11 +33,11 @@ The on-chain vaults charge exit costs when redeeming and entry costs when alloca
 - When redeeming from negative trend vaults, the amounts should be adjusted so that the exit costs won't exceed the expected losses.
 
 ### Cost Calculation
-- Exit Cost:  
+- Redemption Cost:  
   If `share_price * share_to_redeem ≤ idle_assets`: no cost
   Else: `(share_price * share_to_redeem - idle_assets) * exit_cost_rate / (exit_cost_rate + 1)`
 
-- Entry Cost:  
+- Allocation Cost:  
   If `assets_to_allocate ≤ pending_withdrawals`: no cost
   Else: `(assets_to_allocate - pending_withdrawals) * entry_cost_rate / (entry_cost_rate + 1)`
 

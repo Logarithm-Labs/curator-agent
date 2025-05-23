@@ -24,7 +24,7 @@ The on-chain vault charges exit costs when withdrawing assets
 - The sum of all withdrawals is exactly equal to or slightly exceeds the target total withdrawal amount.
 - You can't withdraw more than `current_assets` for each vault.
 
-### Exit Cost Calculation
+### Withdraw Cost Calculation
 - If `withdrawal ≤ idle_assets`: No exit cost
 - If `withdrawal > idle_assets`: `exit_cost = (withdrawal - idle_assets) * exit_cost_rate`
 

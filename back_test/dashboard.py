@@ -132,13 +132,14 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                         )
                         if match:
                             targets = [t.strip("'\" ") for t in match.group(1).split(',')]
-                            raw_amounts = match.group(2).split(',')
-                            amounts = []
-                            for a in raw_amounts:
-                                # extract the number inside np.float64(...)
-                                num_match = re.search(r'np\.float64\(([^)]+)\)', a)
-                                if num_match:
-                                    amounts.append(float(num_match.group(1)))
+                            amounts = [float(a.strip()) for a in match.group(2).split(',')]
+                            # raw_amounts = match.group(2).split(',')
+                            # amounts = []
+                            # for a in raw_amounts:
+                            #     # extract the number inside np.float64(...)
+                            #     num_match = re.search(r'np\.float64\(([^)]+)\)', a)
+                            #     if num_match:
+                            #         amounts.append(float(num_match.group(1)))
                             actions.append({
                                 "date": last_observation,
                                 "action_name": "redeem_allocations",
@@ -155,13 +156,14 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                         )
                         if match:
                             targets = [t.strip("'\" ") for t in match.group(1).split(',')]
-                            raw_amounts = match.group(2).split(',')
-                            amounts = []
-                            for a in raw_amounts:
-                                # extract the number inside np.float64(...)
-                                num_match = re.search(r'np\.float64\(([^)]+)\)', a)
-                                if num_match:
-                                    amounts.append(float(num_match.group(1)))
+                            amounts = [float(a.strip()) for a in match.group(2).split(',')]
+                            # raw_amounts = match.group(2).split(',')
+                            # amounts = []
+                            # for a in raw_amounts:
+                            #     # extract the number inside np.float64(...)
+                            #     num_match = re.search(r'np\.float64\(([^)]+)\)', a)
+                            #     if num_match:
+                            #         amounts.append(float(num_match.group(1)))
                             actions.append({
                                 "date": last_observation,
                                 "action_name": "allocate_assets",
@@ -411,7 +413,7 @@ def create_action_chart(actions_df: pd.DataFrame, template: dict) -> go.Figure:
 
     fig.update_layout(
         barmode='relative',
-        title='Actions',
+        title='Agent Actions',
         xaxis_title='Date',
         yaxis_title='Actions',
         **template
@@ -470,12 +472,12 @@ def create_baseline_action_chart(actions_df: pd.DataFrame, template: dict) -> go
 
 def main():
     # load strategy results
-    perf_df = load_vaults_performance("result.csv")
-    baseline_perf_df = load_benchmark_performance("result_baseline.csv")
+    perf_df = load_vaults_performance("run_results/result.csv")
+    baseline_perf_df = load_benchmark_performance("run_results/baseline_result.csv")
 
     # load agent actions
-    actions_df = parse_log_file("logs.log")
-    baseline_actions_df = parse_baseline_log_file("baseline_logs.log")
+    actions_df = parse_log_file("run_results/logs.log")
+    baseline_actions_df = parse_baseline_log_file("run_results/baseline_logs.log")
     # build performance chart
     fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_idle_withdrawal = create_idle_withdrawal_chart(perf_df, TRADINGVIEW_TEMPLATE)

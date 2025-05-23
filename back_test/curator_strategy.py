@@ -203,9 +203,12 @@ class CuratorStrategy(BaseStrategy):
             # add a data to the trace label
             observations = self.observations_storage.read()
 
+            analysis_window_msg = f"\n When analyzing, use {self._params.LOOKBACK_WINDOW} days for look-back window and {self._params.FORECAST_HORIZON} days for forecast horizon"
+
             # process withdraw first
             if meta_vault.pending_withdrawals > DUST:
                 msg = f"Total asset amount to withdraw is {meta_vault.pending_withdrawals}.\n Candidate vaults to withdraw from: {LOG_VAULT_NAMES}"
+                msg += analysis_window_msg
                 balances = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
@@ -243,6 +246,7 @@ class CuratorStrategy(BaseStrategy):
             # if withdraw is not needed, then do reallocation check
             else:
                 msg = f"Vaults to analyze: {LOG_VAULT_NAMES}"
+                msg += analysis_window_msg
                 balances: dict[str, float] = {}
                 for vault_name in LOG_VAULT_NAMES:
                     vault: LogarithmVault = self.get_entity(vault_name)
@@ -322,6 +326,7 @@ class CuratorStrategy(BaseStrategy):
                 if len(actions) == 0 and meta_vault.idle_assets > DUST:
                     msg = f"Total asset amount to allocate is {meta_vault.idle_assets}.\n"
                     msg += f"The target vaults are {LOG_VAULT_NAMES}."
+                    msg += analysis_window_msg
                     input_items: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
 
                     with trace(f"Allocation with Feedback ({observations[-1].timestamp.date()})"):
