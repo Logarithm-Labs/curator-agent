@@ -32,7 +32,7 @@ def build_observations(with_run: bool = True) -> List[Observation]:
         log_vault_df[log_vault_name] = log_vault_df[log_vault_name].loc[earliest_timestamp:latest_timestamp]
     
     # Load meta vault data
-    meta_vault_df = MetaVaultLoader(0, 0, earliest_timestamp, latest_timestamp, 'back_test/data/hyperliquid').read(with_run=with_run)
+    meta_vault_df = MetaVaultLoader(100_000, 50_000, earliest_timestamp, latest_timestamp, 'back_test/data/hyperliquid').read(with_run=with_run)
     # set timestamp as index if it is not set
     if 'timestamp' in meta_vault_df.columns:
         meta_vault_df.set_index('timestamp', inplace=True)

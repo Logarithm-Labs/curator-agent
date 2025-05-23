@@ -270,7 +270,7 @@ class BaselineStrategy(BaseStrategy):
 
         for vault_name in sorted_vaults_by_exit_cost:
             if amount > 0:
-                available_assets = min(amount, vault_infos[vault_name]['current_assets'])
+                available_assets = min(amount, vault_infos[vault_name]['current_assets'] - withdrawals[vault_name])
                 amount -= available_assets
                 withdrawals[vault_name] += available_assets
             else:

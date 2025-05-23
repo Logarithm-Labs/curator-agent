@@ -115,7 +115,7 @@ class LogarithmVault(BaseEntity):
 
     @property
     def shares(self) -> float:
-        return self._internal_state.shares
+        return floor_to_6dp(self._internal_state.shares)
     
     @property
     def entry_cost_rate(self) -> float:
@@ -135,7 +135,7 @@ class LogarithmVault(BaseEntity):
     
     @property
     def open_assets(self) -> float:
-        return self._internal_state.open_assets
+        return ceil_to_6dp(self._internal_state.open_assets)
     
     def _cost_on_raw(self, assets: float, cost_rate: float) -> float:
         return ceil_to_6dp(assets * cost_rate)
