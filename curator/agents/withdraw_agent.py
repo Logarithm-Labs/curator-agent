@@ -33,11 +33,11 @@ The on-chain vault charges exit costs when withdrawing assets
     - `current_share_price` (float): Current price per share of the vault
     - `entry_cost_rate` (float): Fee rate applied when depositing assets (as a decimal)
     - `exit_cost_rate` (float): Fee rate applied when withdrawing assets (as a decimal)
-    - `idle_assets` (float): Assets in the vault available for withdrawal without exit cost
+    - `idle_assets` (float): Assets in the vault that is not utilized, offsetting exit costs
     - `pending_withdrawals` (float): Assets queued for withdrawal in the vault, offsetting entry costs
-    - `current_share_holding` (float): Current share holding amount in the vault
+    - `current_share_holding` (float): Current share holding amount in the vault which is redeemable
     - `allocated_assets` (float): Assets amount invested in the vault, can be negative which means the vault is in profit
-    - `current_assets` (float): Assets amount valued by the current share price with the holding
+    - `current_assets` (float): Assets amount valued by the current share price with the holding amount which is withdrawable
 - `get_share_price_trend_analysis`: performance analysis for given vaults
 """
 
