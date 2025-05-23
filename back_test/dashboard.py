@@ -67,7 +67,7 @@ def wrap_text(text: str, width: int = 50) -> str:
     """
     Wraps a string into multiple lines using <br> for HTML breaks.
     """
-    return textwrap.fill(text, width=width).replace("\n", "<br>")
+    return textwrap.fill(text.replace("\\n", "<br>"), width=width)
 
 
 def parse_log_file(log_file_path: str) -> pd.DataFrame:
@@ -92,7 +92,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                             last_observation = None
                 
                 # Extract both actions and reasoning from the same line
-                elif "Action:" in line and "reasoning=" in line:
+                if "Action:" in line and "reasoning=" in line:
                     if last_observation is not None:
                         # Extract all actions from the line except reallocation
                         match = re.search(
@@ -123,7 +123,7 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                         elif reallocation_math:
                             last_reallocation_reasoning = reallocation_math.group(2).strip()
 
-                elif "Action: redeem_allocations" in line:
+                if "Action: redeem_allocations" in line:
                     if last_observation is not None and last_reallocation_reasoning is not None:
                         match = re.search(
                             r"Action: redeem_allocations,\s*vault_names:\s*\[([^\]]+)\],\s*amounts:\s*\[([^\]]+)\]",
@@ -147,8 +147,8 @@ def parse_log_file(log_file_path: str) -> pd.DataFrame:
                                 "amounts": amounts,
                                 "reasoning": last_reallocation_reasoning
                             })
-                elif "Action: allocate_assets" in line and "Prediction:" not in line:
-                    if last_observation is not None:
+                if "Action: allocate_assets" in line and "Prediction:" not in line:
+                    if last_observation is not None and last_reallocation_reasoning is not None:
                         match = re.search(
                             r"Action: allocate_assets,\s*vault_names:\s*\[([^\]]+)\],\s*amounts:\s*\[([^\]]+)\]",
                             line,
@@ -325,7 +325,7 @@ def create_benchmarking_chart(perf_df: pd.DataFrame, baseline_perf_df: pd.DataFr
     return fig
 
 
-def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
+def create_allocation_chart(perf_df: pd.DataFrame, template: dict, title="Vault Allocations for Agent Strategy") -> go.Figure:
     allocation_data = {}
     for vault_name in LOG_VAULT_NAMES:
         allocation_data[vault_name] = perf_df[f'{vault_name}_shares']
@@ -341,7 +341,7 @@ def create_allocation_chart(perf_df: pd.DataFrame, template: dict) -> go.Figure:
 
     fig.update_layout(
         barmode='stack',
-        title='Vault Allocations',
+        title=title,
         xaxis_title='Date',
         yaxis_title='Shares',
         **template
@@ -480,6 +480,7 @@ def main():
     baseline_actions_df = parse_baseline_log_file("run_results/baseline_logs.log")
     # build performance chart
     fig_allocation = create_allocation_chart(perf_df, TRADINGVIEW_TEMPLATE)
+    fig_baseline_allocation = create_allocation_chart(baseline_perf_df, TRADINGVIEW_TEMPLATE, "Vault Allocations for Baseline Strategy")
     fig_idle_withdrawal = create_idle_withdrawal_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_share_price = create_share_price_chart(perf_df, TRADINGVIEW_TEMPLATE)
     fig_benchmark = create_benchmarking_chart(perf_df, baseline_perf_df, TRADINGVIEW_TEMPLATE)
@@ -491,12 +492,13 @@ def main():
     app = dash.Dash(__name__)
     app.layout = html.Div([
         dcc.Graph(figure=fig_actions), 
-        dcc.Graph(figure=fig_baseline_actions), 
+        dcc.Graph(figure=fig_baseline_actions),
         dcc.Graph(figure=fig_benchmark), 
         dcc.Graph(figure=fig_share_price), 
         dcc.Graph(figure=fig_perf), 
         dcc.Graph(figure=fig_idle_withdrawal), 
-        dcc.Graph(figure=fig_allocation)
+        dcc.Graph(figure=fig_allocation),
+        dcc.Graph(figure=fig_baseline_allocation)
     ])
     # app.layout = html.Div([
     #     dcc.Graph(figure=fig_actions)

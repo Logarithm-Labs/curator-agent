@@ -1,0 +1,1081 @@
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running strategy on 244 observations.
+2025-05-23 11:39:46 | Strategy parameters: {'INIT_BALANCE': 100000, 'WINDOW': 7, 'LOOKBACK_WINDOW': 30, 'FORECAST_HORIZON': 7}
+2025-05-23 11:39:46 | Entities: {'meta_vault': MetaVault(global_state=MetaVaultGlobalState(deposits=0.0, withdrawals=0.0), internal_state=MetaVaultInternalState(total_supply=100000.0)), 'brett': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'doge': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'floki': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'neiro': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'pepe': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'popcat': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'shib': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'wif': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))}
+2025-05-23 11:39:46 | Entities states: [MetaVaultInternalState(total_supply=100000.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0)]
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-16 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-17 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-18 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-19 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-20 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-21 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-22 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-23 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-24 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-25 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-26 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-27 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-28 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-29 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-09-30 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-01 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-02 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-03 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-04 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-05 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-06 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-07 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-08 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-09 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-10 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-11 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-12 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-13 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-14 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-15 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-16 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-17 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-18 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-19 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-20 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-21 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-22 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-23 00:00:00
+2025-05-23 11:39:46 | Action: allocate_assets, vault_names: ['popcat', 'brett', 'pepe', 'doge', 'wif'], amounts: [570763.9394769999, 0.0, 0.0, 2802.812474, 0.0]
+2025-05-23 11:39:46 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.012697192305295), idle_assets=np.float64(1171.557492), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0139108884547536), idle_assets=np.float64(3120.297274), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2243633607477404), idle_assets=np.float64(8336.235387), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1885241395125232), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2802.812474)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2334693018725331), idle_assets=np.float64(9924.293867), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [570763.9394769999, 0.0, 0.0, 2802.812474, 0.0]}))]
+2025-05-23 11:39:46 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.012697192305295), idle_assets=np.float64(1171.557492), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0139108884547536), idle_assets=np.float64(3120.297274), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2243633607477404), idle_assets=np.float64(8336.235387), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1885241395125232), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2802.812474)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2334693018725331), idle_assets=np.float64(9924.293867), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [570763.9394769999, 0.0, 0.0, 2802.812474, 0.0]}))
+2025-05-23 11:39:46 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.012697192305295), idle_assets=np.float64(1171.557492), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0139108884547536), idle_assets=np.float64(3120.297274), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2243633607477404), idle_assets=np.float64(8336.235387), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1885241395125232), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2802.812474)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2334693018725331), idle_assets=np.float64(9924.293867), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [570763.9394769999, 0.0, 0.0, 2802.812474, 0.0]}): MetaVaultInternalState(total_supply=573566.7519419999)
+2025-05-23 11:39:46 | After action: MetaVaultInternalState(total_supply=573566.7519419999)
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-24 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-25 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-26 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-27 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-28 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-29 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-30 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-10-31 00:00:00
+2025-05-23 11:39:46 | Action: allocate_assets, vault_names: ['popcat', 'brett', 'doge', 'pepe', 'wif', 'shib'], amounts: [2914.311112000001, 0.0, 0.0, 0.0, 6902.43402, 2339.089211]
+2025-05-23 11:39:46 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0174653800746711), idle_assets=np.float64(1076.154523), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=561641.957222, open_assets=570763.9394769999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0160189132087132), idle_assets=np.float64(7456.887497), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1921030506799986), idle_assets=np.float64(5864.076188), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2358.22932, open_assets=2802.812474))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2262649289439982), idle_assets=np.float64(1646.574797), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2375148084017575), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6902.43402)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0783581259192354), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2339.089211)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [2914.311112000001, 0.0, 0.0, 0.0, 6902.43402, 2339.089211]}))]
+2025-05-23 11:39:46 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0174653800746711), idle_assets=np.float64(1076.154523), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=561641.957222, open_assets=570763.9394769999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0160189132087132), idle_assets=np.float64(7456.887497), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1921030506799986), idle_assets=np.float64(5864.076188), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2358.22932, open_assets=2802.812474))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2262649289439982), idle_assets=np.float64(1646.574797), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2375148084017575), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6902.43402)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0783581259192354), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2339.089211)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [2914.311112000001, 0.0, 0.0, 0.0, 6902.43402, 2339.089211]}))
+2025-05-23 11:39:46 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0174653800746711), idle_assets=np.float64(1076.154523), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=561641.957222, open_assets=570763.9394769999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0160189132087132), idle_assets=np.float64(7456.887497), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1921030506799986), idle_assets=np.float64(5864.076188), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2358.22932, open_assets=2802.812474))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2262649289439982), idle_assets=np.float64(1646.574797), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2375148084017575), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6902.43402)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0783581259192354), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2339.089211)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [2914.311112000001, 0.0, 0.0, 0.0, 6902.43402, 2339.089211]}): MetaVaultInternalState(total_supply=585911.1446229997)
+2025-05-23 11:39:46 | After action: MetaVaultInternalState(total_supply=585911.1446229997)
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-01 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-02 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-03 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-04 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-05 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-06 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-07 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-08 00:00:00
+2025-05-23 11:39:46 | Action: allocate_assets, vault_names: ['popcat', 'brett', 'doge', 'pepe', 'wif', 'shib'], amounts: [140275.46777099997, 1487.197106, 3798.099456, 370.709976, 2870.779676, 0.0]
+2025-05-23 11:39:46 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0211542334003765), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(7745.803633)), internal_state=LogarithmVaultInternalState(shares=564496.252468, open_assets=573678.250589))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.018570321261827), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1487.197106)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1969217052059415), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3798.099456)), internal_state=LogarithmVaultInternalState(shares=2358.22932, open_assets=2802.812474))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.225787816037845), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(370.709976)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2357705985946268), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2870.779676)), internal_state=LogarithmVaultInternalState(shares=5577.657716, open_assets=6902.43402))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0804485485907085), idle_assets=np.float64(2417.152671), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [140275.46777099997, 1487.197106, 3798.099456, 370.709976, 2870.779676, 0.0]}))]
+2025-05-23 11:39:46 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0211542334003765), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(7745.803633)), internal_state=LogarithmVaultInternalState(shares=564496.252468, open_assets=573678.250589))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.018570321261827), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1487.197106)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1969217052059415), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3798.099456)), internal_state=LogarithmVaultInternalState(shares=2358.22932, open_assets=2802.812474))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.225787816037845), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(370.709976)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2357705985946268), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2870.779676)), internal_state=LogarithmVaultInternalState(shares=5577.657716, open_assets=6902.43402))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0804485485907085), idle_assets=np.float64(2417.152671), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [140275.46777099997, 1487.197106, 3798.099456, 370.709976, 2870.779676, 0.0]}))
+2025-05-23 11:39:46 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0211542334003765), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(7745.803633)), internal_state=LogarithmVaultInternalState(shares=564496.252468, open_assets=573678.250589))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.018570321261827), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1487.197106)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1969217052059415), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3798.099456)), internal_state=LogarithmVaultInternalState(shares=2358.22932, open_assets=2802.812474))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.225787816037845), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(370.709976)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2357705985946268), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2870.779676)), internal_state=LogarithmVaultInternalState(shares=5577.657716, open_assets=6902.43402))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0804485485907085), idle_assets=np.float64(2417.152671), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [140275.46777099997, 1487.197106, 3798.099456, 370.709976, 2870.779676, 0.0]}): MetaVaultInternalState(total_supply=734694.6927639998)
+2025-05-23 11:39:46 | After action: MetaVaultInternalState(total_supply=734694.6927639998)
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-09 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-10 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-11 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-12 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-13 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-14 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-15 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-16 00:00:00
+2025-05-23 11:39:46 | Action: allocate_assets, vault_names: ['popcat', 'brett', 'doge', 'pepe', 'wif', 'shib'], amounts: [74753.29184600001, 6562.638011, 0.0, 9143.392675, 0.0, 0.0]
+2025-05-23 11:39:46 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0355870086992691), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1064.67542)), internal_state=LogarithmVaultInternalState(shares=701413.113015, open_assets=713953.7183599999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.029607099215596), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6562.638011)), internal_state=LogarithmVaultInternalState(shares=1460.082897, open_assets=1487.197106))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2046139810794332), idle_assets=np.float64(18310.37779), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=5531.4522959999995, open_assets=6600.91193))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.238087564884796), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9143.392675)), internal_state=LogarithmVaultInternalState(shares=302.425893, open_assets=370.709976))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245512926746106), idle_assets=np.float64(5700.829546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0875788458437885), idle_assets=np.float64(5629.952776), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [74753.29184600001, 6562.638011, 0.0, 9143.392675, 0.0, 0.0]}))]
+2025-05-23 11:39:46 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0355870086992691), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1064.67542)), internal_state=LogarithmVaultInternalState(shares=701413.113015, open_assets=713953.7183599999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.029607099215596), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6562.638011)), internal_state=LogarithmVaultInternalState(shares=1460.082897, open_assets=1487.197106))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2046139810794332), idle_assets=np.float64(18310.37779), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=5531.4522959999995, open_assets=6600.91193))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.238087564884796), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9143.392675)), internal_state=LogarithmVaultInternalState(shares=302.425893, open_assets=370.709976))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245512926746106), idle_assets=np.float64(5700.829546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0875788458437885), idle_assets=np.float64(5629.952776), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [74753.29184600001, 6562.638011, 0.0, 9143.392675, 0.0, 0.0]}))
+2025-05-23 11:39:46 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0355870086992691), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1064.67542)), internal_state=LogarithmVaultInternalState(shares=701413.113015, open_assets=713953.7183599999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.029607099215596), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6562.638011)), internal_state=LogarithmVaultInternalState(shares=1460.082897, open_assets=1487.197106))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2046139810794332), idle_assets=np.float64(18310.37779), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=5531.4522959999995, open_assets=6600.91193))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.238087564884796), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9143.392675)), internal_state=LogarithmVaultInternalState(shares=302.425893, open_assets=370.709976))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245512926746106), idle_assets=np.float64(5700.829546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0875788458437885), idle_assets=np.float64(5629.952776), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [74753.29184600001, 6562.638011, 0.0, 9143.392675, 0.0, 0.0]}): MetaVaultInternalState(total_supply=824605.4418949997)
+2025-05-23 11:39:46 | After action: MetaVaultInternalState(total_supply=824605.4418949997)
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-17 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-18 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-19 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-20 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-21 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-22 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-23 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-24 00:00:00
+2025-05-23 11:39:46 | Action: allocate_assets, vault_names: ['popcat', 'doge', 'brett', 'pepe', 'wif', 'shib'], amounts: [13466.856355999997, 240.20977, 6069.659896, 0.0, 0.0, 981.749322]
+2025-05-23 11:39:46 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0515554986904352), idle_assets=np.float64(3136.971035), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=773349.397073, open_assets=788707.010206))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2180805527031642), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(240.20977)), internal_state=LogarithmVaultInternalState(shares=5531.4522959999995, open_assets=6600.91193))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0377558667281417), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6069.659896)), internal_state=LogarithmVaultInternalState(shares=7834.00749, open_assets=8049.8351170000005))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.25143066100981), idle_assets=np.float64(5370.59133), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7687.519592, open_assets=9514.102651))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2556826620115151), idle_assets=np.float64(1877.097787), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0942844735581865), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(981.749322)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [13466.856355999997, 240.20977, 6069.659896, 0.0, 0.0, 981.749322]}))]
+2025-05-23 11:39:46 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0515554986904352), idle_assets=np.float64(3136.971035), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=773349.397073, open_assets=788707.010206))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2180805527031642), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(240.20977)), internal_state=LogarithmVaultInternalState(shares=5531.4522959999995, open_assets=6600.91193))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0377558667281417), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6069.659896)), internal_state=LogarithmVaultInternalState(shares=7834.00749, open_assets=8049.8351170000005))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.25143066100981), idle_assets=np.float64(5370.59133), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7687.519592, open_assets=9514.102651))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2556826620115151), idle_assets=np.float64(1877.097787), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0942844735581865), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(981.749322)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [13466.856355999997, 240.20977, 6069.659896, 0.0, 0.0, 981.749322]}))
+2025-05-23 11:39:46 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0515554986904352), idle_assets=np.float64(3136.971035), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=773349.397073, open_assets=788707.010206))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2180805527031642), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(240.20977)), internal_state=LogarithmVaultInternalState(shares=5531.4522959999995, open_assets=6600.91193))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0377558667281417), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6069.659896)), internal_state=LogarithmVaultInternalState(shares=7834.00749, open_assets=8049.8351170000005))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.25143066100981), idle_assets=np.float64(5370.59133), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7687.519592, open_assets=9514.102651))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2556826620115151), idle_assets=np.float64(1877.097787), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0942844735581865), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(981.749322)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [13466.856355999997, 240.20977, 6069.659896, 0.0, 0.0, 981.749322]}): MetaVaultInternalState(total_supply=844773.7214909996)
+2025-05-23 11:39:46 | After action: MetaVaultInternalState(total_supply=844773.7214909996)
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-25 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-26 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-27 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-28 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-29 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-11-30 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-01 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-02 00:00:00
+2025-05-23 11:39:46 | Action: allocate_assets, vault_names: ['popcat', 'brett', 'pepe', 'doge', 'shib', 'wif'], amounts: [68586.54475199999, 1236.940742, 5361.673786, 3624.798448, 0.0, 2099.278496]
+2025-05-23 11:39:46 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0622985473198234), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4563.636005)), internal_state=LogarithmVaultInternalState(shares=786111.3357139999, open_assets=802173.8665619999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0485713249537345), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1236.940742)), internal_state=LogarithmVaultInternalState(shares=13682.839658, open_assets=14119.495013))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.262937359036602), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5361.673786)), internal_state=LogarithmVaultInternalState(shares=7687.519592, open_assets=9514.102651))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.227640037405326), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3624.798448)), internal_state=LogarithmVaultInternalState(shares=5728.655812999999, open_assets=6841.121700000001))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1019054251921352), idle_assets=np.float64(6068.767191), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.261400378657702), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2099.278496)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999)))], 'amounts': [68586.54475199999, 1236.940742, 5361.673786, 3624.798448, 0.0, 2099.278496]}))]
+2025-05-23 11:39:46 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0622985473198234), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4563.636005)), internal_state=LogarithmVaultInternalState(shares=786111.3357139999, open_assets=802173.8665619999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0485713249537345), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1236.940742)), internal_state=LogarithmVaultInternalState(shares=13682.839658, open_assets=14119.495013))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.262937359036602), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5361.673786)), internal_state=LogarithmVaultInternalState(shares=7687.519592, open_assets=9514.102651))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.227640037405326), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3624.798448)), internal_state=LogarithmVaultInternalState(shares=5728.655812999999, open_assets=6841.121700000001))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1019054251921352), idle_assets=np.float64(6068.767191), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.261400378657702), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2099.278496)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999)))], 'amounts': [68586.54475199999, 1236.940742, 5361.673786, 3624.798448, 0.0, 2099.278496]}))
+2025-05-23 11:39:46 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0622985473198234), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4563.636005)), internal_state=LogarithmVaultInternalState(shares=786111.3357139999, open_assets=802173.8665619999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0485713249537345), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1236.940742)), internal_state=LogarithmVaultInternalState(shares=13682.839658, open_assets=14119.495013))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.262937359036602), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5361.673786)), internal_state=LogarithmVaultInternalState(shares=7687.519592, open_assets=9514.102651))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.227640037405326), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3624.798448)), internal_state=LogarithmVaultInternalState(shares=5728.655812999999, open_assets=6841.121700000001))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1019054251921352), idle_assets=np.float64(6068.767191), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.261400378657702), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2099.278496)), internal_state=LogarithmVaultInternalState(shares=7900.726155, open_assets=9773.213695999999)))], 'amounts': [68586.54475199999, 1236.940742, 5361.673786, 3624.798448, 0.0, 2099.278496]}): MetaVaultInternalState(total_supply=923675.2440849997)
+2025-05-23 11:39:46 | After action: MetaVaultInternalState(total_supply=923675.2440849997)
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-03 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-04 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-05 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-06 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-07 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-08 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-09 00:00:00
+2025-05-23 11:39:46 | Actions to take: []
+2025-05-23 11:39:46 | ==============================
+2025-05-23 11:39:46 | Running step...
+2025-05-23 11:39:46 | Observation: 2024-12-10 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['popcat', 'brett', 'pepe', 'doge', 'shib', 'wif'], amounts: [33421.65815, 6963.925622, 0.0, 2855.332779, 0.0, 2235.669353]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.075667480383271), idle_assets=np.float64(2943.321562), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=850465.416107, open_assets=870760.4113139999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0640623841226158), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6963.925622)), internal_state=LogarithmVaultInternalState(shares=14862.483533, open_assets=15356.435755))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.281606282913113), idle_assets=np.float64(3400.184546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242953479371071), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2855.332779)), internal_state=LogarithmVaultInternalState(shares=8681.311588999999, open_assets=10465.920148000001))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1182955464252082), idle_assets=np.float64(5264.837965), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.278737236541249), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2235.669353)), internal_state=LogarithmVaultInternalState(shares=9564.970538, open_assets=11872.492191999998)))], 'amounts': [33421.65815, 6963.925622, 0.0, 2855.332779, 0.0, 2235.669353]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.075667480383271), idle_assets=np.float64(2943.321562), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=850465.416107, open_assets=870760.4113139999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0640623841226158), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6963.925622)), internal_state=LogarithmVaultInternalState(shares=14862.483533, open_assets=15356.435755))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.281606282913113), idle_assets=np.float64(3400.184546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242953479371071), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2855.332779)), internal_state=LogarithmVaultInternalState(shares=8681.311588999999, open_assets=10465.920148000001))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1182955464252082), idle_assets=np.float64(5264.837965), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.278737236541249), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2235.669353)), internal_state=LogarithmVaultInternalState(shares=9564.970538, open_assets=11872.492191999998)))], 'amounts': [33421.65815, 6963.925622, 0.0, 2855.332779, 0.0, 2235.669353]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.075667480383271), idle_assets=np.float64(2943.321562), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=850465.416107, open_assets=870760.4113139999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0640623841226158), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6963.925622)), internal_state=LogarithmVaultInternalState(shares=14862.483533, open_assets=15356.435755))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.281606282913113), idle_assets=np.float64(3400.184546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242953479371071), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2855.332779)), internal_state=LogarithmVaultInternalState(shares=8681.311588999999, open_assets=10465.920148000001))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1182955464252082), idle_assets=np.float64(5264.837965), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.278737236541249), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2235.669353)), internal_state=LogarithmVaultInternalState(shares=9564.970538, open_assets=11872.492191999998)))], 'amounts': [33421.65815, 6963.925622, 0.0, 2855.332779, 0.0, 2235.669353]}): MetaVaultInternalState(total_supply=966811.8456279996)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=966811.8456279996)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-11 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-12 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-13 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-14 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-15 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-16 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-17 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-18 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['popcat', 'pepe', 'doge', 'brett', 'shib', 'wif'], amounts: [23684.339888, 0.0, 121.345721, 0.0, 4573.643536, 0.0]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0852894628475975), idle_assets=np.float64(3757.953943), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=881427.670651, open_assets=904182.069464))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.290179830988999), idle_assets=np.float64(520.432228), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2477032750804853), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(121.345721)), internal_state=LogarithmVaultInternalState(shares=10978.527715999999, open_assets=13321.252927000001))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0670244935740765), idle_assets=np.float64(4900.424809), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1209027634017117), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4573.643536)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2794123052435011), idle_assets=np.float64(3315.282806), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997)))], 'amounts': [23684.339888, 0.0, 121.345721, 0.0, 4573.643536, 0.0]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0852894628475975), idle_assets=np.float64(3757.953943), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=881427.670651, open_assets=904182.069464))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.290179830988999), idle_assets=np.float64(520.432228), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2477032750804853), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(121.345721)), internal_state=LogarithmVaultInternalState(shares=10978.527715999999, open_assets=13321.252927000001))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0670244935740765), idle_assets=np.float64(4900.424809), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1209027634017117), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4573.643536)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2794123052435011), idle_assets=np.float64(3315.282806), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997)))], 'amounts': [23684.339888, 0.0, 121.345721, 0.0, 4573.643536, 0.0]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0852894628475975), idle_assets=np.float64(3757.953943), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=881427.670651, open_assets=904182.069464))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.290179830988999), idle_assets=np.float64(520.432228), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2477032750804853), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(121.345721)), internal_state=LogarithmVaultInternalState(shares=10978.527715999999, open_assets=13321.252927000001))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0670244935740765), idle_assets=np.float64(4900.424809), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1209027634017117), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4573.643536)), internal_state=LogarithmVaultInternalState(shares=3066.281929, open_assets=3320.838533))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2794123052435011), idle_assets=np.float64(3315.282806), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997)))], 'amounts': [23684.339888, 0.0, 121.345721, 0.0, 4573.643536, 0.0]}): MetaVaultInternalState(total_supply=993424.1842409996)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=993424.1842409996)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-19 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-20 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-21 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-22 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-23 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-24 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-25 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-26 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['popcat', 'pepe', 'brett', 'wif', 'shib', 'doge'], amounts: [55469.46467600001, 0.0, 0.0, 0.0, 7514.927359, 5138.18996]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0913780465156733), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(855.091588)), internal_state=LogarithmVaultInternalState(shares=903174.618932, open_assets=927866.409352))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2872238328260242), idle_assets=np.float64(7089.601678), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0650060306237616), idle_assets=np.float64(1205.248627), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.281495081513807), idle_assets=np.float64(3288.106061), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1169469803326717), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(7514.927359)), internal_state=LogarithmVaultInternalState(shares=7146.603331, open_assets=7894.482069))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2424102184407309), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5138.18996)), internal_state=LogarithmVaultInternalState(shares=11075.782986999999, open_assets=13442.598648000001)))], 'amounts': [55469.46467600001, 0.0, 0.0, 0.0, 7514.927359, 5138.18996]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0913780465156733), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(855.091588)), internal_state=LogarithmVaultInternalState(shares=903174.618932, open_assets=927866.409352))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2872238328260242), idle_assets=np.float64(7089.601678), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0650060306237616), idle_assets=np.float64(1205.248627), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.281495081513807), idle_assets=np.float64(3288.106061), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1169469803326717), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(7514.927359)), internal_state=LogarithmVaultInternalState(shares=7146.603331, open_assets=7894.482069))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2424102184407309), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5138.18996)), internal_state=LogarithmVaultInternalState(shares=11075.782986999999, open_assets=13442.598648000001)))], 'amounts': [55469.46467600001, 0.0, 0.0, 0.0, 7514.927359, 5138.18996]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0913780465156733), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(855.091588)), internal_state=LogarithmVaultInternalState(shares=903174.618932, open_assets=927866.409352))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2872238328260242), idle_assets=np.float64(7089.601678), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0650060306237616), idle_assets=np.float64(1205.248627), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.281495081513807), idle_assets=np.float64(3288.106061), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1169469803326717), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(7514.927359)), internal_state=LogarithmVaultInternalState(shares=7146.603331, open_assets=7894.482069))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2424102184407309), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5138.18996)), internal_state=LogarithmVaultInternalState(shares=11075.782986999999, open_assets=13442.598648000001)))], 'amounts': [55469.46467600001, 0.0, 0.0, 0.0, 7514.927359, 5138.18996]}): MetaVaultInternalState(total_supply=1057543.0213589994)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1057543.0213589994)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-27 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-28 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-29 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-30 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2024-12-31 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-01 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-02 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-03 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['popcat', 'pepe', 'wif', 'brett', 'shib', 'doge'], amounts: [92393.80521300001, 3763.433838, 436.08976, 0.0, 3868.608006, 3128.217624]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0984576803199757), idle_assets=np.float64(168.298084), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=953825.244751, open_assets=983335.874028))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2903673494127108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3763.433838)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2849974621506377), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(436.08976)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0667041716106442), idle_assets=np.float64(1971.359573), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.117430095628056), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3868.608006)), internal_state=LogarithmVaultInternalState(shares=13874.70009, open_assets=15409.409427999999))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2429018955035285), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3128.217624)), internal_state=LogarithmVaultInternalState(shares=15211.445977, open_assets=18580.788608000003)))], 'amounts': [92393.80521300001, 3763.433838, 436.08976, 0.0, 3868.608006, 3128.217624]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0984576803199757), idle_assets=np.float64(168.298084), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=953825.244751, open_assets=983335.874028))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2903673494127108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3763.433838)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2849974621506377), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(436.08976)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0667041716106442), idle_assets=np.float64(1971.359573), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.117430095628056), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3868.608006)), internal_state=LogarithmVaultInternalState(shares=13874.70009, open_assets=15409.409427999999))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2429018955035285), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3128.217624)), internal_state=LogarithmVaultInternalState(shares=15211.445977, open_assets=18580.788608000003)))], 'amounts': [92393.80521300001, 3763.433838, 436.08976, 0.0, 3868.608006, 3128.217624]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0984576803199757), idle_assets=np.float64(168.298084), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=953825.244751, open_assets=983335.874028))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2903673494127108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3763.433838)), internal_state=LogarithmVaultInternalState(shares=11932.919213, open_assets=14875.776437))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2849974621506377), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(436.08976)), internal_state=LogarithmVaultInternalState(shares=11313.312018, open_assets=14108.161544999997))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0667041716106442), idle_assets=np.float64(1971.359573), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.117430095628056), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3868.608006)), internal_state=LogarithmVaultInternalState(shares=13874.70009, open_assets=15409.409427999999))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2429018955035285), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3128.217624)), internal_state=LogarithmVaultInternalState(shares=15211.445977, open_assets=18580.788608000003)))], 'amounts': [92393.80521300001, 3763.433838, 436.08976, 0.0, 3868.608006, 3128.217624]}): MetaVaultInternalState(total_supply=1154928.2248609995)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1154928.2248609995)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-04 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-05 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-06 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-07 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-08 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-09 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-10 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-11 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['popcat', 'pepe', 'brett', 'wif', 'doge', 'shib'], amounts: [179984.940237, 0.0, 0.0, 0.0, 4341.952681, 0.0]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0994359631620363), idle_assets=np.float64(3196.753193), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1037644.181447, open_assets=1075729.679241))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293493470806282), idle_assets=np.float64(3307.423737), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14849.479244999999, open_assets=18639.210275))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0703158368772598), idle_assets=np.float64(78.900624), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2845353108317492), idle_assets=np.float64(54.102521), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245475824641191), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4341.952681)), internal_state=LogarithmVaultInternalState(shares=17728.312058, open_assets=21709.006232000003))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1192891349745409), idle_assets=np.float64(10216.773842), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998)))], 'amounts': [179984.940237, 0.0, 0.0, 0.0, 4341.952681, 0.0]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0994359631620363), idle_assets=np.float64(3196.753193), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1037644.181447, open_assets=1075729.679241))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293493470806282), idle_assets=np.float64(3307.423737), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14849.479244999999, open_assets=18639.210275))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0703158368772598), idle_assets=np.float64(78.900624), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2845353108317492), idle_assets=np.float64(54.102521), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245475824641191), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4341.952681)), internal_state=LogarithmVaultInternalState(shares=17728.312058, open_assets=21709.006232000003))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1192891349745409), idle_assets=np.float64(10216.773842), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998)))], 'amounts': [179984.940237, 0.0, 0.0, 0.0, 4341.952681, 0.0]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0994359631620363), idle_assets=np.float64(3196.753193), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1037644.181447, open_assets=1075729.679241))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293493470806282), idle_assets=np.float64(3307.423737), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14849.479244999999, open_assets=18639.210275))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0703158368772598), idle_assets=np.float64(78.900624), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2845353108317492), idle_assets=np.float64(54.102521), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245475824641191), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4341.952681)), internal_state=LogarithmVaultInternalState(shares=17728.312058, open_assets=21709.006232000003))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1192891349745409), idle_assets=np.float64(10216.773842), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998)))], 'amounts': [179984.940237, 0.0, 0.0, 0.0, 4341.952681, 0.0]}): MetaVaultInternalState(total_supply=1327242.3105009994)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1327242.3105009994)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-12 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-13 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-14 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-15 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-16 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-17 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-18 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-19 00:00:00
+2025-05-23 11:39:47 | Action: withdraw_allocations, vault_names: ['neiro', 'floki', 'brett', 'shib', 'wif', 'doge', 'pepe'], amounts: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6386.989341]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7872043676648974), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2207.364372)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5974696150539786), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1557.567732)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0679801724075595), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1019.964142)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.12122728986201), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6080.756657)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2864638773532713), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3394.094811)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.249122328445418), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2082.160384)), internal_state=LogarithmVaultInternalState(shares=21214.491873, open_assets=26050.958913000002))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2968940827153062), idle_assets=np.float64(9934.376895), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14849.479244999999, open_assets=18639.210275)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6386.989341]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7872043676648974), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2207.364372)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5974696150539786), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1557.567732)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0679801724075595), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1019.964142)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.12122728986201), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6080.756657)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2864638773532713), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3394.094811)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.249122328445418), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2082.160384)), internal_state=LogarithmVaultInternalState(shares=21214.491873, open_assets=26050.958913000002))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2968940827153062), idle_assets=np.float64(9934.376895), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14849.479244999999, open_assets=18639.210275)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6386.989341]}))
+2025-05-23 11:39:47 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7872043676648974), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2207.364372)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5974696150539786), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1557.567732)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0679801724075595), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1019.964142)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.12122728986201), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6080.756657)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2864638773532713), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3394.094811)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.249122328445418), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2082.160384)), internal_state=LogarithmVaultInternalState(shares=21214.491873, open_assets=26050.958913000002))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2968940827153062), idle_assets=np.float64(9934.376895), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14849.479244999999, open_assets=18639.210275)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6386.989341]}): MetaVaultInternalState(total_supply=1321201.6551719995)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1321201.6551719995)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-20 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-21 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-22 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-23 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-24 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-25 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-26 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-27 00:00:00
+2025-05-23 11:39:47 | Action: withdraw_allocations, vault_names: ['neiro', 'floki', 'wif', 'brett', 'shib', 'doge', 'pepe', 'popcat'], amounts: [0.0, 0.0, 3472.730712, 22831.540095, 126.459098, 18803.496750000006, 0.0, 3847.737926]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.773702905353162), idle_assets=np.float64(7402.581967), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5909435454867495), idle_assets=np.float64(10252.086914), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.285944319630168), idle_assets=np.float64(3472.730712), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.070271302556492), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(10150.284946)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1227205179129276), idle_assets=np.float64(126.459098), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2501722206313848), idle_assets=np.float64(5341.006955), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21214.491873, open_assets=26050.958913000002))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2964315069877328), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1826.620874)), internal_state=LogarithmVaultInternalState(shares=9924.644267, open_assets=12252.220934))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102559776030887), idle_assets=np.float64(3847.737926), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1200779.821975, open_assets=1255714.6194779999)))], 'amounts': [0.0, 0.0, 3472.730712, 22831.540095, 126.459098, 18803.496750000006, 0.0, 3847.737926]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.773702905353162), idle_assets=np.float64(7402.581967), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5909435454867495), idle_assets=np.float64(10252.086914), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.285944319630168), idle_assets=np.float64(3472.730712), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.070271302556492), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(10150.284946)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1227205179129276), idle_assets=np.float64(126.459098), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2501722206313848), idle_assets=np.float64(5341.006955), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21214.491873, open_assets=26050.958913000002))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2964315069877328), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1826.620874)), internal_state=LogarithmVaultInternalState(shares=9924.644267, open_assets=12252.220934))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102559776030887), idle_assets=np.float64(3847.737926), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1200779.821975, open_assets=1255714.6194779999)))], 'amounts': [0.0, 0.0, 3472.730712, 22831.540095, 126.459098, 18803.496750000006, 0.0, 3847.737926]}))
+2025-05-23 11:39:47 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.773702905353162), idle_assets=np.float64(7402.581967), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5909435454867495), idle_assets=np.float64(10252.086914), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.285944319630168), idle_assets=np.float64(3472.730712), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=11652.682151, open_assets=14544.251304999998))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.070271302556492), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(10150.284946)), internal_state=LogarithmVaultInternalState(shares=21407.142686, open_assets=22320.361377))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1227205179129276), idle_assets=np.float64(126.459098), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17336.758272, open_assets=19278.017433999998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2501722206313848), idle_assets=np.float64(5341.006955), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=21214.491873, open_assets=26050.958913000002))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2964315069877328), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1826.620874)), internal_state=LogarithmVaultInternalState(shares=9924.644267, open_assets=12252.220934))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102559776030887), idle_assets=np.float64(3847.737926), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1200779.821975, open_assets=1255714.6194779999)))], 'amounts': [0.0, 0.0, 3472.730712, 22831.540095, 126.459098, 18803.496750000006, 0.0, 3847.737926]}): MetaVaultInternalState(total_supply=1275458.9236689995)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1275458.9236689995)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-28 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-29 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-30 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-01-31 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-01 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-02 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-03 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-04 00:00:00
+2025-05-23 11:39:47 | Action: withdraw_allocations, vault_names: ['neiro', 'floki', 'brett', 'wif', 'pepe', 'popcat', 'doge', 'shib'], amounts: [0.0, 0.0, 0.0, 0.0, 12821.619306, 45021.603885, 7625.475304, 0.0]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7564455776938717), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(285.023409)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5794676241537615), idle_assets=np.float64(2143.158647), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.064985248916029), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1199.559772)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2832119293316953), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4084.646615)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293674327579522), idle_assets=np.float64(7782.13607), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=9924.644267, open_assets=12252.220934))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1021394443084744), idle_assets=np.float64(2350.505143), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1197289.9994639999, open_assets=1251866.8815519998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2467776908124617), idle_assets=np.float64(525.890326), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=6136.076951999999, open_assets=7247.4621629999965))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.120401429915007), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1793.44393)), internal_state=LogarithmVaultInternalState(shares=17224.12196, open_assets=19151.558336)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 12821.619306, 45021.603885, 7625.475304, 0.0]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7564455776938717), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(285.023409)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5794676241537615), idle_assets=np.float64(2143.158647), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.064985248916029), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1199.559772)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2832119293316953), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4084.646615)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293674327579522), idle_assets=np.float64(7782.13607), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=9924.644267, open_assets=12252.220934))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1021394443084744), idle_assets=np.float64(2350.505143), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1197289.9994639999, open_assets=1251866.8815519998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2467776908124617), idle_assets=np.float64(525.890326), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=6136.076951999999, open_assets=7247.4621629999965))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.120401429915007), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1793.44393)), internal_state=LogarithmVaultInternalState(shares=17224.12196, open_assets=19151.558336)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 12821.619306, 45021.603885, 7625.475304, 0.0]}))
+2025-05-23 11:39:47 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7564455776938717), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(285.023409)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5794676241537615), idle_assets=np.float64(2143.158647), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.064985248916029), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1199.559772)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2832119293316953), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(4084.646615)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293674327579522), idle_assets=np.float64(7782.13607), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=9924.644267, open_assets=12252.220934))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1021394443084744), idle_assets=np.float64(2350.505143), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1197289.9994639999, open_assets=1251866.8815519998))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2467776908124617), idle_assets=np.float64(525.890326), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=6136.076951999999, open_assets=7247.4621629999965))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.120401429915007), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1793.44393)), internal_state=LogarithmVaultInternalState(shares=17224.12196, open_assets=19151.558336)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 12821.619306, 45021.603885, 7625.475304, 0.0]}): MetaVaultInternalState(total_supply=1214339.8831289995)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1214339.8831289995)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-05 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-06 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-07 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-08 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-09 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-10 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-11 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-12 00:00:00
+2025-05-23 11:39:47 | Action: withdraw_allocations, vault_names: ['neiro', 'floki', 'brett', 'wif', 'shib', 'doge', 'popcat', 'pepe'], amounts: [0.0, 0.0, 0.0, 0.0, 3387.646476, 0.0, 4003.3217780000004, 0.0]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7460988219048382), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(363.022686)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5718394569847843), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1497.588041)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0596853987050003), idle_assets=np.float64(1648.709781), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2817331221590502), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9583.02467)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1202715523881188), idle_assets=np.float64(3387.646476), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17224.12196, open_assets=19151.558336))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.246997877827891), idle_assets=np.float64(1853.371885), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1020494097366051), idle_assets=np.float64(249.943802), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1156305.2103209998, open_assets=1206845.2776669997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.295816446653017), idle_assets=np.float64(2490.071947), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 3387.646476, 0.0, 4003.3217780000004, 0.0]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7460988219048382), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(363.022686)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5718394569847843), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1497.588041)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0596853987050003), idle_assets=np.float64(1648.709781), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2817331221590502), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9583.02467)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1202715523881188), idle_assets=np.float64(3387.646476), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17224.12196, open_assets=19151.558336))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.246997877827891), idle_assets=np.float64(1853.371885), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1020494097366051), idle_assets=np.float64(249.943802), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1156305.2103209998, open_assets=1206845.2776669997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.295816446653017), idle_assets=np.float64(2490.071947), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 3387.646476, 0.0, 4003.3217780000004, 0.0]}))
+2025-05-23 11:39:47 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.7460988219048382), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(363.022686)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.5718394569847843), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1497.588041)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0596853987050003), idle_assets=np.float64(1648.709781), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2817331221590502), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9583.02467)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1202715523881188), idle_assets=np.float64(3387.646476), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=17224.12196, open_assets=19151.558336))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.246997877827891), idle_assets=np.float64(1853.371885), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1020494097366051), idle_assets=np.float64(249.943802), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1156305.2103209998, open_assets=1206845.2776669997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.295816446653017), idle_assets=np.float64(2490.071947), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 3387.646476, 0.0, 4003.3217780000004, 0.0]}): MetaVaultInternalState(total_supply=1207439.2123819995)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1207439.2123819995)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-13 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-14 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-15 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-16 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-17 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-18 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-19 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-20 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-21 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-22 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-23 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-24 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-25 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-26 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-27 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-02-28 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['pepe'], amounts: [27362.039046]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2985389423277536), idle_assets=np.float64(482.405471), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [27362.039046]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2985389423277536), idle_assets=np.float64(482.405471), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [27362.039046]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2985389423277536), idle_assets=np.float64(482.405471), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [27362.039046]}): MetaVaultInternalState(total_supply=1232964.5169149996)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1232964.5169149996)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-01 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-02 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-03 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-04 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-05 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-06 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-07 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-08 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['pepe', 'popcat', 'shib'], amounts: [2009.888922, 0.0, 0.0]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.29599566213483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(559.163775)), internal_state=LogarithmVaultInternalState(shares=20997.911603, open_assets=27362.039046))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1036755157734512), idle_assets=np.float64(4875.441847), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1152660.6744529998, open_assets=1202841.9558889996))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1199720803679831), idle_assets=np.float64(177.159078), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14200.170786, open_assets=15763.911859999998)))], 'amounts': [2009.888922, 0.0, 0.0]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.29599566213483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(559.163775)), internal_state=LogarithmVaultInternalState(shares=20997.911603, open_assets=27362.039046))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1036755157734512), idle_assets=np.float64(4875.441847), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1152660.6744529998, open_assets=1202841.9558889996))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1199720803679831), idle_assets=np.float64(177.159078), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14200.170786, open_assets=15763.911859999998)))], 'amounts': [2009.888922, 0.0, 0.0]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.29599566213483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(559.163775)), internal_state=LogarithmVaultInternalState(shares=20997.911603, open_assets=27362.039046))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1036755157734512), idle_assets=np.float64(4875.441847), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1152660.6744529998, open_assets=1202841.9558889996))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1199720803679831), idle_assets=np.float64(177.159078), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14200.170786, open_assets=15763.911859999998)))], 'amounts': [2009.888922, 0.0, 0.0]}): MetaVaultInternalState(total_supply=1234841.3057619997)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1234841.3057619997)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-09 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-10 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-11 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-12 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-13 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-14 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-15 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-16 00:00:00
+2025-05-23 11:39:47 | Action: allocate_assets, vault_names: ['pepe', 'wif', 'popcat'], amounts: [138117.120797, 9095.143652, 1964.514477]
+2025-05-23 11:39:47 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2974292759146997), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2888.529253)), internal_state=LogarithmVaultInternalState(shares=22544.852809, open_assets=29371.927968000004))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.28089282136073), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9095.143652)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102037462552254), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1964.514477)), internal_state=LogarithmVaultInternalState(shares=1152660.6744529998, open_assets=1202841.9558889996)))], 'amounts': [138117.120797, 9095.143652, 1964.514477]}))]
+2025-05-23 11:39:47 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2974292759146997), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2888.529253)), internal_state=LogarithmVaultInternalState(shares=22544.852809, open_assets=29371.927968000004))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.28089282136073), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9095.143652)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102037462552254), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1964.514477)), internal_state=LogarithmVaultInternalState(shares=1152660.6744529998, open_assets=1202841.9558889996)))], 'amounts': [138117.120797, 9095.143652, 1964.514477]}))
+2025-05-23 11:39:47 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2974292759146997), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2888.529253)), internal_state=LogarithmVaultInternalState(shares=22544.852809, open_assets=29371.927968000004))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.28089282136073), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9095.143652)), internal_state=LogarithmVaultInternalState(shares=8952.152540000001, open_assets=11071.520592999997))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102037462552254), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1964.514477)), internal_state=LogarithmVaultInternalState(shares=1152660.6744529998, open_assets=1202841.9558889996)))], 'amounts': [138117.120797, 9095.143652, 1964.514477]}): MetaVaultInternalState(total_supply=1374267.246004)
+2025-05-23 11:39:47 | After action: MetaVaultInternalState(total_supply=1374267.246004)
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-17 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-18 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-19 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-20 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-21 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-22 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-23 00:00:00
+2025-05-23 11:39:47 | Actions to take: []
+2025-05-23 11:39:47 | ==============================
+2025-05-23 11:39:47 | Running step...
+2025-05-23 11:39:47 | Observation: 2025-03-24 00:00:00
+2025-05-23 11:39:48 | Action: withdraw_allocations, vault_names: ['neiro', 'floki', 'doge', 'brett', 'pepe', 'shib', 'wif', 'popcat'], amounts: [0.0, 0.0, 0.0, 0.0, 112048.01844, 1206.961094, 0.0, 3243.953502]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.6953919284224408), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3333.961752)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.538106162831655), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9047.745819)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242487750509986), idle_assets=np.float64(6858.355986), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.046505604320631), idle_assets=np.float64(535.137206), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2972998142669223), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2701.827745)), internal_state=LogarithmVaultInternalState(shares=128635.777419, open_assets=167489.048765))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.120111613266019), idle_assets=np.float64(1206.961094), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14200.170786, open_assets=15763.911859999998))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2811718259231553), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1666.794343)), internal_state=LogarithmVaultInternalState(shares=16052.780711000001, open_assets=20166.664245))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1035189303382973), idle_assets=np.float64(3243.953502), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1154443.2948659998, open_assets=1204806.4703659997)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 112048.01844, 1206.961094, 0.0, 3243.953502]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.6953919284224408), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3333.961752)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.538106162831655), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9047.745819)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242487750509986), idle_assets=np.float64(6858.355986), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.046505604320631), idle_assets=np.float64(535.137206), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2972998142669223), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2701.827745)), internal_state=LogarithmVaultInternalState(shares=128635.777419, open_assets=167489.048765))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.120111613266019), idle_assets=np.float64(1206.961094), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14200.170786, open_assets=15763.911859999998))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2811718259231553), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1666.794343)), internal_state=LogarithmVaultInternalState(shares=16052.780711000001, open_assets=20166.664245))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1035189303382973), idle_assets=np.float64(3243.953502), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1154443.2948659998, open_assets=1204806.4703659997)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 112048.01844, 1206.961094, 0.0, 3243.953502]}))
+2025-05-23 11:39:48 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='neiro', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.6953919284224408), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3333.961752)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='floki', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(0.538106162831655), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(9047.745819)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242487750509986), idle_assets=np.float64(6858.355986), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.046505604320631), idle_assets=np.float64(535.137206), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2972998142669223), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2701.827745)), internal_state=LogarithmVaultInternalState(shares=128635.777419, open_assets=167489.048765))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.120111613266019), idle_assets=np.float64(1206.961094), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=14200.170786, open_assets=15763.911859999998))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2811718259231553), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1666.794343)), internal_state=LogarithmVaultInternalState(shares=16052.780711000001, open_assets=20166.664245))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1035189303382973), idle_assets=np.float64(3243.953502), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1154443.2948659998, open_assets=1204806.4703659997)))], 'amounts': [0.0, 0.0, 0.0, 0.0, 112048.01844, 1206.961094, 0.0, 3243.953502]}): MetaVaultInternalState(total_supply=1265537.047611)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1265537.047611)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-25 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-26 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-27 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-28 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-29 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-30 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-03-31 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-01 00:00:00
+2025-05-23 11:39:48 | Action: allocate_assets, vault_names: ['popcat', 'pepe'], amounts: [109380.701438, 2134.774959]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1050722071409504), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1173.190669)), internal_state=LogarithmVaultInternalState(shares=1151503.6502319998, open_assets=1201562.5168639997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3000109988055248), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2134.774959)), internal_state=LogarithmVaultInternalState(shares=41963.301813, open_assets=55441.030325000014)))], 'amounts': [109380.701438, 2134.774959]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1050722071409504), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1173.190669)), internal_state=LogarithmVaultInternalState(shares=1151503.6502319998, open_assets=1201562.5168639997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3000109988055248), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2134.774959)), internal_state=LogarithmVaultInternalState(shares=41963.301813, open_assets=55441.030325000014)))], 'amounts': [109380.701438, 2134.774959]}))
+2025-05-23 11:39:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1050722071409504), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1173.190669)), internal_state=LogarithmVaultInternalState(shares=1151503.6502319998, open_assets=1201562.5168639997))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3000109988055248), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2134.774959)), internal_state=LogarithmVaultInternalState(shares=41963.301813, open_assets=55441.030325000014)))], 'amounts': [109380.701438, 2134.774959]}): MetaVaultInternalState(total_supply=1369486.4798100002)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1369486.4798100002)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-02 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-03 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-04 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-05 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-06 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-07 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-08 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-09 00:00:00
+2025-05-23 11:39:48 | Action: allocate_assets, vault_names: ['pepe', 'popcat'], amounts: [80235.675277, 0.0]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3015922265020836), idle_assets=np.float64(3737.442873), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=43605.422503, open_assets=57575.80528400002))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1027003540256417), idle_assets=np.float64(4287.107448), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1250142.7213839998, open_assets=1310943.2183019996)))], 'amounts': [80235.675277, 0.0]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3015922265020836), idle_assets=np.float64(3737.442873), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=43605.422503, open_assets=57575.80528400002))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1027003540256417), idle_assets=np.float64(4287.107448), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1250142.7213839998, open_assets=1310943.2183019996)))], 'amounts': [80235.675277, 0.0]}))
+2025-05-23 11:39:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3015922265020836), idle_assets=np.float64(3737.442873), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=43605.422503, open_assets=57575.80528400002))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1027003540256417), idle_assets=np.float64(4287.107448), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1250142.7213839998, open_assets=1310943.2183019996)))], 'amounts': [80235.675277, 0.0]}): MetaVaultInternalState(total_supply=1444529.7467430003)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1444529.7467430003)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-10 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-11 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-12 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-13 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-14 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-15 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-16 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-17 00:00:00
+2025-05-23 11:39:48 | Action: allocate_assets, vault_names: ['pepe'], amounts: [5238.358014]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3038355359436786), idle_assets=np.float64(8406.4298), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=105034.669116, open_assets=137811.480561)))], 'amounts': [5238.358014]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3038355359436786), idle_assets=np.float64(8406.4298), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=105034.669116, open_assets=137811.480561)))], 'amounts': [5238.358014]}))
+2025-05-23 11:39:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3038355359436786), idle_assets=np.float64(8406.4298), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=105034.669116, open_assets=137811.480561)))], 'amounts': [5238.358014]}): MetaVaultInternalState(total_supply=1449467.2885600002)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1449467.2885600002)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-18 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-19 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-20 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-21 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-22 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-23 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-24 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-25 00:00:00
+2025-05-23 11:39:48 | Action: allocate_assets, vault_names: ['pepe', 'doge'], amounts: [93675.081548, 1159.261028]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.306403814383803), idle_assets=np.float64(6067.471649), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=109038.30881, open_assets=143049.838575))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2418137881454483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1159.261028)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [93675.081548, 1159.261028]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.306403814383803), idle_assets=np.float64(6067.471649), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=109038.30881, open_assets=143049.838575))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2418137881454483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1159.261028)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [93675.081548, 1159.261028]}))
+2025-05-23 11:39:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.306403814383803), idle_assets=np.float64(6067.471649), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=109038.30881, open_assets=143049.838575))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2418137881454483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1159.261028)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [93675.081548, 1159.261028]}): MetaVaultInternalState(total_supply=1538303.2288990002)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1538303.2288990002)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-26 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-27 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-28 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-29 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-04-30 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-01 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-02 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-03 00:00:00
+2025-05-23 11:39:48 | Action: allocate_assets, vault_names: ['pepe', 'doge', 'popcat'], amounts: [199686.248356, 8112.312115, 1146.303412]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3074796470291838), idle_assets=np.float64(3534.774651), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=180492.75593500002, open_assets=236724.920123))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2437958476777582), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(8112.312115)), internal_state=LogarithmVaultInternalState(shares=933.522432, open_assets=1159.261028))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1033962020719683), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1146.303412)), internal_state=LogarithmVaultInternalState(shares=1250142.7213839998, open_assets=1310943.2183019996)))], 'amounts': [199686.248356, 8112.312115, 1146.303412]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3074796470291838), idle_assets=np.float64(3534.774651), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=180492.75593500002, open_assets=236724.920123))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2437958476777582), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(8112.312115)), internal_state=LogarithmVaultInternalState(shares=933.522432, open_assets=1159.261028))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1033962020719683), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1146.303412)), internal_state=LogarithmVaultInternalState(shares=1250142.7213839998, open_assets=1310943.2183019996)))], 'amounts': [199686.248356, 8112.312115, 1146.303412]}))
+2025-05-23 11:39:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3074796470291838), idle_assets=np.float64(3534.774651), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=180492.75593500002, open_assets=236724.920123))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2437958476777582), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(8112.312115)), internal_state=LogarithmVaultInternalState(shares=933.522432, open_assets=1159.261028))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1033962020719683), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1146.303412)), internal_state=LogarithmVaultInternalState(shares=1250142.7213839998, open_assets=1310943.2183019996)))], 'amounts': [199686.248356, 8112.312115, 1146.303412]}): MetaVaultInternalState(total_supply=1733910.6841260002)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1733910.6841260002)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-04 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-05 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-06 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-07 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-08 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-09 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-10 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-11 00:00:00
+2025-05-23 11:39:48 | Action: allocate_assets, vault_names: ['popcat', 'pepe', 'doge', 'wif'], amounts: [97419.363594, 0.0, 5090.141636, 0.0]
+2025-05-23 11:39:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1074459601657838), idle_assets=np.float64(10200.229033), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1251181.6078779998, open_assets=1312089.5217139996))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3111767212766114), idle_assets=np.float64(1755.803438), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=332686.1645, open_assets=436411.168479))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.244298692046749), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5090.141636)), internal_state=LogarithmVaultInternalState(shares=7455.744008, open_assets=9271.573143))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2796436352092544), idle_assets=np.float64(7837.677687), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=16052.780711000001, open_assets=20166.664245)))], 'amounts': [97419.363594, 0.0, 5090.141636, 0.0]}))]
+2025-05-23 11:39:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1074459601657838), idle_assets=np.float64(10200.229033), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1251181.6078779998, open_assets=1312089.5217139996))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3111767212766114), idle_assets=np.float64(1755.803438), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=332686.1645, open_assets=436411.168479))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.244298692046749), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5090.141636)), internal_state=LogarithmVaultInternalState(shares=7455.744008, open_assets=9271.573143))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2796436352092544), idle_assets=np.float64(7837.677687), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=16052.780711000001, open_assets=20166.664245)))], 'amounts': [97419.363594, 0.0, 5090.141636, 0.0]}))
+2025-05-23 11:39:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1074459601657838), idle_assets=np.float64(10200.229033), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1251181.6078779998, open_assets=1312089.5217139996))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3111767212766114), idle_assets=np.float64(1755.803438), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=332686.1645, open_assets=436411.168479))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.244298692046749), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5090.141636)), internal_state=LogarithmVaultInternalState(shares=7455.744008, open_assets=9271.573143))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2796436352092544), idle_assets=np.float64(7837.677687), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=16052.780711000001, open_assets=20166.664245)))], 'amounts': [97419.363594, 0.0, 5090.141636, 0.0]}): MetaVaultInternalState(total_supply=1829439.0226780002)
+2025-05-23 11:39:48 | After action: MetaVaultInternalState(total_supply=1829439.0226780002)
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-12 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-13 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-14 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-15 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-16 00:00:00
+2025-05-23 11:39:48 | Actions to take: []
+2025-05-23 11:39:48 | ==============================
+2025-05-23 11:39:48 | Running step...
+2025-05-23 11:39:48 | Observation: 2025-05-17 00:00:00
+2025-05-23 11:39:48 | Actions to take: []

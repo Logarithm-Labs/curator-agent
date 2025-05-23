@@ -1,0 +1,1102 @@
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running strategy on 244 observations.
+2025-05-23 09:48:07 | Strategy parameters: {'INIT_BALANCE': 100000, 'WINDOW': 7, 'LOOKBACK_WINDOW': 30, 'FORECAST_HORIZON': 7}
+2025-05-23 09:48:07 | Entities: {'meta_vault': MetaVault(global_state=MetaVaultGlobalState(deposits=0.0, withdrawals=0.0), internal_state=MetaVaultInternalState(total_supply=100000.0)), 'brett': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'doge': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'floki': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'neiro': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'pepe': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'popcat': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'shib': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)), 'wif': LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=1.0, idle_assets=0.0, pending_withdrawals=0.0), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))}
+2025-05-23 09:48:07 | Entities states: [MetaVaultInternalState(total_supply=100000.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0), LogarithmVaultInternalState(shares=0.0, open_assets=0.0)]
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-16 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-17 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-18 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-19 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-20 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-21 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-22 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-23 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-24 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-25 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-26 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-27 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-28 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-29 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-09-30 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-01 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-02 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-03 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-04 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-05 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-06 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-07 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-08 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-09 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-10 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-11 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-12 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-13 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-14 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-15 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-16 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-17 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-18 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-19 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-20 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-21 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-22 00:00:00
+2025-05-23 09:48:07 | Actions to take: []
+2025-05-23 09:48:07 | ==============================
+2025-05-23 09:48:07 | Running step...
+2025-05-23 09:48:07 | Observation: 2024-10-23 00:00:00
+2025-05-23 09:49:20 | Action: allocate_assets, Prediction: vault_names=['popcat'] amounts=[573566.751951] reasoning='Based on 30-day uptrend and 7-day forecast, Popcat shows the highest gross projected return (≈0.466% over 7 days). After accounting for entry fees (0.35% rate ⇒ net ≈0.117% per 7 days), it still outperforms all other vaults. A greedy allocation of the full 573 566.751951 maximizes expected short-term return.'
+2025-05-23 09:49:21 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.012697192305295), idle_assets=np.float64(1171.557492), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [573566.751951]}))]
+2025-05-23 09:49:21 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.012697192305295), idle_assets=np.float64(1171.557492), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [573566.751951]}))
+2025-05-23 09:49:21 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.012697192305295), idle_assets=np.float64(1171.557492), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [573566.751951]}): MetaVaultInternalState(total_supply=573566.7519419999)
+2025-05-23 09:49:21 | After action: MetaVaultInternalState(total_supply=573566.7519419999)
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-24 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-25 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-26 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-27 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-28 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-29 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-30 00:00:00
+2025-05-23 09:49:21 | Actions to take: []
+2025-05-23 09:49:21 | ==============================
+2025-05-23 09:49:21 | Running step...
+2025-05-23 09:49:21 | Observation: 2024-10-31 00:00:00
+2025-05-23 09:52:02 | Action: allocate_assets, Prediction: vault_names=['wif', 'shib'] amounts=[6902.43402, 2339.089211] reasoning='Based on the 7-day forecasts and entry-cost structure:\n\n• Only allocations that can be absorbed by pending withdrawals avoid entry fees. Those are:\n  – wif: pending_withdrawals = 6902.43402, forecast gain ≈0.215% (net positive)  \n  – shib: pending_withdrawals = 2339.089211, forecast gain ≈0.056% (net positive)\n\n• All other vaults incur entry costs that more than offset their modest gross forecast gains, resulting in negative net returns.\n\n• Therefore, we allocate exactly up to each vault’s pending withdrawal amount—and leave the remaining ≈ 2,914.31 unallocated to avoid guaranteed losses from entry fees.  \n\nThis maximizes projected net short-term return under the given constraints.'
+2025-05-23 09:52:03 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2375148084017575), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6902.43402)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0783581259192354), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2339.089211)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [6902.43402, 2339.089211]}))]
+2025-05-23 09:52:03 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2375148084017575), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6902.43402)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0783581259192354), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2339.089211)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [6902.43402, 2339.089211]}))
+2025-05-23 09:52:03 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2375148084017575), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6902.43402)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0783581259192354), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2339.089211)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [6902.43402, 2339.089211]}): MetaVaultInternalState(total_supply=585912.0091459998)
+2025-05-23 09:52:03 | After action: MetaVaultInternalState(total_supply=585912.0091459998)
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-01 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-02 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-03 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-04 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-05 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-06 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-07 00:00:00
+2025-05-23 09:52:03 | Actions to take: []
+2025-05-23 09:52:03 | ==============================
+2025-05-23 09:52:03 | Running step...
+2025-05-23 09:52:03 | Observation: 2024-11-08 00:00:00
+2025-05-23 09:53:24 | Action: reallocation, Prediction: action_needed=True actions=Actions(redeem_vault_names=['shib'], redeem_share_amounts=[2169.120957], allocation_vault_names=['brett'], allocation_weights=[1.0]) reasoning='**Summary**\n\nWe hold positions only in popcat, shib, and wif. Trend forecasts over the next 7 days show:\n\n- shib: weak upward (~+0.13% gain) with ample idle assets to cover any exit cost ⇒ exit at zero cost.\n- brett: weak upward (~+0.45% gain) with existing pending withdrawals that shield most entry costs.\n- popcat: moderate upward (~+0.38% gain).\n- wif: weak upward (~+0.60% gain).\n\n**Opportunity**\n\nRedeeming our entire shib position (2,169.12 shares ⇒ ~2,343.62 assets) incurs zero exit cost (idle_assets > holdings). Prospectively, leaving shib would earn only ~₳3.05 in 7 days, whereas redeploying to brett yields:\n • Entry cost: ~(2,343.62 – 1,487.20)×0.0035/1.0035 ≈ ₳3.0\n • Forecast gain: 0.45%×(2,343.62 – 3.0) ≈ ₳10.5\n • Net incremental profit: ~₳10.5 – ₳3.05 ≈ ₳7.45\n\nRedeploying into popcat would generate a smaller uplift (~₳5.8), and wif/doge/pepe offer even lower net gains. Brett, therefore, maximizes incremental yield and comfortably covers costs.\n\n**Action**\n\n1. Redeem all 2,169.120957 shares from **shib** (zero exit cost).\n2. Allocate 100% of the redeemed assets into **brett**, leveraging pending withdrawals to offset most entry fees.\n\nThis reallocation shifts ~₳2.3k from a low‐alpha vault into the strongest available short‐term trend, boosting projected profit by ~₳7.5 over 7 days while keeping transaction costs minimal.'
+2025-05-23 09:53:24 | Action: redeem_allocations, vault_names: ['shib'], amounts: [2343.623589]
+2025-05-23 09:53:24 | Action: allocate_assets, vault_names: ['brett'], amounts: [154060.188686]
+2025-05-23 09:53:25 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0804485485907085), idle_assets=np.float64(2417.152671), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [2169.120957]})), ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.018570321261827), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1487.197106)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [154060.188686]}))]
+2025-05-23 09:53:25 | Action: ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0804485485907085), idle_assets=np.float64(2417.152671), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [2169.120957]}))
+2025-05-23 09:53:25 | Before action Action(redeem_allocations, {'targets': [NamedEntity(entity_name='shib', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0804485485907085), idle_assets=np.float64(2417.152671), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2169.120957, open_assets=2339.089211)))], 'amounts': [2169.120957]}): MetaVaultInternalState(total_supply=734693.0664529997)
+2025-05-23 09:53:25 | After action: MetaVaultInternalState(total_supply=734693.0664529997)
+2025-05-23 09:53:25 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.018570321261827), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1487.197106)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [154060.188686]}))
+2025-05-23 09:53:25 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.018570321261827), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1487.197106)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [154060.188686]}): MetaVaultInternalState(total_supply=734693.0664529997)
+2025-05-23 09:53:25 | After action: MetaVaultInternalState(total_supply=734693.0664529997)
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-09 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-10 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-11 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-12 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-13 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-14 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-15 00:00:00
+2025-05-23 09:53:25 | Actions to take: []
+2025-05-23 09:53:25 | ==============================
+2025-05-23 09:53:25 | Running step...
+2025-05-23 09:53:25 | Observation: 2024-11-16 00:00:00
+2025-05-23 09:55:33 | Action: reallocation, Prediction: action_needed=True actions=Actions(redeem_vault_names=['wif'], redeem_share_amounts=[4577.535], allocation_vault_names=['popcat'], allocation_weights=[1.0]) reasoning='**Objective**: Shift a portion of assets from the moderately‐returning WIF vault (7-day ROI ≈+0.28%) into the stronger Popcat vault (7-day ROI ≈+0.59%), but only to the extent that costs are covered.\n\n**Analysis**\n\n• WIF holdings: 5,577.66 shares × 1.24551 $/share = 6,942.70 $ assets\n  – Idle assets: 5,700.83 $ (can exit with zero exit cost)\n  – Pending withdrawals in Popcat: 1,064.68 $ (first portion allocates with zero entry cost)\n\n• Incremental 7-day gain moving idle WIF assets into Popcat:\n  – Expected extra ROI: 0.5886%–0.280% = 0.3086%\n  – On 5,700.83 $ → 5,700.83 $ × 0.003086 ≈ 17.60 $\n\n• Costs:\n  – Exit cost on 5,700.83 $: zero (≤ idle)\n  – Entry cost on first 1,064.68 $: zero (≤ pending)\n  – Entry cost on remaining 4,636.15 $: 4,636.15×0.0035/1.0035 ≈ 16.17 $\n  – Total cost ≈ 16.17 $\n\n• Net benefit ≈ 17.60 – 16.17 = +1.43 $\n\n**Recommendation**\nRedeem 4,577.535 WIF shares (valued at 5,700.83 $) to capture idle assets cost-free, then allocate 100% of the proceeds into Popcat.\n\nThis small shift yields a positive net gain while avoiding exit fees, and modestly tilts the portfolio toward the strongest near-term performer without materially altering overall exposure.'
+2025-05-23 09:55:33 | Action: redeem_allocations, vault_names: ['wif'], amounts: [5701.377098]
+2025-05-23 09:55:33 | Action: allocate_assets, vault_names: ['popcat'], amounts: [96160.69963]
+2025-05-23 09:55:34 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245512926746106), idle_assets=np.float64(5700.829546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=5577.657716, open_assets=6902.43402)))], 'amounts': [4577.535]})), ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0355870086992691), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1064.67542)), internal_state=LogarithmVaultInternalState(shares=564399.974985, open_assets=573566.751951)))], 'amounts': [96160.69963]}))]
+2025-05-23 09:55:34 | Action: ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245512926746106), idle_assets=np.float64(5700.829546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=5577.657716, open_assets=6902.43402)))], 'amounts': [4577.535]}))
+2025-05-23 09:55:34 | Before action Action(redeem_allocations, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.245512926746106), idle_assets=np.float64(5700.829546), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=5577.657716, open_assets=6902.43402)))], 'amounts': [4577.535]}): MetaVaultInternalState(total_supply=824633.1819269996)
+2025-05-23 09:55:34 | After action: MetaVaultInternalState(total_supply=824633.1819269996)
+2025-05-23 09:55:34 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0355870086992691), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1064.67542)), internal_state=LogarithmVaultInternalState(shares=564399.974985, open_assets=573566.751951)))], 'amounts': [96160.69963]}))
+2025-05-23 09:55:34 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0355870086992691), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1064.67542)), internal_state=LogarithmVaultInternalState(shares=564399.974985, open_assets=573566.751951)))], 'amounts': [96160.69963]}): MetaVaultInternalState(total_supply=824633.1819269996)
+2025-05-23 09:55:34 | After action: MetaVaultInternalState(total_supply=824633.1819269996)
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-17 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-18 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-19 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-20 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-21 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-22 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-23 00:00:00
+2025-05-23 09:55:34 | Actions to take: []
+2025-05-23 09:55:34 | ==============================
+2025-05-23 09:55:34 | Running step...
+2025-05-23 09:55:34 | Observation: 2024-11-24 00:00:00
+2025-05-23 09:56:51 | Action: reallocation, Prediction: action_needed=True actions=Actions(redeem_vault_names=['wif'], redeem_share_amounts=[1000.122715], allocation_vault_names=['popcat'], allocation_weights=[1.0]) reasoning='**Summary**\n\nAnalysis of your current holdings and 7-day forecast yields shows that only your WIF position is underperforming relative to Popcat. Redeeming WIF and allocating into Popcat yields a small but positive net benefit after costs, whereas other potential moves are either unprofitable or too small to justify.\n\n**Key Data**\n\nVault    | Holding Assets | 7-day Forecast Return | Exit Cost | Entry Cost (Popcat) | Net Benefit\n--------|----------------|-----------------------|-----------|---------------------|-------------\nWIF     | $1,255.84      | +0.40%                | $0        | ~$4.38              | ~$6.03 gain – $4.38 cost ≈ $1.65\nBrett   | $155,874.30    | +0.53%                | >0        | >0                  | Negative (cost > benefit)\nPopcat  | $688,406.14    | +0.88%                | —         | —                   | Already in best bucket\n\n• WIF has idle assets (1,877 USDC) exceeding redemption needs, so no exit fee.  \n• Entry into Popcat incurs ~$4.38 fee on the full redeployment.  \n• Opportunity yield differential of 0.48% over 7 days generates ~$6.03, netting ~$1.65 profit.  \n\n**Action**\n\nRedeem all 1,000.122715 WIF shares (≈1,255.84 USDC) and reallocate 100% of proceeds into Popcat to capture the stronger upward trend at minimal cost.'
+2025-05-23 09:56:51 | Action: redeem_allocations, vault_names: ['wif'], amounts: [1255.836753]
+2025-05-23 09:56:51 | Action: allocate_assets, vault_names: ['popcat'], amounts: [22014.312096999998]
+2025-05-23 09:56:52 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2556826620115151), idle_assets=np.float64(1877.097787), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1000.1227159999999, open_assets=1201.0569219999998)))], 'amounts': [1000.122715]})), ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0515554986904352), idle_assets=np.float64(3136.971035), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=656935.921847, open_assets=669727.451581)))], 'amounts': [22014.312096999998]}))]
+2025-05-23 09:56:52 | Action: ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2556826620115151), idle_assets=np.float64(1877.097787), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1000.1227159999999, open_assets=1201.0569219999998)))], 'amounts': [1000.122715]}))
+2025-05-23 09:56:52 | Before action Action(redeem_allocations, {'targets': [NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2556826620115151), idle_assets=np.float64(1877.097787), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1000.1227159999999, open_assets=1201.0569219999998)))], 'amounts': [1000.122715]}): MetaVaultInternalState(total_supply=844852.2737859995)
+2025-05-23 09:56:52 | After action: MetaVaultInternalState(total_supply=844852.2737859995)
+2025-05-23 09:56:52 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0515554986904352), idle_assets=np.float64(3136.971035), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=656935.921847, open_assets=669727.451581)))], 'amounts': [22014.312096999998]}))
+2025-05-23 09:56:52 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0515554986904352), idle_assets=np.float64(3136.971035), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=656935.921847, open_assets=669727.451581)))], 'amounts': [22014.312096999998]}): MetaVaultInternalState(total_supply=844852.2737859995)
+2025-05-23 09:56:52 | After action: MetaVaultInternalState(total_supply=844852.2737859995)
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-11-25 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-11-26 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-11-27 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-11-28 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-11-29 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-11-30 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-12-01 00:00:00
+2025-05-23 09:56:52 | Actions to take: []
+2025-05-23 09:56:52 | ==============================
+2025-05-23 09:56:52 | Running step...
+2025-05-23 09:56:52 | Observation: 2024-12-02 00:00:00
+2025-05-23 10:00:07 | Action: allocate_assets, Prediction: vault_names=['pepe'] amounts=[80909.236224] reasoning='Based on the 7-day forecast multipliers and entry-cost considerations, Pepe offers the highest net expected return (≈27.17% gross − 0.35% fee ≈26.82% net). Even beyond its 5,361.67 asset fee-free band, the marginal net yield remains greater than any other vault. Allocating the full 80,909.236224 assets to Pepe therefore maximizes projected short-term returns under a greedy allocation approach.'
+2025-05-23 10:00:08 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.262937359036602), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5361.673786)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [80909.236224]}))]
+2025-05-23 10:00:08 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.262937359036602), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5361.673786)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [80909.236224]}))
+2025-05-23 10:00:08 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.262937359036602), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5361.673786)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0)))], 'amounts': [80909.236224]}): MetaVaultInternalState(total_supply=923913.6322399995)
+2025-05-23 10:00:08 | After action: MetaVaultInternalState(total_supply=923913.6322399995)
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-03 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-04 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-05 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-06 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-07 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-08 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-09 00:00:00
+2025-05-23 10:00:08 | Actions to take: []
+2025-05-23 10:00:08 | ==============================
+2025-05-23 10:00:08 | Running step...
+2025-05-23 10:00:08 | Observation: 2024-12-10 00:00:00
+2025-05-23 10:05:49 | Action: allocate_assets, Prediction: vault_names=['brett', 'doge', 'wif', 'popcat'] amounts=[6963.925622, 2855.332779, 2235.669353, 33421.65815] reasoning='**Allocation Strategy**\n\n1. **Compute 7-day raw return projections** (forecast ÷ current_price − 1):\n   - popcat: +1.071%  \n   - brett:  +0.957%  \n   - pepe:   +0.933%  \n   - doge:   +0.885%  \n   - shib:   +0.787%  \n   - wif:    +0.753%  \n   - floki:  −0.681%  \n   - neiro:  −0.859%  \n\n2. **Entry costs** are ~0.35% of net allocation (rate/(1+rate)), but allocations ≤ pending_withdrawals incur 0% entry costs for that tranche.  \n   - brett pending: 6963.93  \n   - doge pending: 2855.33  \n   - wif pending:  2235.67  \n   - others: 0  \n\n3. **Greedy fill of cost-free tranches** (raw > any net‐of‐fee return):\n   - brett: allocate full 6,963.925622 (0% fee, raw 0.957%)  \n   - doge:  allocate 2,855.332779 (0% fee, raw 0.885%)  \n   - wif:   allocate 2,235.669353 (0% fee, raw 0.753%)  \n   • Total cost-free = 12,054.927754  \n\n4. **Remaining capital** = 45,476.585904 − 12,054.927754 = 33,421.658150  \n\n5. **Allocate remainder to the highest net-of-fee vault**:\n   - popcat net ≈1.071% −0.349% ≈0.722% (highest among fee-bearing options)  \n   - Allocate full 33,421.658150 to **popcat**.  \n\n**Resulting Allocation**  \n• brett:  6,963.925622  \n• doge:   2,855.332779  \n• wif:    2,235.669353  \n• popcat: 33,421.658150  \n\n_Total_ = 45,476.585904  \n\nThis maximizes short-term projected returns by first exploiting fee-free capacity in the strongest raw-return vaults, then deploying the balance into the top net-return opportunity.'
+2025-05-23 10:05:50 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0640623841226158), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6963.925622)), internal_state=LogarithmVaultInternalState(shares=150728.960495, open_assets=154060.188686))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242953479371071), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2855.332779)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.278737236541249), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2235.669353)), internal_state=LogarithmVaultInternalState(shares=9.99999883788405e-07, open_assets=-54.779831000000286))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.075667480383271), idle_assets=np.float64(2943.321562), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=677797.902756, open_assets=691741.763678)))], 'amounts': [6963.925622, 2855.332779, 2235.669353, 33421.65815]}))]
+2025-05-23 10:05:50 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0640623841226158), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6963.925622)), internal_state=LogarithmVaultInternalState(shares=150728.960495, open_assets=154060.188686))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242953479371071), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2855.332779)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.278737236541249), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2235.669353)), internal_state=LogarithmVaultInternalState(shares=9.99999883788405e-07, open_assets=-54.779831000000286))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.075667480383271), idle_assets=np.float64(2943.321562), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=677797.902756, open_assets=691741.763678)))], 'amounts': [6963.925622, 2855.332779, 2235.669353, 33421.65815]}))
+2025-05-23 10:05:50 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0640623841226158), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(6963.925622)), internal_state=LogarithmVaultInternalState(shares=150728.960495, open_assets=154060.188686))), NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.242953479371071), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2855.332779)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0.0))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.278737236541249), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2235.669353)), internal_state=LogarithmVaultInternalState(shares=9.99999883788405e-07, open_assets=-54.779831000000286))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.075667480383271), idle_assets=np.float64(2943.321562), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=677797.902756, open_assets=691741.763678)))], 'amounts': [6963.925622, 2855.332779, 2235.669353, 33421.65815]}): MetaVaultInternalState(total_supply=967115.8832369996)
+2025-05-23 10:05:50 | After action: MetaVaultInternalState(total_supply=967115.8832369996)
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-11 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-12 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-13 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-14 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-15 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-16 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-17 00:00:00
+2025-05-23 10:05:50 | Actions to take: []
+2025-05-23 10:05:50 | ==============================
+2025-05-23 10:05:50 | Running step...
+2025-05-23 10:05:50 | Observation: 2024-12-18 00:00:00
+2025-05-23 10:09:47 | Action: allocate_assets, Prediction: vault_names=['popcat'] amounts=[28379.329145] reasoning='Based on a 30-day look-back and 7-day forecast, all vaults with positive short-term prospects were assessed for net ROI after entry costs (0.35%). Popcat shows the highest net 7-day gain (~0.57%), edging out Pepe (~0.54%) and the others. With no pending withdrawals (so the full allocation is subject to the same entry fee rate) and no capacity constraints, allocating the entire 28,379.33 to Popcat maximizes the projected return.'
+2025-05-23 10:09:48 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0852894628475975), idle_assets=np.float64(3757.953943), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=708760.1573000001, open_assets=725163.421828)))], 'amounts': [28379.329145]}))]
+2025-05-23 10:09:48 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0852894628475975), idle_assets=np.float64(3757.953943), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=708760.1573000001, open_assets=725163.421828)))], 'amounts': [28379.329145]}))
+2025-05-23 10:09:48 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0852894628475975), idle_assets=np.float64(3757.953943), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=708760.1573000001, open_assets=725163.421828)))], 'amounts': [28379.329145]}): MetaVaultInternalState(total_supply=993804.2310399996)
+2025-05-23 10:09:48 | After action: MetaVaultInternalState(total_supply=993804.2310399996)
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-19 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-20 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-21 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-22 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-23 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-24 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-25 00:00:00
+2025-05-23 10:09:48 | Actions to take: []
+2025-05-23 10:09:48 | ==============================
+2025-05-23 10:09:48 | Running step...
+2025-05-23 10:09:48 | Observation: 2024-12-26 00:00:00
+2025-05-23 10:12:11 | Action: allocate_assets, Prediction: vault_names=['popcat'] amounts=[68122.581994] reasoning='After analyzing 30-day trends and 7-day forecasts, Popcat exhibits the highest short-term ROI (∼0.882%) among the candidate vaults. Even accounting for the 0.35% entry fee on allocations exceeding its 855.09 pending withdrawals, net ROI remains the strongest (∼0.53%). Allocating the entire 68,122.58 to Popcat maximizes expected 7-day returns under a greedy strategy.'
+2025-05-23 10:12:12 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0913780465156733), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(855.091588)), internal_state=LogarithmVaultInternalState(shares=734818.042219, open_assets=753542.750973)))], 'amounts': [68122.581994]}))]
+2025-05-23 10:12:12 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0913780465156733), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(855.091588)), internal_state=LogarithmVaultInternalState(shares=734818.042219, open_assets=753542.750973)))], 'amounts': [68122.581994]}))
+2025-05-23 10:12:12 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0913780465156733), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(855.091588)), internal_state=LogarithmVaultInternalState(shares=734818.042219, open_assets=753542.750973)))], 'amounts': [68122.581994]}): MetaVaultInternalState(total_supply=1058147.3907569998)
+2025-05-23 10:12:12 | After action: MetaVaultInternalState(total_supply=1058147.3907569998)
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2024-12-27 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2024-12-28 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2024-12-29 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2024-12-30 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2024-12-31 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2025-01-01 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2025-01-02 00:00:00
+2025-05-23 10:12:12 | Actions to take: []
+2025-05-23 10:12:12 | ==============================
+2025-05-23 10:12:12 | Running step...
+2025-05-23 10:12:12 | Observation: 2025-01-03 00:00:00
+2025-05-23 10:16:30 | Action: reallocation, Prediction: action_needed=True actions=Actions(redeem_vault_names=['brett'], redeem_share_amounts=[1848.324233], allocation_vault_names=['pepe'], allocation_weights=[1.0]) reasoning='**Reasoning**\n\n1. **Identify free‐cost window**\n   - Brett has `idle_assets = 1 971.36` USD. Redeeming up to that value (≈1 971.36 / 1.06670417 ≈ 1 848.32 shares) incurs *no exit fee*.\n   - Pepe has `pending_withdrawals = 3 763.43` USD. Allocating up to that amount into Pepe incurs *no entry fee*.\n\n2. **Forecast net benefit**\n   - Redeem 1 848.32 shares of Brett → frees 1 971.36 USD (no exit cost).\n   - Allocate 1 971.36 USD into Pepe (no entry cost).\n   - Pepe’s 7-day forecast return ≈ +0.39% → gross gain ≈ 1 971.36 × 0.0039 ≈ 7.69 USD.\n   - Net gain ≈ +7.69 USD, with zero fees.\n\n3. **Validate other reallocations**\n   - Redeploying from other vaults would incur combined exit+entry fees (~0.35% each) which exceed their 7-day gains.\n   - Redeploying into Popcat yields some net profit (~+5.7 USD) but is inferior to Pepe, and would incur entry fees.\n   - Redeploying beyond Brett’s idle assets risks exit fees that wipe out projected benefits.\n\n4. **Risk control**\n   - This is a small reallocation relative to total AUM; it leverages cost‐free buckets and captures an assured positive spread without materially altering portfolio exposures.\n\n**Recommendation**: Redeem ~1 848.32 shares from **Brett** (using its idle assets) and allocate 100% of the proceeds to **Pepe** (within its pending withdrawal buffer) to lock in a small, low‐risk profit over the next week.'
+2025-05-23 10:16:30 | Action: redeem_allocations, vault_names: ['brett'], amounts: [1971.614277]
+2025-05-23 10:16:30 | Action: allocate_assets, vault_names: ['pepe'], amounts: [105561.768718]
+2025-05-23 10:16:31 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0667041716106442), idle_assets=np.float64(1971.359573), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=157273.619648, open_assets=161024.11430800002)))], 'amounts': [1848.324233]})), ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2903673494127108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3763.433838)), internal_state=LogarithmVaultInternalState(shares=63855.694352, open_assets=80909.236224)))], 'amounts': [105561.768718]}))]
+2025-05-23 10:16:31 | Action: ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0667041716106442), idle_assets=np.float64(1971.359573), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=157273.619648, open_assets=161024.11430800002)))], 'amounts': [1848.324233]}))
+2025-05-23 10:16:31 | Before action Action(redeem_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0667041716106442), idle_assets=np.float64(1971.359573), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=157273.619648, open_assets=161024.11430800002)))], 'amounts': [1848.324233]}): MetaVaultInternalState(total_supply=1155888.833348)
+2025-05-23 10:16:31 | After action: MetaVaultInternalState(total_supply=1155888.833348)
+2025-05-23 10:16:31 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2903673494127108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3763.433838)), internal_state=LogarithmVaultInternalState(shares=63855.694352, open_assets=80909.236224)))], 'amounts': [105561.768718]}))
+2025-05-23 10:16:31 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2903673494127108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(3763.433838)), internal_state=LogarithmVaultInternalState(shares=63855.694352, open_assets=80909.236224)))], 'amounts': [105561.768718]}): MetaVaultInternalState(total_supply=1155888.833348)
+2025-05-23 10:16:31 | After action: MetaVaultInternalState(total_supply=1155888.833348)
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-04 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-05 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-06 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-07 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-08 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-09 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-10 00:00:00
+2025-05-23 10:16:31 | Actions to take: []
+2025-05-23 10:16:31 | ==============================
+2025-05-23 10:16:31 | Running step...
+2025-05-23 10:16:31 | Observation: 2025-01-11 00:00:00
+2025-05-23 10:20:48 | Action: allocate_assets, Prediction: vault_names=['popcat'] amounts=[184326.892918] reasoning='We computed each vault’s 7-day gross return (forecast_share_price/current_share_price – 1) and compared it to the effective entry fee (fee_rate/(1+fee_rate) ≈ 0.3488%). Only popcat’s gross return (~0.4370%) exceeds its entry cost, yielding a positive net gain. All other vaults’ projected gains are below their entry fees, so allocating to them would be unprofitable. Therefore, to maximize short-term returns, we allocate the entire 184,326.892918 assets to popcat.'
+2025-05-23 10:20:49 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0994359631620363), idle_assets=np.float64(3196.753193), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=797021.9386110001, open_assets=821665.332967)))], 'amounts': [184326.892918]}))]
+2025-05-23 10:20:49 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0994359631620363), idle_assets=np.float64(3196.753193), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=797021.9386110001, open_assets=821665.332967)))], 'amounts': [184326.892918]}))
+2025-05-23 10:20:49 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0994359631620363), idle_assets=np.float64(3196.753193), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=797021.9386110001, open_assets=821665.332967)))], 'amounts': [184326.892918]}): MetaVaultInternalState(total_supply=1328900.594844)
+2025-05-23 10:20:49 | After action: MetaVaultInternalState(total_supply=1328900.594844)
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-12 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-13 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-14 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-15 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-16 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-17 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-18 00:00:00
+2025-05-23 10:20:49 | Actions to take: []
+2025-05-23 10:20:49 | ==============================
+2025-05-23 10:20:49 | Running step...
+2025-05-23 10:20:49 | Observation: 2025-01-19 00:00:00
+2025-05-23 10:21:01 | Action: withdraw_allocations, Prediction: vault_names=['pepe'] amounts=[6386.989341] reasoning='Pepe has 9,934.38 idle assets, which is more than the requested 6,386.99. Withdrawing entirely from Pepe utilizes idle assets and incurs zero exit cost, minimizing overall fees.'
+2025-05-23 10:21:02 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2968940827153062), idle_assets=np.float64(9934.376895), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=145388.071371, open_assets=186471.004942)))], 'amounts': [6386.989341]}))]
+2025-05-23 10:21:02 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2968940827153062), idle_assets=np.float64(9934.376895), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=145388.071371, open_assets=186471.004942)))], 'amounts': [6386.989341]}))
+2025-05-23 10:21:02 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2968940827153062), idle_assets=np.float64(9934.376895), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=145388.071371, open_assets=186471.004942)))], 'amounts': [6386.989341]}): MetaVaultInternalState(total_supply=1322845.1833149996)
+2025-05-23 10:21:02 | After action: MetaVaultInternalState(total_supply=1322845.1833149996)
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-20 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-21 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-22 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-23 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-24 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-25 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-26 00:00:00
+2025-05-23 10:21:02 | Actions to take: []
+2025-05-23 10:21:02 | ==============================
+2025-05-23 10:21:02 | Running step...
+2025-05-23 10:21:02 | Observation: 2025-01-27 00:00:00
+2025-05-23 10:22:12 | Action: withdraw_allocations, Prediction: vault_names=['doge', 'popcat', 'wif', 'brett'] amounts=[2871.915786, 3847.737926, 2248.269796, 40114.041073] reasoning='We first maximize zero-exit-cost withdrawals by using each vault’s idle capacity up to its current-assets limit:\n• doge: idle_assets (5341) ≥ current_assets (2871.916) → withdraw 2871.916 (zero cost)\n• popcat: idle_assets 3847.738 → withdraw 3847.738 (zero cost)\n• wif: idle_assets (3472.731) ≥ current_assets (2248.270) → withdraw 2248.270 (zero cost)\n—> Total zero-cost = 8967.924\n\nRemaining need = 49081.9646 − 8967.924 = 40114.0411\n\nAll vaults share the same exit cost rate (0.35%), so minimizing exit costs alone yields identical charges per unit. To further minimize opportunity cost, we incur the cost from the vault with the weakest forecasted share-price growth (brett, +0.00016/day vs. pepe +0.00028/day, popcat +0.00030/day). Brett’s current_assets (165767) easily covers the 40114.0411 needed. Thus we withdraw the remaining amount from brett, accepting an exit cost of 40114.0411 × 0.0035 ≈ 140.40.'
+2025-05-23 10:22:13 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2501722206313848), idle_assets=np.float64(5341.006955), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2297.216127, open_assets=2855.332779))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102559776030887), idle_assets=np.float64(3847.737926), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=964093.05969, open_assets=1005992.225885))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.285944319630168), idle_assets=np.float64(3472.730712), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1748.341481, open_assets=2180.8895219999995))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.070271302556492), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(10150.284946)), internal_state=LogarithmVaultInternalState(shares=155425.295415, open_assets=159052.50003100003)))], 'amounts': [2871.915786, 3847.737926, 2248.269796, 40114.041073]}))]
+2025-05-23 10:22:13 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2501722206313848), idle_assets=np.float64(5341.006955), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2297.216127, open_assets=2855.332779))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102559776030887), idle_assets=np.float64(3847.737926), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=964093.05969, open_assets=1005992.225885))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.285944319630168), idle_assets=np.float64(3472.730712), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1748.341481, open_assets=2180.8895219999995))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.070271302556492), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(10150.284946)), internal_state=LogarithmVaultInternalState(shares=155425.295415, open_assets=159052.50003100003)))], 'amounts': [2871.915786, 3847.737926, 2248.269796, 40114.041073]}))
+2025-05-23 10:22:13 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2501722206313848), idle_assets=np.float64(5341.006955), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=2297.216127, open_assets=2855.332779))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.102559776030887), idle_assets=np.float64(3847.737926), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=964093.05969, open_assets=1005992.225885))), NamedEntity(entity_name='wif', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.285944319630168), idle_assets=np.float64(3472.730712), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=1748.341481, open_assets=2180.8895219999995))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.070271302556492), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(10150.284946)), internal_state=LogarithmVaultInternalState(shares=155425.295415, open_assets=159052.50003100003)))], 'amounts': [2871.915786, 3847.737926, 2248.269796, 40114.041073]}): MetaVaultInternalState(total_supply=1276904.1126389997)
+2025-05-23 10:22:13 | After action: MetaVaultInternalState(total_supply=1276904.1126389997)
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-01-28 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-01-29 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-01-30 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-01-31 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-02-01 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-02-02 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-02-03 00:00:00
+2025-05-23 10:22:13 | Actions to take: []
+2025-05-23 10:22:13 | ==============================
+2025-05-23 10:22:13 | Running step...
+2025-05-23 10:22:13 | Observation: 2025-02-04 00:00:00
+2025-05-23 10:23:28 | Action: withdraw_allocations, Prediction: vault_names=['pepe', 'popcat', 'brett'] amounts=[7782.13607, 2350.505143, 55336.057281] reasoning='**Strategy to minimize exit costs and mitigate price risk**\n\n1. Extract all available idle (free) assets first (no exit cost):\n   - pepe idle_assets = 7 782.13607 → withdraw full idle\n   - popcat idle_assets = 2 350.505143 → withdraw full idle\n   • Sum free withdrawal = 10 132.641213 (no cost)\n\n2. Remaining target = 65 468.698494 – 10 132.641213 = 55 336.057281 (will incur exit fees)\n\n3. All vaults share the same exit_cost_rate (0.35%), but brett’s share price exhibits a weak downtrend (≈–0.37% over 30 days; forecast to drift lower), so we lock in brett’s assets now to avoid further price depreciation. brett has 125 032.41 current_assets, so it covers the entire paid withdrawal.\n\n4. Final allocation:\n   - pepe: 7 782.13607 (idle, no cost)\n   - popcat: 2 350.505143 (idle, no cost)\n   - brett: 55 336.057281 (paid; exit_cost ≈55 336.06×0.0035=193.68)\n\nTotal withdrawal = 7 782.13607 + 2 350.505143 + 55 336.057281 = 65 468.698494\n\nThis plan uses all cost-free quota, concentrates paid withdrawal in the vault with the weakest price outlook, and meets the exact target amount.'
+2025-05-23 10:23:29 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293674327579522), idle_assets=np.float64(7782.13607), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=140463.236393, open_assets=180084.015601))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1021394443084744), idle_assets=np.float64(2350.505143), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=960603.237179, open_assets=1002144.4879589999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.064985248916029), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1199.559772)), internal_state=LogarithmVaultInternalState(shares=117813.859771, open_assets=118938.45895800003)))], 'amounts': [7782.13607, 2350.505143, 55336.057281]}))]
+2025-05-23 10:23:29 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293674327579522), idle_assets=np.float64(7782.13607), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=140463.236393, open_assets=180084.015601))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1021394443084744), idle_assets=np.float64(2350.505143), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=960603.237179, open_assets=1002144.4879589999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.064985248916029), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1199.559772)), internal_state=LogarithmVaultInternalState(shares=117813.859771, open_assets=118938.45895800003)))], 'amounts': [7782.13607, 2350.505143, 55336.057281]}))
+2025-05-23 10:23:29 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.293674327579522), idle_assets=np.float64(7782.13607), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=140463.236393, open_assets=180084.015601))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1021394443084744), idle_assets=np.float64(2350.505143), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=960603.237179, open_assets=1002144.4879589999))), NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.064985248916029), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1199.559772)), internal_state=LogarithmVaultInternalState(shares=117813.859771, open_assets=118938.45895800003)))], 'amounts': [7782.13607, 2350.505143, 55336.057281]}): MetaVaultInternalState(total_supply=1215514.8680239997)
+2025-05-23 10:23:29 | After action: MetaVaultInternalState(total_supply=1215514.8680239997)
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-05 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-06 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-07 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-08 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-09 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-10 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-11 00:00:00
+2025-05-23 10:23:29 | Actions to take: []
+2025-05-23 10:23:29 | ==============================
+2025-05-23 10:23:29 | Running step...
+2025-05-23 10:23:29 | Observation: 2025-02-12 00:00:00
+2025-05-23 10:24:04 | Action: withdraw_allocations, Prediction: vault_names=['brett', 'pepe', 'popcat'] amounts=[1648.709781, 5492.314672, 249.943802] reasoning='To minimize exit costs, we first withdraw each vault’s idle assets (no cost):\n\n• brett: 1,648.709781 (idle 1,648.709781)\n• pepe: 2,490.071947 (idle 2,490.071947)\n• popcat: 249.943802 (idle 249.943802)\n\nThese total 4,388.72553. We still need 7,390.968255 – 4,388.72553 = 3,002.242725. Since all vaults share the same exit cost rate (0.35%), we concentrate the extra withdrawal in pepe (ample liquidity) for simplicity.\n\n• pepe extra: 3,002.242725\n\nTotal from pepe: 2,490.071947 + 3,002.242725 = 5,492.314672.\n\nResulting withdrawal plan meets the exact 7,390.968255 target. Only the amount exceeding pepe’s idle assets (3,002.242725) incurs an exit cost of 0.35%, i.e. ~10.507 in fees, which is the minimum achievable under uniform exit rates.'
+2025-05-23 10:24:05 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0596853987050003), idle_assets=np.float64(1648.709781), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=65672.542754, open_assets=63602.40167700003))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.295816446653017), idle_assets=np.float64(2490.071947), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=134447.706901, open_assets=172301.87953099998))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1020494097366051), idle_assets=np.float64(249.943802), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=958470.5622660001, open_assets=999793.9828159999)))], 'amounts': [1648.709781, 5492.314672, 249.943802]}))]
+2025-05-23 10:24:05 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0596853987050003), idle_assets=np.float64(1648.709781), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=65672.542754, open_assets=63602.40167700003))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.295816446653017), idle_assets=np.float64(2490.071947), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=134447.706901, open_assets=172301.87953099998))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1020494097366051), idle_assets=np.float64(249.943802), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=958470.5622660001, open_assets=999793.9828159999)))], 'amounts': [1648.709781, 5492.314672, 249.943802]}))
+2025-05-23 10:24:05 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0596853987050003), idle_assets=np.float64(1648.709781), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=65672.542754, open_assets=63602.40167700003))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.295816446653017), idle_assets=np.float64(2490.071947), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=134447.706901, open_assets=172301.87953099998))), NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1020494097366051), idle_assets=np.float64(249.943802), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=958470.5622660001, open_assets=999793.9828159999)))], 'amounts': [1648.709781, 5492.314672, 249.943802]}): MetaVaultInternalState(total_supply=1208580.8619569996)
+2025-05-23 10:24:05 | After action: MetaVaultInternalState(total_supply=1208580.8619569996)
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-13 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-14 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-15 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-16 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-17 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-18 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-19 00:00:00
+2025-05-23 10:24:05 | Actions to take: []
+2025-05-23 10:24:05 | ==============================
+2025-05-23 10:24:05 | Running step...
+2025-05-23 10:24:05 | Observation: 2025-02-20 00:00:00
+2025-05-23 10:25:12 | Action: reallocation, Prediction: action_needed=True actions=Actions(redeem_vault_names=['brett'], redeem_share_amounts=[64116.694401], allocation_vault_names=[], allocation_weights=[]) reasoning='**Analysis**\n\n• brett is trending down: forecast 7-day drop ≈0.42% (from 1.0536 to ~1.0490).\n• Exit cost rate = 0.35% ⇒ cost ≈0.3488% of redeemed assets.\n• Redeeming the full position (≈67 317 USD) costs ≈234 USD; holding incurs ≈283 USD of unrealized loss.\n• Net benefit ≈49 USD, so exiting brett minimizes losses.\n\nOther holdings (popcat, pepe) show either flat/slight moves or projected gains too small to cover entry fees (0.35%), so reallocating into them would be unprofitable. No other vaults offer forecast returns exceeding entry costs.\n\n**Recommendation**\nRedeem the entire brett position to avoid short-term losses. No new allocations are advised given cost/reward profiles.'
+2025-05-23 10:25:12 | Action: redeem_allocations, vault_names: ['brett'], amounts: [67316.701211]
+2025-05-23 10:25:13 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0535837865261108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5071.722551)), internal_state=LogarithmVaultInternalState(shares=64116.694401999994, open_assets=61953.69189600003)))], 'amounts': [64116.694401]}))]
+2025-05-23 10:25:13 | Action: ActionToTake(entity_name='meta_vault', action=Action(redeem_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0535837865261108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5071.722551)), internal_state=LogarithmVaultInternalState(shares=64116.694401999994, open_assets=61953.69189600003)))], 'amounts': [64116.694401]}))
+2025-05-23 10:25:13 | Before action Action(redeem_allocations, {'targets': [NamedEntity(entity_name='brett', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.0535837865261108), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5071.722551)), internal_state=LogarithmVaultInternalState(shares=64116.694401999994, open_assets=61953.69189600003)))], 'amounts': [64116.694401]}): MetaVaultInternalState(total_supply=1214012.5039319994)
+2025-05-23 10:25:13 | After action: MetaVaultInternalState(total_supply=1214012.5039319994)
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-21 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-22 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-23 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-24 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-25 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-26 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-27 00:00:00
+2025-05-23 10:25:13 | Actions to take: []
+2025-05-23 10:25:13 | ==============================
+2025-05-23 10:25:13 | Running step...
+2025-05-23 10:25:13 | Observation: 2025-02-28 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-01 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-02 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-03 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-04 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-05 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-06 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-07 00:00:00
+2025-05-23 10:27:43 | Actions to take: []
+2025-05-23 10:27:43 | ==============================
+2025-05-23 10:27:43 | Running step...
+2025-05-23 10:27:43 | Observation: 2025-03-08 00:00:00
+2025-05-23 10:32:48 | Action: allocate_assets, Prediction: vault_names=['pepe'] amounts=[559.163775] reasoning='Based on the 7-day forecast and entry fees, only PEPE shows a slightly positive gross return (+0.0313%), but with the 0.35% entry cost, any deposit beyond its 559.16 USDC pending withdrawals would yield a net negative return. Depositing up to 559.163775 USDC into PEPE avoids entry fees entirely and captures the small upside. All other vaults either forecast declines or negative net returns once fees are applied, so no further allocations are recommended.'
+2025-05-23 10:32:49 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.29599566213483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(559.163775)), internal_state=LogarithmVaultInternalState(shares=130201.100418, open_assets=166809.56485899998)))], 'amounts': [559.163775]}))]
+2025-05-23 10:32:49 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.29599566213483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(559.163775)), internal_state=LogarithmVaultInternalState(shares=130201.100418, open_assets=166809.56485899998)))], 'amounts': [559.163775]}))
+2025-05-23 10:32:49 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.29599566213483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(559.163775)), internal_state=LogarithmVaultInternalState(shares=130201.100418, open_assets=166809.56485899998)))], 'amounts': [559.163775]}): MetaVaultInternalState(total_supply=1236117.0325409994)
+2025-05-23 10:32:49 | After action: MetaVaultInternalState(total_supply=1236117.0325409994)
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-09 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-10 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-11 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-12 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-13 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-14 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-15 00:00:00
+2025-05-23 10:32:49 | Actions to take: []
+2025-05-23 10:32:49 | ==============================
+2025-05-23 10:32:49 | Running step...
+2025-05-23 10:32:49 | Observation: 2025-03-16 00:00:00
+2025-05-23 10:35:42 | Action: allocate_assets, Prediction: vault_names=['pepe'] amounts=[245306.244331] reasoning='Based on the 7-day forecasted share-price growth rates, only three vaults show positive expected short-term returns: Pepe (+0.0209%), WIF (+0.01617%), and Popcat (+0.00568%).\n\nUsing a greedy algorithm that maximizes marginal projected return per unit allocated (accounting for entry costs beyond pending withdrawals), Pepe offers the highest return both for the cost-free tranche (up to 2,888.53 assets) and for all subsequent allocations (net marginal benefit ≈0.0002083 per asset). Its marginal return remains above WIF’s and Popcat’s even after triggering entry costs.\n\nTherefore, to maximize total projected short-term gains, we allocate the entire available balance (245,306.244331 assets) to the Pepe vault.'
+2025-05-23 10:35:43 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2974292759146997), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2888.529253)), internal_state=LogarithmVaultInternalState(shares=130632.555392, open_assets=167368.72863399997)))], 'amounts': [245306.244331]}))]
+2025-05-23 10:35:43 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2974292759146997), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2888.529253)), internal_state=LogarithmVaultInternalState(shares=130632.555392, open_assets=167368.72863399997)))], 'amounts': [245306.244331]}))
+2025-05-23 10:35:43 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2974292759146997), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2888.529253)), internal_state=LogarithmVaultInternalState(shares=130632.555392, open_assets=167368.72863399997)))], 'amounts': [245306.244331]}): MetaVaultInternalState(total_supply=1376202.4838239993)
+2025-05-23 10:35:43 | After action: MetaVaultInternalState(total_supply=1376202.4838239993)
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-17 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-18 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-19 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-20 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-21 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-22 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-23 00:00:00
+2025-05-23 10:35:43 | Actions to take: []
+2025-05-23 10:35:43 | ==============================
+2025-05-23 10:35:43 | Running step...
+2025-05-23 10:35:43 | Observation: 2025-03-24 00:00:00
+2025-05-23 10:37:27 | Action: withdraw_allocations, Prediction: vault_names=['popcat', 'pepe'] amounts=[3243.953502, 113254.979534] reasoning='We need to withdraw 116,498.933036 total while minimizing exit costs. Only two vaults have available assets: popcat (1,053,763) and pepe (412,462). \n\n1. Popcat has 3,243.953502 idle_assets, which can be withdrawn fee-free. We allocate this entire free portion first.\n2. The remaining 116,498.933036 – 3,243.953502 = 113,254.979534 must be withdrawn beyond idle assets. Both vaults charge the same 0.35% exit fee, so it makes no difference cost-wise. We choose to withdraw the balance from Pepe, which has ample capacity.  \n\nThis allocation meets the exact target and minimizes exit fees by fully using the free withdrawal allowance before incurring any exit costs.'
+2025-05-23 10:37:28 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1035189303382973), idle_assets=np.float64(3243.953502), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=958243.7631770001, open_assets=999544.0390139999))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2972998142669223), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2701.827745)), internal_state=LogarithmVaultInternalState(shares=319051.875138, open_assets=412674.97296499996)))], 'amounts': [3243.953502, 113254.979534]}))]
+2025-05-23 10:37:28 | Action: ActionToTake(entity_name='meta_vault', action=Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1035189303382973), idle_assets=np.float64(3243.953502), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=958243.7631770001, open_assets=999544.0390139999))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2972998142669223), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2701.827745)), internal_state=LogarithmVaultInternalState(shares=319051.875138, open_assets=412674.97296499996)))], 'amounts': [3243.953502, 113254.979534]}))
+2025-05-23 10:37:28 | Before action Action(withdraw_allocations, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1035189303382973), idle_assets=np.float64(3243.953502), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=958243.7631770001, open_assets=999544.0390139999))), NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2972998142669223), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(2701.827745)), internal_state=LogarithmVaultInternalState(shares=319051.875138, open_assets=412674.97296499996)))], 'amounts': [3243.953502, 113254.979534]}): MetaVaultInternalState(total_supply=1266866.6214459992)
+2025-05-23 10:37:28 | After action: MetaVaultInternalState(total_supply=1266866.6214459992)
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-25 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-26 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-27 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-28 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-29 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-30 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-03-31 00:00:00
+2025-05-23 10:37:28 | Actions to take: []
+2025-05-23 10:37:28 | ==============================
+2025-05-23 10:37:28 | Running step...
+2025-05-23 10:37:28 | Observation: 2025-04-01 00:00:00
+2025-05-23 10:40:05 | Action: allocate_assets, Prediction: vault_names=['popcat'] amounts=[111515.476397] reasoning='Based on the 7-day linear forecast, only Popcat and Pepe show positive returns (+0.0382% and +0.0154% respectively). Adjusting for the 0.35% entry fee reduces Popcat’s net return only marginally (to ~0.03807%), which still dominates Pepe’s (~0.01535%). All other vaults are forecast to produce losses over the same horizon. \n\nUsing a greedy approach, we allocate the full budget to Popcat, as every incremental dollar earns a higher net return there than in any other vault.'
+2025-05-23 10:40:06 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1050722071409504), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1173.190669)), internal_state=LogarithmVaultInternalState(shares=955304.1185430001, open_assets=996300.0855119999)))], 'amounts': [111515.476397]}))]
+2025-05-23 10:40:06 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1050722071409504), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1173.190669)), internal_state=LogarithmVaultInternalState(shares=955304.1185430001, open_assets=996300.0855119999)))], 'amounts': [111515.476397]}))
+2025-05-23 10:40:06 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='popcat', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.1050722071409504), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1173.190669)), internal_state=LogarithmVaultInternalState(shares=955304.1185430001, open_assets=996300.0855119999)))], 'amounts': [111515.476397]}): MetaVaultInternalState(total_supply=1371365.9115299992)
+2025-05-23 10:40:06 | After action: MetaVaultInternalState(total_supply=1371365.9115299992)
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-02 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-03 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-04 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-05 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-06 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-07 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-08 00:00:00
+2025-05-23 10:40:06 | Actions to take: []
+2025-05-23 10:40:06 | ==============================
+2025-05-23 10:40:06 | Running step...
+2025-05-23 10:40:06 | Observation: 2025-04-09 00:00:00
+2025-05-23 10:42:40 | Action: allocate_assets, Prediction: vault_names=['pepe'] amounts=[80235.675277] reasoning='Based on the 7-day share price forecasts adjusted for entry fees, only the PEPE vault shows a positive return (~0.10% over 7 days) after accounting for a 0.35% entry cost. All other vaults have negative or negligible projected returns. Therefore, to maximize short-term return, allocating the entire 80 235.675277 units to the PEPE vault is optimal.'
+2025-05-23 10:42:41 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3015922265020836), idle_assets=np.float64(3737.442873), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=231445.77922, open_assets=299419.993431)))], 'amounts': [80235.675277]}))]
+2025-05-23 10:42:41 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3015922265020836), idle_assets=np.float64(3737.442873), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=231445.77922, open_assets=299419.993431)))], 'amounts': [80235.675277]}))
+2025-05-23 10:42:41 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3015922265020836), idle_assets=np.float64(3737.442873), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=231445.77922, open_assets=299419.993431)))], 'amounts': [80235.675277]}): MetaVaultInternalState(total_supply=1446747.7024919994)
+2025-05-23 10:42:41 | After action: MetaVaultInternalState(total_supply=1446747.7024919994)
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-10 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-11 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-12 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-13 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-14 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-15 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-16 00:00:00
+2025-05-23 10:42:41 | Actions to take: []
+2025-05-23 10:42:41 | ==============================
+2025-05-23 10:42:41 | Running step...
+2025-05-23 10:42:41 | Observation: 2025-04-17 00:00:00
+2025-05-23 10:46:08 | Action: allocate_assets, Prediction: vault_names=['pepe'] amounts=[5238.358013] reasoning='Based on 30 d vs 7 d forecast, only `pepe` shows a positive price drift (+0.123%), while all other vaults are expected to decline. Even after accounting for the 0.35% entry fee (net ROI ≈0.1226%), `pepe` remains the sole positive-yield option. Allocating the full 5,238.358013 to `pepe` maximizes projected short-term returns under a greedy allocation strategy.'
+2025-05-23 10:46:09 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3038355359436786), idle_assets=np.float64(8406.4298), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=292875.025833, open_assets=379655.668708)))], 'amounts': [5238.358013]}))]
+2025-05-23 10:46:09 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3038355359436786), idle_assets=np.float64(8406.4298), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=292875.025833, open_assets=379655.668708)))], 'amounts': [5238.358013]}))
+2025-05-23 10:46:09 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3038355359436786), idle_assets=np.float64(8406.4298), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=292875.025833, open_assets=379655.668708)))], 'amounts': [5238.358013]}): MetaVaultInternalState(total_supply=1451703.9128339991)
+2025-05-23 10:46:09 | After action: MetaVaultInternalState(total_supply=1451703.9128339991)
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-18 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-19 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-20 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-21 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-22 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-23 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-24 00:00:00
+2025-05-23 10:46:09 | Actions to take: []
+2025-05-23 10:46:09 | ==============================
+2025-05-23 10:46:09 | Running step...
+2025-05-23 10:46:09 | Observation: 2025-04-25 00:00:00
+2025-05-23 10:48:56 | Action: allocate_assets, Prediction: vault_names=['doge'] amounts=[1159.261028] reasoning='**Allocation Summary**\n\n- Allocate 1,159.261028 assets to the `doge` vault.\n- Leave the remaining ≈93,675 assets unallocated (all other vaults exhibit net-negative short-term returns once entry fees are considered).\n\n**Rationale**\n\n1. **Forecasted Returns**\n   - Only **`doge`** and **`pepe`** showed positive 7-day share-price forecasts.\n   - `doge` forecast ROI ≈ +0.00133 (0.133%), `pepe` forecast ROI ≈ +0.00150 (0.150%).\n\n2. **Entry Cost Impact**\n   - All vaults charge a 0.35% entry fee, except when allocation ≤ `pending_withdrawals`.\n   - **`doge`** has 1,159.261028 pending withdrawals—allocating up to this avoids entry fees entirely, preserving the full forecasted gain.\n   - **`pepe`** has zero pending withdrawals, so any allocation would incur an entry fee of ≈0.3488%, wiping out its modest forecast gain and resulting in a net loss.\n\n3. **Net Expected Outcome**\n   - **`doge`:** 0 entry fee + 0.133% forecast = **+0.133%** net gain on 1,159.261028 → ≈ +1.54 assets.\n   - **Others:** all yield net negative returns once entry costs are applied (or have negative forecasts).\n\n**Greedy Decision**\nMaximize short-term returns by deploying capital where net ROI > 0. Only the first 1,159.261028 assets to `doge` meet this criterion. Remaining assets are best left idle to avoid guaranteed loss.'
+2025-05-23 10:48:57 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2418137881454483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1159.261028)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [1159.261028]}))]
+2025-05-23 10:48:57 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2418137881454483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1159.261028)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [1159.261028]}))
+2025-05-23 10:48:57 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.2418137881454483), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(1159.261028)), internal_state=LogarithmVaultInternalState(shares=0.0, open_assets=0)))], 'amounts': [1159.261028]}): MetaVaultInternalState(total_supply=1540886.0166239992)
+2025-05-23 10:48:57 | After action: MetaVaultInternalState(total_supply=1540886.0166239992)
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-04-26 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-04-27 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-04-28 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-04-29 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-04-30 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-05-01 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-05-02 00:00:00
+2025-05-23 10:48:57 | Actions to take: []
+2025-05-23 10:48:57 | ==============================
+2025-05-23 10:48:57 | Running step...
+2025-05-23 10:48:57 | Observation: 2025-05-03 00:00:00
+2025-05-23 10:51:57 | Action: allocate_assets, Prediction: vault_names=['pepe'] amounts=[302619.945432] reasoning='**Allocation Summary**\n\n• Allocate 100% of the available assets (302,619.945432) to the “pepe” vault.\n\n**Reasoning**\n1. Share-Price Trend\n   - “pepe” exhibited the strongest projected 7-day return (~+1.5%) based on the 30-day linear trend analysis, outperforming all peers.\n2. Entry Costs\n   - All vaults have the same entry cost rate (0.35%), so net returns scale uniformly. No vault offers a materially higher free-allocation band versus its forecast edge.\n3. Greedy Maximization\n   - A pure greedy strategy directs full allocation to the top forecast return, maximizing short-term expected gains.\n\n**Risk Note**: This high-conviction, single-vault allocation carries concentration risk. Consider diversifying if you require downside protection or wish to cap exposure to idiosyncratic shocks in a single strategy.'
+2025-05-23 10:51:58 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3074796470291838), idle_assets=np.float64(3534.774651), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=296878.665526, open_assets=384894.026721)))], 'amounts': [302619.945432]}))]
+2025-05-23 10:51:58 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3074796470291838), idle_assets=np.float64(3534.774651), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=296878.665526, open_assets=384894.026721)))], 'amounts': [302619.945432]}))
+2025-05-23 10:51:58 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='pepe', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.3074796470291838), idle_assets=np.float64(3534.774651), pending_withdrawals=np.float64(0.0)), internal_state=LogarithmVaultInternalState(shares=296878.665526, open_assets=384894.026721)))], 'amounts': [302619.945432]}): MetaVaultInternalState(total_supply=1737184.6994549988)
+2025-05-23 10:51:58 | After action: MetaVaultInternalState(total_supply=1737184.6994549988)
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-04 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-05 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-06 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-07 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-08 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-09 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-10 00:00:00
+2025-05-23 10:51:58 | Actions to take: []
+2025-05-23 10:51:58 | ==============================
+2025-05-23 10:51:58 | Running step...
+2025-05-23 10:51:58 | Observation: 2025-05-11 00:00:00
+2025-05-23 10:54:41 | Action: allocate_assets, Prediction: vault_names=['doge'] amounts=[5090.141636] reasoning='We computed each vault’s 7-day forecast return vs. its effective entry cost (0.0035/(1+0.0035)≈0.3488%). Only Doge’s forecast gain of ≈0.0728% over the next 7 days exceeds zero when deposited into its pending‐withdrawal buffer (5,090.14 DOGE) at no entry fee. All other vaults have net negative projected returns after accounting for fees. Hence, we allocate the full 5,090.14 assets to Doge (using its fee‐free pending capacity) and withhold allocation to the remaining vaults to avoid negative returns.'
+2025-05-23 10:54:42 | Actions to take: [ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.244298692046749), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5090.141636)), internal_state=LogarithmVaultInternalState(shares=933.522432, open_assets=1159.261028)))], 'amounts': [5090.141636]}))]
+2025-05-23 10:54:42 | Action: ActionToTake(entity_name='meta_vault', action=Action(allocate_assets, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.244298692046749), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5090.141636)), internal_state=LogarithmVaultInternalState(shares=933.522432, open_assets=1159.261028)))], 'amounts': [5090.141636]}))
+2025-05-23 10:54:42 | Before action Action(allocate_assets, {'targets': [NamedEntity(entity_name='doge', entity=LogarithmVault(global_state=LogarithmVaultGlobalState(share_price=np.float64(1.244298692046749), idle_assets=np.float64(0.0), pending_withdrawals=np.float64(5090.141636)), internal_state=LogarithmVaultInternalState(shares=933.522432, open_assets=1159.261028)))], 'amounts': [5090.141636]}): MetaVaultInternalState(total_supply=1833118.550768999)
+2025-05-23 10:54:42 | After action: MetaVaultInternalState(total_supply=1833118.550768999)
+2025-05-23 10:54:42 | ==============================
+2025-05-23 10:54:42 | Running step...
+2025-05-23 10:54:42 | Observation: 2025-05-12 00:00:00
+2025-05-23 10:54:42 | Actions to take: []
+2025-05-23 10:54:42 | ==============================
+2025-05-23 10:54:42 | Running step...
+2025-05-23 10:54:42 | Observation: 2025-05-13 00:00:00
+2025-05-23 10:54:42 | Actions to take: []
+2025-05-23 10:54:42 | ==============================
+2025-05-23 10:54:42 | Running step...
+2025-05-23 10:54:42 | Observation: 2025-05-14 00:00:00
+2025-05-23 10:54:42 | Actions to take: []
+2025-05-23 10:54:42 | ==============================
+2025-05-23 10:54:42 | Running step...
+2025-05-23 10:54:42 | Observation: 2025-05-15 00:00:00
+2025-05-23 10:54:42 | Actions to take: []
+2025-05-23 10:54:42 | ==============================
+2025-05-23 10:54:42 | Running step...
+2025-05-23 10:54:42 | Observation: 2025-05-16 00:00:00
+2025-05-23 10:54:42 | Actions to take: []
+2025-05-23 10:54:42 | ==============================
+2025-05-23 10:54:42 | Running step...
+2025-05-23 10:54:42 | Observation: 2025-05-17 00:00:00
+2025-05-23 10:54:42 | Actions to take: []
