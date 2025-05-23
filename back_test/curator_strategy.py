@@ -357,7 +357,8 @@ class CuratorStrategy(BaseStrategy):
                                 else:
                                     self._debug(f"Action(Failed): allocate_assets, Prediction: {prediction}")
                                     input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
-                            
+                            else:
+                                break
 
             # sleep to avoid rate limit
             time.sleep(1)
