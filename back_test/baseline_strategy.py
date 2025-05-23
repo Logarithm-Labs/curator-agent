@@ -29,7 +29,7 @@ DUST = 0.000001
 class BaselineStrategyParams(BaseStrategyParams):
     INIT_BALANCE: float = 100_000
     WINDOW: int = 7
-    LOOKBACK_WINDOW: int = 60
+    LOOKBACK_WINDOW: int = 30
     FORECAST_HORIZON: int = 7
 
 @dataclass

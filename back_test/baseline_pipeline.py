@@ -16,7 +16,7 @@ def build_grid() -> ParameterGrid:
     grid = ParameterGrid({
         'INIT_BALANCE': [100_000],
         'WINDOW': [1, 7],
-        'LOOKBACK_WINDOW': [14, 30, 60],
+        'LOOKBACK_WINDOW': [7, 14, 30, 60],
         'FORECAST_HORIZON': [3, 7, 14, 30],
     })
     return grid
