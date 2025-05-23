@@ -337,25 +337,27 @@ class CuratorStrategy(BaseStrategy):
                             )
                             input_items = res.to_input_list()
                             prediction: AllocationAction = res.final_output
-                            validation_result = validate_allocation(meta_vault.idle_assets, prediction.vault_names, prediction.amounts)
-                            if validation_result.result == 'pass' and len(prediction.vault_names) > 0:
-                                self._debug(f"Action: allocate_assets, Prediction: {prediction}")
-                                actions.append(
-                                    ActionToTake(
-                                        entity_name=META_VAULT_NAME,
-                                        action=Action(
-                                            action="allocate_assets",
-                                            args={
-                                                'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
-                                                'amounts': prediction.amounts
-                                            }
+                            if len(prediction.vault_names) > 0:
+                                validation_result = validate_allocation(meta_vault.idle_assets, prediction.vault_names, prediction.amounts)
+                                if validation_result.result == 'pass':
+                                    self._debug(f"Action: allocate_assets, Prediction: {prediction}")
+                                    actions.append(
+                                        ActionToTake(
+                                            entity_name=META_VAULT_NAME,
+                                            action=Action(
+                                                action="allocate_assets",
+                                                args={
+                                                    'targets': [NamedEntity(entity_name=vault_name, entity=self.get_entity(vault_name.lower())) for vault_name in prediction.vault_names],
+                                                    'amounts': prediction.amounts
+                                                }
+                                            )
                                         )
                                     )
-                                )
-                                break
-                            else:
-                                self._debug(f"Action(Failed): allocate_assets, Prediction: {prediction}")
-                                input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
+                                    break
+                                else:
+                                    self._debug(f"Action(Failed): allocate_assets, Prediction: {prediction}")
+                                    input_items.append({"content": f"Feedback: {validation_result.feedback}", "role": "user"})
+                            
 
             # sleep to avoid rate limit
             time.sleep(1)
