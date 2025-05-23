@@ -328,7 +328,7 @@ def create_benchmarking_chart(perf_df: pd.DataFrame, baseline_perf_df: pd.DataFr
 def create_allocation_chart(perf_df: pd.DataFrame, template: dict, title="Vault Allocations for Agent Strategy") -> go.Figure:
     allocation_data = {}
     for vault_name in LOG_VAULT_NAMES:
-        allocation_data[vault_name] = perf_df[f'{vault_name}_shares']
+        allocation_data[vault_name] = perf_df[f'{vault_name}_open_assets']
 
     fig = go.Figure()
     for vault_name, shares in allocation_data.items():
